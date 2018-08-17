@@ -1,0 +1,24 @@
+language: node_js
+
+sudo: required
+services:
+  - docker
+
+before_script:
+  - docker build --tag tbase -f Dockerfile.base .
+  - docker build --tag tbuild -f Dockerfile.build .
+  - # Check that repository is in sane state
+  - docker run -e LOCAL_USER_ID=`id -u $USER` -v "$(pwd)"/augur-trampoline:/src build yarn install --offline
+  - git status && git diff && test -z "$(git status --porcelain)"
+  - docker run -e LOCAL_USER_ID=`id -u $USER` -v "$(pwd)"/augur-trampoline:/src build npm-run flow version
+
+script:
+  - docker run -v "$(pwd)"/augur-trampoline:/src build yarn lint
+  - docker run -v "$(pwd)"/augur-trampoline:/src build yarn flow
+  - docker run -e LOCAL_USER_ID=`id -u $USER` -v "$(pwd)"/augur-trampoline:/src -e CI=1 build yarn test --coverage
+  - docker build --tag tdev -f Dockerfile.dev .
+
+after_script:
+  - docker images
+  - git status
+  - git status && git diff
