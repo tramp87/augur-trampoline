@@ -21,7 +21,7 @@ script:
   - docker build --tag ipfs_show -f Dockerfile.ipfs_show .
 
 after_script:
-  - docker run --rm -v "$(pwd)/build":/build ipfs_show
+  - docker run --rm -v "$(pwd)"/augur-trampoline/build:/build ipfs_show
   - docker images
   - git status
   - git status && git diff
