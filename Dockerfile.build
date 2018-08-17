@@ -7,10 +7,6 @@ RUN echo "${HOST}" > /etc/parent_host
 ENV HOST "${HOST}"
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
-RUN apt-get clean && apt-get -y --no-install-recommends install less ruby ruby-dev python-dev screen man
-RUN npm install -g heroku-cli
-RUN gem install travis
-
 RUN wget https://github.com/Yelp/dumb-init/releases/download/v1.2.1/dumb-init_1.2.1_amd64.deb \
   && dpkg -i dumb-init_*.deb
 

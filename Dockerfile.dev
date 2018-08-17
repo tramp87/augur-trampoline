@@ -1,5 +1,9 @@
 FROM tbuild
 
+RUN apt-get -y --no-install-recommends install less ruby ruby-dev python-dev screen man
+RUN npm install -g heroku-cli
+RUN gem install travis
+
 # Install watchman (needed for Nuclide)
 RUN set -ex \
   && export WATCHMAN_VERSION=4.9.0 \
