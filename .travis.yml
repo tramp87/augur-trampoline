@@ -16,6 +16,7 @@ script:
   - docker run -v "$(pwd)"/augur-trampoline:/src tbuild yarn lint
   - docker run -v "$(pwd)"/augur-trampoline:/src tbuild yarn flow
   - docker run -e LOCAL_USER_ID=`id -u $USER` -v "$(pwd)"/augur-trampoline:/src -e CI=1 tbuild yarn test --coverage
+  - docker run -v "$(pwd)"/augur-trampoline:/src tbuild yarn build
   - docker build --tag tdev -f Dockerfile.dev .
 
 after_script:
