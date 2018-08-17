@@ -1,0 +1,31 @@
+FROM tbuild
+
+# Install watchman (needed for Nuclide)
+RUN set -ex \
+  && export WATCHMAN_VERSION=4.9.0 \
+  && curl -SL "https://github.com/facebook/watchman/archive/v${WATCHMAN_VERSION}.tar.gz" | tar -xz -C /tmp/ \
+  && cd /tmp/watchman-${WATCHMAN_VERSION} \
+  && ./autogen.sh \
+  && ./configure \
+  && make -j2 \
+  && make install
+
+RUN npm install -g nuclide
+RUN apt-get update && apt-get -y --no-install-recommends install rsync
+RUN git clone https://github.com/facebook-atom/nuclide-prebuilt-libs.git \
+  && cd nuclide-prebuilt-libs/pty \
+  && git checkout 54b3288ae7615525e29a6a198a75d48b8cebc125 \
+  && npm install \
+  && npm install node-pre-gyp \
+  && npm run tsc \
+  && npm run build \
+  && ./node_modules/.bin/node-pre-gyp package testpackage \
+  && rsync -rv build /usr/local/lib/node_modules/nuclide/node_modules/nuclide-prebuilt-libs/pty/
+
+EXPOSE 3000
+EXPOSE 3008
+EXPOSE 9001
+EXPOSE 9090
+EXPOSE 9091
+EXPOSE 9092
+EXPOSE 9093
