@@ -1,0 +1,14 @@
+[ignore]
+<PROJECT_ROOT>/coverage/.*
+
+[include]
+
+[libs]
+flow-typed
+
+[lints]
+
+[options]
+server.max_workers=2
+
+[strict]
