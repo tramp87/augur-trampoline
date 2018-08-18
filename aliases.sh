@@ -1,7 +1,7 @@
 # some useful aliases for development
 
 alias tdbuildbase='docker build -f Dockerfile.base -t tbase .'
-alias tdbuildbuild='docker build -f Dockerfile.build --build-arg HOST=$(hostname) -t tbuild .'
+alias tdbuildbuild='docker build -f Dockerfile.build --build-arg HOST=${DEVHOST:-$(hostname)} -t tbuild .'
 alias tdbuilddev='docker build -f Dockerfile.dev -t tdev .'
 alias tdrun='docker run -it --rm -e NODE_ENV=development -e LOCAL_USER_ID=`id -u $USER` -v "$(pwd)":/src'
 alias td='tdrun tdev'
