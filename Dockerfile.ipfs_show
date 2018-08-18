@@ -1,7 +1,8 @@
-FROM golang:1.10
+FROM ipfs/go-ipfs
 
 VOLUME ["/build"]
 
-RUN go get -u github.com/ipfs/ipfs-update && ipfs-update install latest
+ENTRYPOINT []
 
 CMD ipfs init && ipfs add -r -n /build
+
