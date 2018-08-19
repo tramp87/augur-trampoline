@@ -1,22 +1,27 @@
 // @flow
-import React, { Component } from 'react';
-import logo from './logo.svg';
+
+import React from 'react';
+import HashRouter from 'react-router-dom/HashRouter';
+import Route from 'react-router-dom/Route';
+import Switch from 'react-router-dom/Switch';
+import Home from './Home';
+import Transaction from './Transaction';
 import './App.css';
 
-class App extends Component<*> {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+const NoMatch = () => <div className="App">404</div>;
+
+const App = () => (
+  <HashRouter>
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route
+        exact
+        path="/:network/:market/:outcome/:action/:queryparams"
+        component={Transaction}
+      />
+      <Route component={NoMatch} />
+    </Switch>
+  </HashRouter>
+);
 
 export default App;
