@@ -11,7 +11,6 @@ import type { CancelableCallback } from '../lib/cancellable';
 import type { Request } from '../Request';
 import { CANCELLABLE_ABORT_MSG, cancellable } from '../lib/cancellable';
 import type { StepProps } from '../lib/Step';
-import withTimeout from '../lib/withTimeout';
 
 type Input = {|
   request: Request,
