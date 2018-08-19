@@ -12,7 +12,7 @@ import Button from 'react-bootstrap/lib/Button';
 import { LinkContainer } from 'react-router-bootstrap';
 import qs from 'qs';
 import nullthrows from 'nullthrows';
-import './App.css';
+import '../App.css';
 
 const Home = () => (
   <Grid fluid style={{ margin: '1em' }}>
