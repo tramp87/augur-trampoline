@@ -266,7 +266,7 @@ async function connect(
     connector: string => Promise<Web3>,
   |}> = [
     {
-      description: 'browser-supplied web3 provider',
+      description: 'browser',
       connector: async () => {
         const web3 = window.web3;
         if (typeof web3 !== 'undefined') {
