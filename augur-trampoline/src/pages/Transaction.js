@@ -12,15 +12,7 @@ import { RootStep, combineTwoSteps } from '../lib/Step';
 import type { Request } from '../Request';
 import ChooseAccount from '../steps/ChooseAccount';
 import ConnectToEthereumNetwork from '../steps/ConnectToEthereumNetwork';
-
-// TODO: move this into where the steps are defined
-// Steps to place a trade:
-// 1. Connect to Ethereum network
-// 2. Choose account
-// 3. Fetch data and display it to user
-// 4. Sign
-// 5. Send transaction and wait for confirmation
-// 6. Redirect back
+import DisplayMarketData from '../steps/DisplayMarketData';
 
 const networks = {
   Rinkeby: '4',
@@ -53,7 +45,17 @@ const Transaction = ({ match }: { match: * }) => {
           <div>{JSON.stringify(request)}</div>
           <div>
             <RootStep
-              step={combineTwoSteps(ConnectToEthereumNetwork, ChooseAccount)}
+              // Steps to place a trade:
+              // 1. Connect to Ethereum network
+              // 2. Choose account
+              // 3. Fetch data and display it to user
+              // 4. Sign
+              // 5. Send transaction and wait for confirmation
+              // 6. Redirect back
+              step={combineTwoSteps(
+                combineTwoSteps(ConnectToEthereumNetwork, ChooseAccount),
+                DisplayMarketData,
+              )}
               input={request}
             />
           </div>
