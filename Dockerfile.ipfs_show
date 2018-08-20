@@ -4,5 +4,12 @@ VOLUME ["/build"]
 
 ENTRYPOINT []
 
-CMD ipfs init && ipfs add -r -n /build
+# Since we aren't really persisting anything,
+# change data directory to be inside Docker rather than on volume
+
+ENV IPFS_PATH=/tmp_ipfs/
+
+RUN ipfs init
+
+CMD ipfs add --progress=false -r -n /build
 
