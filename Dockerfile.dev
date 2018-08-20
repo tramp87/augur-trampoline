@@ -1,6 +1,6 @@
 FROM tbuild
 
-RUN apt-get -y --no-install-recommends install less ruby ruby-dev python-dev screen man
+RUN apt-get -y --no-install-recommends install less ruby ruby-dev python-dev screen man vim
 RUN npm install -g heroku-cli
 RUN gem install travis
 

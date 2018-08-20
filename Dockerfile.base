@@ -4,8 +4,7 @@ FROM node:8.9
 
 RUN apt-get update && apt-get -y --no-install-recommends install \
     ca-certificates \
-    curl \
-    vim
+    curl
 
 RUN for server in ha.pool.sks-keyservers.net \
               hkp://p80.pool.sks-keyservers.net:80 \
