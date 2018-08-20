@@ -6,7 +6,9 @@ import Web3 from 'web3';
 import nullthrows from 'nullthrows';
 import type { CancelableCallback } from '../lib/cancellable';
 import type { Request } from '../Request';
+import abi from '../lib/abi';
 import { CANCELLABLE_ABORT_MSG, cancellable } from '../lib/cancellable';
+import contracts from '../lib/contracts';
 import type { StepProps } from '../lib/Step';
 
 type Input = {|
@@ -21,7 +23,9 @@ type Output = {|
   account: string,
 |};
 
-type MarketData = {||};
+type MarketData = {|
+  blob: {},
+|};
 
 type Props = StepProps<Input, Output>;
 type State = {|
@@ -142,7 +146,29 @@ async function fetchMarketData(
   web3: Web3,
   account: string,
 ): Promise<MarketData> {
-  throw new Error('nah');
+  // Need to fetch
+  // 1. Check that this market is reported by recognized Augur universe
+  const trustedUniverse = web3.eth
+    .contract(abi.Universe)
+    .at(contracts.Universe);
+
+  const isLegitMarket = await new Promise((resolve, reject) =>
+    trustedUniverse.isContainerForMarket(request.market, (e, r) => {
+      if (e != null) {
+        reject(e);
+      } else {
+        resolve(r);
+      }
+    }),
+  );
+
+  if (!isLegitMarket) {
+    throw Error('This is an unrecognized market. Failing to avoid scam.');
+  }
+
+  return {
+    blob: {},
+  };
 }
 
 export default (props: Props) => <DisplayMarketData {...props} />;
