@@ -1,3 +1,11 @@
 .App {
   text-align: center;
 }
+
+.btn-default:focus {
+  background-color: #fff;
+}
+
+.btn-default:focus:hover {
+  background-color: #ddd;
+}

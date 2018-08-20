@@ -6,11 +6,13 @@ import type { Node } from 'react';
 import Web3 from 'web3';
 import nullthrows from 'nullthrows';
 import Label from 'react-bootstrap/lib/Label';
-import Button from 'react-bootstrap/lib/Button';
+import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
 import type { CancelableCallback } from '../lib/cancellable';
 import type { Request } from '../Request';
+import { RetryButton, ConfigureButton, LogButton } from '../lib/Buttons';
 import { CANCELLABLE_ABORT_MSG, cancellable } from '../lib/cancellable';
 import type { StepProps } from '../lib/Step';
+import LogBox from '../lib/LogBox';
 import withTimeout from '../lib/withTimeout';
 
 type Input = Request;
@@ -23,6 +25,7 @@ type Props = StepProps<Input, Output>;
 type State = {|
   manualURL: string,
   logs: Array<string>,
+  isLogShown: boolean,
   status:
     | {| type: 'unknown' |}
     | {| type: 'running' |}
@@ -54,6 +57,7 @@ class ConnectToEthereumNetwork extends Component<Props, State> {
     this.state = {
       manualURL: '',
       logs: [],
+      isLogShown: false,
       status: { type: 'unknown' },
     };
     this._callback = null;
@@ -209,38 +213,34 @@ class ConnectToEthereumNetwork extends Component<Props, State> {
       <div>
         <div>
           {statusSummary()}
-          <Button
-            style={{ margin: '0.5em' }}
-            onClick={() => {
-              this._stop();
-              this._start();
-            }}
-          >
-            Try again
-          </Button>
-          <Button
-            style={{ margin: '0.5em' }}
-            onClick={() => {
-              const url = window.prompt(
-                'Enter URL of an Ethereum node. ' +
-                  'Leave empty to choose node automatically.',
-                this.state.manualURL,
-              );
-              if (url != null && url !== this.state.manualURL) {
-                this.setState({ manualURL: url });
+          <ButtonGroup style={{ margin: '0.25em' }}>
+            <RetryButton
+              onClick={() => {
+                this._stop();
+                this._start();
+              }}
+            />
+            <ConfigureButton
+              onClick={() => {
+                const url = window.prompt(
+                  'Enter URL of an Ethereum node. ' +
+                    'Leave empty to choose node automatically.',
+                  this.state.manualURL,
+                );
+                if (url != null && url !== this.state.manualURL) {
+                  this.setState({ manualURL: url });
+                }
+              }}
+            />
+            <LogButton
+              onClick={() =>
+                this.setState(({ isLogShown }) => ({ isLogShown: !isLogShown }))
               }
-            }}
-          >
-            Configure
-          </Button>
+              active={this.state.isLogShown}
+            />
+          </ButtonGroup>
         </div>
-        <div>
-          <ol>
-            {this.state.logs.map((line, i) => (
-              <li key={`${i}`}>{line}</li>
-            ))}
-          </ol>
-        </div>
+        {this.state.isLogShown ? <LogBox lines={this.state.logs} /> : null}
       </div>
     );
   }

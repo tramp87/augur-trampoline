@@ -1,6 +1,9 @@
 // @flow
 
-import React, { Fragment } from 'react';
+import React from 'react';
+import Grid from 'react-bootstrap/lib/Grid';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
 import nullthrows from 'nullthrows';
 import pure from 'recompose/pure';
 import qs from 'qs';
@@ -44,17 +47,19 @@ const Transaction = ({ match }: { match: * }) => {
   const sessionID = `${Math.random()}.${Date.now()}`;
 
   return (
-    <Fragment key={sessionID}>
-      <div className="App">
-        <div>{JSON.stringify(request)}</div>
-        <div>
-          <RootStep
-            step={combineTwoSteps(ConnectToEthereumNetwork, ChooseAccount)}
-            input={request}
-          />
-        </div>
-      </div>
-    </Fragment>
+    <Grid key={sessionID}>
+      <Row>
+        <Col>
+          <div>{JSON.stringify(request)}</div>
+          <div>
+            <RootStep
+              step={combineTwoSteps(ConnectToEthereumNetwork, ChooseAccount)}
+              input={request}
+            />
+          </div>
+        </Col>
+      </Row>
+    </Grid>
   );
 };
 

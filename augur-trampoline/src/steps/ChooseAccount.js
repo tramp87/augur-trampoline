@@ -6,10 +6,12 @@ import type { Node } from 'react';
 import Web3 from 'web3';
 import nullthrows from 'nullthrows';
 import Label from 'react-bootstrap/lib/Label';
-import Button from 'react-bootstrap/lib/Button';
+import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
 import type { CancelableCallback } from '../lib/cancellable';
 import type { Request } from '../Request';
+import { RetryButton, LogButton } from '../lib/Buttons';
 import { CANCELLABLE_ABORT_MSG, cancellable } from '../lib/cancellable';
+import LogBox from '../lib/LogBox';
 import type { StepProps } from '../lib/Step';
 
 type Input = {|
@@ -27,6 +29,7 @@ type Output = {|
 type Props = StepProps<Input, Output>;
 type State = {|
   logs: Array<string>,
+  isLogShown: boolean,
   status:
     | {| type: 'unknown' |}
     | {| type: 'running' |}
@@ -48,6 +51,7 @@ class ChooseAccount extends Component<Props, State> {
     super(props);
     this.state = {
       logs: [],
+      isLogShown: false,
       status: { type: 'unknown' },
     };
     this._callback = null;
@@ -197,23 +201,22 @@ class ChooseAccount extends Component<Props, State> {
       <div>
         <div>
           {statusSummary()}
-          <Button
-            style={{ margin: '0.5em' }}
-            onClick={() => {
-              this._stop();
-              this._start();
-            }}
-          >
-            Try again
-          </Button>
+          <ButtonGroup style={{ margin: '0.25em' }}>
+            <RetryButton
+              onClick={() => {
+                this._stop();
+                this._start();
+              }}
+            />
+            <LogButton
+              onClick={() =>
+                this.setState(({ isLogShown }) => ({ isLogShown: !isLogShown }))
+              }
+              active={this.state.isLogShown}
+            />
+          </ButtonGroup>
         </div>
-        <div>
-          <ol>
-            {this.state.logs.map((line, i) => (
-              <li key={`${i}`}>{line}</li>
-            ))}
-          </ol>
-        </div>
+        {this.state.isLogShown ? <LogBox lines={this.state.logs} /> : null}
       </div>
     );
   }
