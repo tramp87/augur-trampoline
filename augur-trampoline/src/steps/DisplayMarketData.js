@@ -4,12 +4,15 @@ import invariant from 'invariant';
 import React, { Component } from 'react';
 import Web3 from 'web3';
 import nullthrows from 'nullthrows';
+import abiDecoder from 'abi-decoder';
 import type { CancelableCallback } from '../lib/cancellable';
 import type { Request } from '../Request';
 import abi from '../lib/abi';
 import { CANCELLABLE_ABORT_MSG, cancellable } from '../lib/cancellable';
 import contracts from '../lib/contracts';
 import type { StepProps } from '../lib/Step';
+
+abiDecoder.addABI(abi.Augur);
 
 type Input = {|
   request: Request,
@@ -159,29 +162,51 @@ function promisifyContract(object: {}): * {
   );
 }
 
+function promisifyObject(object: {}): * {
+  return new Proxy(
+    {},
+    {
+      get: (_: {}, name: string) => (...args: *) =>
+        new Promise((resolve, reject) =>
+          nullthrows(object[name], `Could not find property ${name}`)(
+            ...args,
+            (error, result) =>
+              error != null ? reject(error) : resolve(result),
+          ),
+        ),
+    },
+  );
+}
+
 async function fetchMarketData(
   request: Request,
   web3: Web3,
   account: string,
 ): Promise<MarketData> {
-  await ensureIsLegitMarket(request, web3);
-
   const market = promisifyContract(
     web3.eth.contract(abi.Market).at(request.market),
   );
 
   const [
+    // eslint-disable-next-line no-unused-vars
+    _,
     numberOfOutcomes,
     numTicks,
     denominationToken,
     endTime,
     isFinalized,
+    marketCreationInfo,
   ] = await Promise.all([
+    // Security gotcha. We need to ensure that market belongs to
+    // trusted universe. Otherwise in the future attacker could trick user
+    // into buying some shares in false universe.
+    ensureMarketIsLegitAndIsFromTrustedUniverse(request, web3),
     market.getNumberOfOutcomes(),
     market.getNumTicks(),
     market.getDenominationToken(),
     market.getEndTime(),
     market.isFinalized(),
+    fetchMarketCreationInfo(request, web3),
   ]);
 
   return {
@@ -191,11 +216,69 @@ async function fetchMarketData(
       denominationToken,
       endTime,
       isFinalized,
+      ...marketCreationInfo,
     },
   };
 }
 
-async function ensureIsLegitMarket(
+async function fetchMarketCreationInfo(
+  request: Request,
+  web3: Web3,
+): Promise<*> {
+  const receipt = await promisifyObject(web3.eth).getTransactionReceipt(
+    request.creationTX,
+  );
+
+  // Security gotcha.
+  // Here we take externally-provided transaction as a proof
+  // of how market was created. To avoid scam, we need to verify:
+  // 1. Trusted Augur contract logged "MarketCreated" event in tx
+  // 2. Event is about this market
+  // 3. Transaction is included in the blockchain
+  //
+  // All three are important, and failure to check all of them would open
+  // opportunity for an attack.
+  const logs = abiDecoder
+    .decodeLogs(
+      receipt.logs.filter(
+        ({ address, removed }) =>
+          // TODO: choose augur contract depending on which network we are in
+          address === contracts.Augur && removed === false,
+      ),
+    )
+    .filter(({ name }) => name === 'MarketCreated')
+    .map(log =>
+      log.events.reduce(
+        (acc, { name, value }) => ({
+          ...acc,
+          [name]: value,
+        }),
+        {},
+      ),
+    )
+    .filter(event => event.market === request.market);
+
+  invariant(
+    logs.length === 1,
+    `Expected to have one MarketCreated event, got ${logs.length}`,
+  );
+
+  const event = logs[0];
+  const extraInfo = JSON.parse(event.extraInfo);
+
+  return {
+    description: event.description,
+    longDescription: nullthrows(extraInfo.longDescription),
+    resolutionSource: nullthrows(extraInfo.resolutionSource),
+    outcomes: event.outcomes,
+    marketCreationFee: event.marketCreationFee,
+    minPrice: event.minPrice,
+    maxPrice: event.maxPrice,
+    marketType: event.marketType,
+  };
+}
+
+async function ensureMarketIsLegitAndIsFromTrustedUniverse(
   request: Request,
   web3: Web3,
 ): Promise<void> {

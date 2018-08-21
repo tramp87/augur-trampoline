@@ -22,16 +22,17 @@ const networks = {
 const Transaction = ({ match }: { match: * }) => {
   const networkID = nullthrows(networks[match.params.network]);
   const { market, outcome, action, queryparams } = match.params;
-  const { amount, price, redirect } = qs.parse(queryparams);
+  const { amount, price, redirect, creationTX } = qs.parse(queryparams);
 
   const request: Request = {
     networkID,
     market,
+    creationTX: nullthrows(creationTX),
     outcome,
     action,
-    amount,
-    price,
-    redirect,
+    amount: nullthrows(amount),
+    price: nullthrows(price),
+    redirect: nullthrows(redirect),
   };
 
   // ensure that if due to some peculiar reason user navigates to another path
