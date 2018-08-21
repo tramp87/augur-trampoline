@@ -1,5 +1,12 @@
 // @flow
 
+// we prefer to use deployed ABI when possible
+// but for some contracts there is no depoyed ABI available
+// (e.g. market contracts that are generated dynamically)
+// for them we use latest Augur ABI from repo in hopes it does not
+// differ too much
+import AugurCoreLatestABI from 'augur-core/output/contracts/abi.json';
+
 // coped from etherscan for 0xe991247b78f937d7b69cfc00f1a487a293557677
 const Universe = [
   {
@@ -597,4 +604,4 @@ const Universe = [
   },
 ];
 
-export default { Universe };
+export default { Universe, Market: AugurCoreLatestABI.Market };

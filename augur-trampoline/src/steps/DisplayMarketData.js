@@ -48,6 +48,7 @@ class DisplayMarketData extends Component<Props, State> {
 
   componentDidMount() {
     this._start();
+    // TODO: schedule start() every 10 seconds
   }
 
   componentWillUnmount() {
@@ -141,34 +142,79 @@ class DisplayMarketData extends Component<Props, State> {
   }
 }
 
+// quick conversion from callback API into Promises
+function promisifyContract(object: {}): * {
+  return new Proxy(
+    {},
+    {
+      get: (_: {}, name: string) => (...args: *) =>
+        new Promise((resolve, reject) =>
+          nullthrows(object[name], `Could not find property ${name}`).call(
+            ...args,
+            (error, result) =>
+              error != null ? reject(error) : resolve(result),
+          ),
+        ),
+    },
+  );
+}
+
 async function fetchMarketData(
   request: Request,
   web3: Web3,
   account: string,
 ): Promise<MarketData> {
-  // Need to fetch
-  // 1. Check that this market is reported by recognized Augur universe
-  const trustedUniverse = web3.eth
-    .contract(abi.Universe)
-    .at(contracts.Universe);
+  await ensureIsLegitMarket(request, web3);
 
-  const isLegitMarket = await new Promise((resolve, reject) =>
-    trustedUniverse.isContainerForMarket(request.market, (e, r) => {
-      if (e != null) {
-        reject(e);
-      } else {
-        resolve(r);
-      }
-    }),
+  const market = promisifyContract(
+    web3.eth.contract(abi.Market).at(request.market),
   );
 
-  if (!isLegitMarket) {
-    throw Error('This is an unrecognized market. Failing to avoid scam.');
-  }
+  const [
+    numberOfOutcomes,
+    numTicks,
+    denominationToken,
+    endTime,
+    isFinalized,
+  ] = await Promise.all([
+    market.getNumberOfOutcomes(),
+    market.getNumTicks(),
+    market.getDenominationToken(),
+    market.getEndTime(),
+    market.isFinalized(),
+  ]);
 
   return {
-    blob: {},
+    blob: {
+      numberOfOutcomes,
+      numTicks,
+      denominationToken,
+      endTime,
+      isFinalized,
+    },
   };
+}
+
+async function ensureIsLegitMarket(
+  request: Request,
+  web3: Web3,
+): Promise<void> {
+  // TODO: choose trusted universe depending on which network we are in
+  const trustedUniverse = promisifyContract(
+    web3.eth.contract(abi.Universe).at(contracts.Universe),
+  );
+
+  const isLegitMarket = await trustedUniverse.isContainerForMarket(
+    request.market,
+  );
+
+  // comparing with `!== true` is silly, but I want to avoid
+  // chance of considering market legit due to some silly type conversions
+  // e.g. string 'false' is truthy in JS, and if method somehow returns
+  // `'false'`, it may be interpreted as `true`
+  if (isLegitMarket !== true) {
+    throw Error('This is an unrecognized market. Failing to avoid scam.');
+  }
 }
 
 export default (props: Props) => <DisplayMarketData {...props} />;
