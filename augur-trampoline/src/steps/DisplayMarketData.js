@@ -240,7 +240,7 @@ async function fetchMarketCreationInfo(
   // opportunity for an attack.
   const logs = abiDecoder
     .decodeLogs(
-      receipt.logs.filter(
+      nullthrows(receipt).logs.filter(
         ({ address, removed }) =>
           // TODO: choose augur contract depending on which network we are in
           address === contracts.Augur && removed === false,
