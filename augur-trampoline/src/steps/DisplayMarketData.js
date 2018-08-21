@@ -4,7 +4,7 @@ import invariant from 'invariant';
 import React, { Component } from 'react';
 import Web3 from 'web3';
 import nullthrows from 'nullthrows';
-import abiDecoder from 'abi-decoder';
+import abiDecoder from '../lib/abi-decoder';
 import type { CancelableCallback } from '../lib/cancellable';
 import type { Request } from '../Request';
 import abi from '../lib/abi';
