@@ -4,12 +4,14 @@ import invariant from 'invariant';
 import React, { Component } from 'react';
 import Web3 from 'web3';
 import nullthrows from 'nullthrows';
+import Panel from 'react-bootstrap/lib/Panel';
 import abiDecoder from '../lib/abi-decoder';
 import type { CancelableCallback } from '../lib/cancellable';
 import type { Request } from '../Request';
 import abi from '../lib/abi';
 import { CANCELLABLE_ABORT_MSG, cancellable } from '../lib/cancellable';
 import contracts from '../lib/contracts';
+import OptimisticProgressBar from '../lib/optimistic-progress-bar';
 import type { StepProps } from '../lib/Step';
 
 abiDecoder.addABI(abi.Augur);
@@ -27,7 +29,19 @@ type Output = {|
 |};
 
 type MarketData = {|
-  blob: {},
+  numberOfOutcomes: string,
+  numTicks: string,
+  denominationToken: string,
+  endTime: string,
+  isFinalized: boolean,
+  description: string,
+  longDescription: string,
+  resolutionSource: string,
+  outcomes: string,
+  marketCreationFee: string,
+  minPrice: string,
+  maxPrice: string,
+  marketType: string,
 |};
 
 type Props = StepProps<Input, Output>;
@@ -141,7 +155,55 @@ class DisplayMarketData extends Component<Props, State> {
   }
 
   render() {
-    return <div>{JSON.stringify(this.state)}</div>;
+    const marketData = this.state.marketData;
+
+    if (marketData == null) {
+      return (
+        <div>
+          <div>{JSON.stringify(this.state)}</div>
+          <Panel>
+            <Panel.Heading>
+              <Panel.Title componentClass="h3">
+                Loading market data...
+              </Panel.Title>
+            </Panel.Heading>
+            <Panel.Body>
+              <OptimisticProgressBar expectedTimeSeconds={4} />
+            </Panel.Body>
+          </Panel>
+        </div>
+      );
+    }
+
+    const maybeMakeLink = s =>
+      s.startsWith('http://') || s.startsWith('https://') ? (
+        <a href={s} target="_blank">
+          {s}
+        </a>
+      ) : (
+        s
+      );
+
+    return (
+      <div>
+        <div>{JSON.stringify(this.state)}</div>
+        <Panel>
+          <Panel.Heading>
+            <Panel.Title componentClass="h3">
+              {marketData.description}
+            </Panel.Title>
+          </Panel.Heading>
+          <Panel.Body>
+            <p>
+              Resolution source:{' '}
+              {marketData.resolutionSource !== ''
+                ? maybeMakeLink(marketData.resolutionSource)
+                : 'General knowledge'}
+            </p>
+          </Panel.Body>
+        </Panel>
+      </div>
+    );
   }
 }
 
@@ -210,14 +272,12 @@ async function fetchMarketData(
   ]);
 
   return {
-    blob: {
-      numberOfOutcomes,
-      numTicks,
-      denominationToken,
-      endTime,
-      isFinalized,
-      ...marketCreationInfo,
-    },
+    numberOfOutcomes,
+    numTicks,
+    denominationToken,
+    endTime,
+    isFinalized,
+    ...marketCreationInfo,
   };
 }
 

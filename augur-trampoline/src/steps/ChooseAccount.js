@@ -190,7 +190,7 @@ class ChooseAccount extends Component<Props, State> {
           make(
             'success',
             'Success',
-            `Found account: ${(status: any).result.account}`,
+            `Using account: ${(status: any).result.account}`,
           ),
       };
 
