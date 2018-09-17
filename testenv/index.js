@@ -47,6 +47,7 @@ async function deployContracts() {
       compiledContracts,
     );
     await contractDeployer.deploy();
+    console.log('Deployed all Augur contracts');
     return await fs.readFile(artifactsDir + '/addresses.json', 'utf8');
   } finally {
     await fs.remove(artifactsDir);
