@@ -19,7 +19,7 @@ before_script:
 script:
   - docker run -v "$(pwd)"/augur-trampoline:/src tbuild yarn lint
   - docker run -v "$(pwd)"/augur-trampoline:/src tbuild yarn flow
-  - docker run --rm --link testenv:testenv tbuild curl http://testenv
+  - docker logs --since "30m" ganache
   - docker logs --since "30m" testenv
   - docker run --rm --link testenv:testenv tbuild curl --silent --fail --show-error http://testenv
   - docker logs --since "30m" testenv
