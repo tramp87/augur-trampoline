@@ -14,12 +14,13 @@ if ! show_container_id > /dev/null; then
 	docker run \
 		-d \
 		--rm \
+		--link ganache:ganache --link testenv:testenv \
 		-e LOCAL_USER_ID=`id -u $USER` \
 		-v $REPO:/src \
 		-v /tmp:/tmp \
 		-l $LABEL \
 		-p 9090:9090 -p 9091:9091 -p 9092:9092 -p 9093:9093 \
-		dev \
+		tdev \
 		bash -c 'sleep 864000' \
 		> /dev/null;
 	# sleep-based synchronization lol

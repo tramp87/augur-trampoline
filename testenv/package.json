@@ -1,0 +1,15 @@
+{
+  "name": "augur-trampoline-testenv",
+  "version": "1.0.0",
+  "description": "Used to set up Augur contracts when runing manual/automated tests.",
+  "main": "index.js",
+  "scripts": {},
+  "author": "tramp87",
+  "license": "ISC",
+  "dependencies": {
+    "augur-core": "https://github.com/tramp87/augur-core#f1852e1d2ae4a5f20a32179433b4c72d35cea5b8",
+    "bn.js": "^4.11.8",
+    "express": "^4.16.3",
+    "fs-extra": "^7.0.0"
+  }
+}
