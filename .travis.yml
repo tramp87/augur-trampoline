@@ -7,6 +7,10 @@ services:
 before_script:
   - docker build --tag tbase -f Dockerfile.base .
   - docker build --tag tbuild -f Dockerfile.build .
+  - docker run --rm -d --name ganache trufflesuite/ganache-cli:latest \
+    --account="0x73dff7a656b0ecc3bb281bd5d14f9f8e77b60355d6274683d2f6fc5e3ab7ac11,1000000000000000000000000"
+  - docker build testenv -t testenv
+  - docker run -d --rm --link ganache:ganache --name testenv testenv
   - # Check that repository is in sane state
   - docker run -e LOCAL_USER_ID=`id -u $USER` -v "$(pwd)"/augur-trampoline:/src tbuild yarn install --offline
   - git status && git diff && test -z "$(git status --porcelain)"
@@ -21,6 +25,8 @@ script:
   - docker build --tag ipfs_show -f Dockerfile.ipfs_show .
 
 after_script:
+  - docker stop testenv
+  - docker stop ganache
   - docker run --rm -v "$(pwd)"/augur-trampoline/build:/build ipfs_show
   - docker images
   - git status
