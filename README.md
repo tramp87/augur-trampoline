@@ -11,4 +11,4 @@ cd testenv && docker build . -t testenv && docker run -d --rm --link ganache:gan
 ```
 
 ## Make sure tests have access to testenv server
-(done in `aliases.sh` and `nuclide_start_server`)
+(done in `aliases.sh` and `nuclide_start_server` and `.travis.yml`)
