@@ -18,10 +18,7 @@ before_script:
 script:
   - docker run -v "$(pwd)"/augur-trampoline:/src tbuild yarn lint
   - docker run -v "$(pwd)"/augur-trampoline:/src tbuild yarn flow
-  - docker logs --since "30m" ganache
-  - docker logs --since "30m" testenv
   - docker run --rm --link testenv:testenv tbuild curl --silent --fail --show-error http://testenv
-  - docker logs --since "30m" testenv
   - docker run --link ganache:ganache --link testenv:testenv -e LOCAL_USER_ID=`id -u $USER` -v "$(pwd)"/augur-trampoline:/src -e CI=1 tbuild yarn test --coverage
   - docker run -e LOCAL_USER_ID=`id -u $USER` -v "$(pwd)"/augur-trampoline:/src tbuild yarn build
   - docker build --tag tdev -f Dockerfile.dev .
