@@ -52,6 +52,7 @@ class Form extends React.Component<*, *> {
       action: '',
       amount: '',
       price: '',
+      creationTX: '',
     };
   }
 
@@ -85,6 +86,12 @@ class Form extends React.Component<*, *> {
         placeholder: 'starts with 0x',
       },
       {
+        id: 'creationTX',
+        type: 'text',
+        label: 'Transaction in which the market was created',
+        placeholder: 'starts with 0x',
+      },
+      {
         id: 'outcome',
         type: 'text',
         label: 'Outcome',
@@ -115,6 +122,7 @@ class Form extends React.Component<*, *> {
       price: this.state.price,
       // for this example make it redirect back to this form
       redirect: nullthrows(document.location.href.match(/(^[^#?]*)/))[0],
+      creationTX: this.state.creationTX,
     });
 
     const checkout_link = `/${this.state.network}/${this.state.market}/${
