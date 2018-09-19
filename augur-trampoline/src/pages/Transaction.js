@@ -14,13 +14,16 @@ import ChooseAccount from '../steps/ChooseAccount';
 import ConnectToEthereumNetwork from '../steps/ConnectToEthereumNetwork';
 import DisplayMarketData from '../steps/DisplayMarketData';
 
-const networks = {
+const networkNameToID = {
   Rinkeby: '4',
   mainnet: '1',
 };
 
 const Transaction = ({ match }: { match: * }) => {
-  const networkID = nullthrows(networks[match.params.network]);
+  const networkID =
+    networkNameToID[match.params.network] != null
+      ? networkNameToID[match.params.network]
+      : match.params.network;
   const { market, outcome, action, queryparams } = match.params;
   const { amount, price, redirect, creationTX } = qs.parse(queryparams);
 
@@ -39,6 +42,7 @@ const Transaction = ({ match }: { match: * }) => {
   // within the same page, we drop the state and re-render everything.
   const sessionID = `${Math.random()}.${Date.now()}`;
 
+  // TODO: add banner if we are not on mainnet
   return (
     <Grid key={sessionID}>
       <Row>

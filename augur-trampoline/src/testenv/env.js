@@ -8,9 +8,12 @@ const { fetch } = fetchPonyfill({});
 const TESTRPC_HTTP_URL = 'http://ganache:8545';
 const TESTRPC_WS_URL = 'ws://ganache:8545';
 const AUGUR_CONTRACTS_URL = 'http://testenv';
+const AUGUR_CONTRACTS_BROWSER_URL = '/api/contracts';
 
-async function getContractAddresses(): Promise<*> {
-  const response = await fetch(AUGUR_CONTRACTS_URL);
+async function getContractAddresses(isClientSide: boolean): Promise<*> {
+  const response = await fetch(
+    isClientSide ? AUGUR_CONTRACTS_BROWSER_URL : AUGUR_CONTRACTS_URL,
+  );
   const addresses = await response.json();
   return addresses;
 }

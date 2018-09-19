@@ -25,6 +25,6 @@ it('can connect to ganache', async () => {
 });
 
 it('can fetch test Augur contracts addresses', async () => {
-  const addresses = await getContractAddresses();
+  const addresses = await getContractAddresses(false);
   expect(addresses).not.toBeNull();
 });

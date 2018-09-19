@@ -20,7 +20,7 @@ async function create_test_markets(): Promise<*> {
     ),
   );
 
-  const addresses = await getContractAddresses().then(addresses =>
+  const addresses = await getContractAddresses(false).then(addresses =>
     nullthrows(addresses[network]),
   );
 

@@ -7,13 +7,13 @@ import Web3 from 'web3';
 import nullthrows from 'nullthrows';
 import Label from 'react-bootstrap/lib/Label';
 import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
-import type { CancelableCallback } from '../lib/cancellable';
+import type { CancelableCallback } from '../lib/util/cancellable';
 import type { Request } from '../Request';
-import { RetryButton, ConfigureButton, LogButton } from '../lib/Buttons';
-import { CANCELLABLE_ABORT_MSG, cancellable } from '../lib/cancellable';
+import { RetryButton, ConfigureButton, LogButton } from '../lib/ui/Buttons';
+import { CANCELLABLE_ABORT_MSG, cancellable } from '../lib/util/cancellable';
 import type { StepProps } from '../lib/Step';
-import LogBox from '../lib/LogBox';
-import withTimeout from '../lib/withTimeout';
+import LogBox from '../lib/ui/LogBox';
+import withTimeout from '../lib/util/withTimeout';
 
 type Input = Request;
 type Output = {|

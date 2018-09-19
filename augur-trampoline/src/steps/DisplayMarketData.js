@@ -5,14 +5,15 @@ import React, { Component } from 'react';
 import Web3 from 'web3';
 import nullthrows from 'nullthrows';
 import Panel from 'react-bootstrap/lib/Panel';
-import abiDecoder from '../lib/abi-decoder';
-import type { CancelableCallback } from '../lib/cancellable';
+import abiDecoder from '../lib/contrib/abi-decoder';
+import type { CancelableCallback } from '../lib/util/cancellable';
 import type { Request } from '../Request';
-import abi from '../lib/abi';
-import { CANCELLABLE_ABORT_MSG, cancellable } from '../lib/cancellable';
-import contracts from '../lib/contracts';
-import OptimisticProgressBar from '../lib/optimistic-progress-bar';
+import abi from '../lib/contracts/abi';
+import { CANCELLABLE_ABORT_MSG, cancellable } from '../lib/util/cancellable';
+import getContractAddresses from '../lib/contracts/addresses';
+import OptimisticProgressBar from '../lib/ui/optimistic-progress-bar';
 import type { StepProps } from '../lib/Step';
+import type { Addresses } from '../lib/contracts/addresses';
 
 abiDecoder.addABI(abi.Augur);
 
@@ -157,6 +158,7 @@ class DisplayMarketData extends Component<Props, State> {
   render() {
     const marketData = this.state.marketData;
 
+    // TODO: add RetryButton?
     if (marketData == null) {
       return (
         <div>
@@ -288,6 +290,7 @@ async function fetchMarketCreationInfo(
   const receipt = await promisifyObject(web3.eth).getTransactionReceipt(
     request.creationTX,
   );
+  const addresses = await getAddresesForNetworkOfWeb3(web3);
 
   // Security gotcha.
   // Here we take externally-provided transaction as a proof
@@ -301,9 +304,7 @@ async function fetchMarketCreationInfo(
   const logs = abiDecoder
     .decodeLogs(
       nullthrows(receipt).logs.filter(
-        ({ address, removed }) =>
-          // TODO: choose augur contract depending on which network we are in
-          address === contracts.Augur && removed === false,
+        ({ address, removed }) => address === addresses.Augur,
       ),
     )
     .filter(({ name }) => name === 'MarketCreated')
@@ -338,13 +339,22 @@ async function fetchMarketCreationInfo(
   };
 }
 
+async function getAddresesForNetworkOfWeb3(web3: Web3): Promise<Addresses> {
+  const network = await new Promise((resolve, reject) =>
+    web3.version.getNetwork(
+      (error, result) => (error != null ? reject(error) : resolve(result)),
+    ),
+  );
+  return await getContractAddresses(network);
+}
+
 async function ensureMarketIsLegitAndIsFromTrustedUniverse(
   request: Request,
   web3: Web3,
 ): Promise<void> {
-  // TODO: choose trusted universe depending on which network we are in
+  const augurAddresses = await getAddresesForNetworkOfWeb3(web3);
   const trustedUniverse = promisifyContract(
-    web3.eth.contract(abi.Universe).at(contracts.Universe),
+    web3.eth.contract(abi.Universe).at(augurAddresses.Universe),
   );
 
   const isLegitMarket = await trustedUniverse.isContainerForMarket(
