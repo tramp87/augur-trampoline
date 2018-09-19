@@ -13,6 +13,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import qs from 'qs';
 import nullthrows from 'nullthrows';
 import '../App.css';
+import TestMarketDetails from '../testenv/testmarketcomponent';
 
 const Home = () => (
   <Grid fluid style={{ margin: '1em' }}>
@@ -32,6 +33,14 @@ const Home = () => (
               Developer: this page is for a quick test of Augur Trampoline.
               Populate the fields, and get redirected to the trampoline page.
             </p>
+          </Panel.Body>
+        </Panel>
+        <Panel>
+          <Panel.Heading>
+            <Panel.Title componentClass="h3">Test market</Panel.Title>
+          </Panel.Heading>
+          <Panel.Body>
+            <TestMarketDetails />
           </Panel.Body>
         </Panel>
         <Form />

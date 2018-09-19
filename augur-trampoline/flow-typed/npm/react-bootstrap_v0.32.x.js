@@ -1,5 +1,5 @@
-// flow-typed signature: 5fd48bf434ff6f7e2a8bd94e78101371
-// flow-typed version: c82b762649/react-bootstrap_v0.32.x/flow_>=v0.53.x
+// flow-typed signature: 1d139cfd9fd5646f3ab399021cd0d65b
+// flow-typed version: 998e815df7/react-bootstrap_v0.32.x/flow_>=v0.53.x
 
 declare module "react-bootstrap" {
   import type { Node, Element, Component, ComponentType, Ref } from 'react';
@@ -8,7 +8,7 @@ declare module "react-bootstrap" {
   declare type ElementType = string | ComponentType<*>;
   declare type TriggerType = 'click' | 'hover' | 'focus';
   declare export class Alert extends React$Component<{
-    onDismiss: Function,
+    onDismiss?: Function,
     closeLabel?: string,
     bsStyle?: 'success' | 'warning' | 'danger' | 'info',
     bsClass?: string

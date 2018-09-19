@@ -1,0 +1,25 @@
+FROM mhart/alpine-node:8
+
+# This Dockerfile should not be needed once https://github.com/trufflesuite/ganache-core/issues/169 is resolved
+# and new image is officially published
+
+RUN apk add --no-cache curl make gcc g++ python git bash
+
+WORKDIR /src
+
+RUN git init
+RUN git remote add origin https://github.com/trufflesuite/ganache-cli.git
+RUN git fetch origin develop
+RUN git reset --hard 590b856e9b2dfa92b9491925fcb663dcd4a355b2
+
+RUN npm install
+RUN rm node_modules/ganache-core/lib/httpServer.js && \
+  curl --silent --fail --show-error -o node_modules/ganache-core/lib/httpServer.js \
+  https://raw.githubusercontent.com/tramp87/ganache-core/6dd74ad1317ba240011959dca926207dd8ed0f02/lib/httpServer.js
+RUN npm run build
+
+ENV DOCKER true
+
+EXPOSE 8545
+
+ENTRYPOINT ["node", "./node_modules/babel-cli/bin/babel-node.js", "cli.js"]

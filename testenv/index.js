@@ -19,11 +19,9 @@ async function deployContracts() {
   const contractCompiler = new ContractCompiler(compilerConfiguration);
   const compiledContracts = await contractCompiler.compileContracts();
 
-  const RPC = 'http://ganache:8545/';
-
   const networkConfiguration = new NetworkConfiguration(
     'testrpc',
-    RPC,
+    'http://ganache:8545',
     undefined,
     undefined,
     new BN('10000000000', 10),

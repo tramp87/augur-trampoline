@@ -7,7 +7,8 @@ services:
 before_script:
   - docker build --tag tbase -f Dockerfile.base .
   - docker build --tag tbuild -f Dockerfile.build .
-  - docker run --rm -d --name ganache trufflesuite/ganache-cli:latest --account="0x73dff7a656b0ecc3bb281bd5d14f9f8e77b60355d6274683d2f6fc5e3ab7ac11,1000000000000000000000000"
+  - docker build . -t local/ganache-cli-fix -f Dockerfile.ganache
+  - docker run --rm -d --name ganache local/ganache-cli-fix --account="0x73dff7a656b0ecc3bb281bd5d14f9f8e77b60355d6274683d2f6fc5e3ab7ac11,1000000000000000000000000"
   - docker build testenv -t testenv
   - docker run -d --rm --link ganache:ganache --name testenv testenv
   - # Check that repository is in sane state
