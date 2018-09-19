@@ -69,7 +69,7 @@ async function runAugurInSandbox(func: *, params: *): Promise<*> {
       fs.readFile(
         'dev-artifacts/augur_sandbox_runner.js',
         { encoding: 'utf-8' },
-        (err, data) => (err != null ? reject(err) : resolve(data)),
+        (err, data: string) => (err != null ? reject(err) : resolve(data)),
       ),
     );
 
