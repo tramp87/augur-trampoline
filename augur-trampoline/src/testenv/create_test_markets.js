@@ -1,25 +1,19 @@
 // @flow
 
-import Augur from 'augur.js';
+// eslint-disable-next-line import/no-nodejs-modules
+import fs from 'fs';
 import Web3 from 'web3';
 import nullthrows from 'nullthrows';
-import {
-  TESTRPC_HTTP_URL,
-  TESTRPC_WS_URL,
-  getContractAddresses,
-  account,
-} from './env';
+import { JSDOM, VirtualConsole } from 'jsdom';
+import { TESTRPC_HTTP_URL, getContractAddresses, account } from './env';
 
 async function create_test_markets(): Promise<*> {
-  console.log('before connect');
   const web3 = new Web3(new Web3.providers.HttpProvider(TESTRPC_HTTP_URL));
-  console.log('after connect');
   const coinbase = await new Promise((resolve, reject) =>
     web3.eth.getCoinbase(
       (error, result) => (error != null ? reject(error) : resolve(result)),
     ),
   );
-  console.log('after coinbase');
   const network = await new Promise((resolve, reject) =>
     web3.version.getNetwork(
       (error, result) => (error != null ? reject(error) : resolve(result)),
@@ -30,20 +24,9 @@ async function create_test_markets(): Promise<*> {
     nullthrows(addresses[network]),
   );
 
-  const augur = new Augur();
-  await new Promise((resolve, reject) =>
-    augur.connect(
-      {
-        ethereumNode: { ws: TESTRPC_WS_URL },
-        augurNode: null,
-      },
-      (err, connectionInfo) =>
-        err != null ? reject(err) : resolve(connectionInfo),
-    ),
-  );
-
-  const result = await new Promise((resolve, reject) =>
-    augur.api.Universe.createYesNoMarket({
+  const result = await runAugurInSandbox(
+    augur => params => augur.api.Universe.createYesNoMarket(params),
+    {
       _endTime: Math.floor(Date.now() / 1000 + 86400 * 100),
       _feePerEthInWei: '42',
       _denominationToken: addresses.Cash,
@@ -63,15 +46,7 @@ async function create_test_markets(): Promise<*> {
       },
       onSent: () =>
         console.log('Market creation TX has been sent to the network'),
-      onSuccess: result => resolve(result),
-      onFailed: e => reject(e),
-    }),
-  );
-
-  console.log(
-    `Market ${result.callReturn} has been created in transaction ${
-      result.hash
-    }`,
+    },
   );
 
   return {
@@ -79,6 +54,31 @@ async function create_test_markets(): Promise<*> {
     market: result.callReturn,
     transaction: result.hash,
   };
+}
+
+// start Augur inside JSDOM to ensure clean shutdown
+async function runAugurInSandbox(func: *, params: *): Promise<*> {
+  const virtualConsole = new VirtualConsole();
+  virtualConsole.sendTo(console);
+  const dom = new JSDOM('', { runScripts: 'outside-only', virtualConsole });
+  try {
+    dom.window.AUGUR_SANDBOX_RUNNER_FUNC = func;
+    dom.window.AUGUR_SANDBOX_RUNNER_PARAMS = params;
+
+    const augurjs = await new Promise((resolve, reject) =>
+      fs.readFile(
+        'dev-artifacts/augur_sandbox_runner.js',
+        { encoding: 'utf-8' },
+        (err, data) => (err != null ? reject(err) : resolve(data)),
+      ),
+    );
+
+    dom.window.eval(augurjs);
+
+    return await nullthrows(dom.window.AUGUR_SANDBOX_RUNNER_PROMISE);
+  } finally {
+    dom.window.close();
+  }
 }
 
 export default create_test_markets;

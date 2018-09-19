@@ -6,6 +6,9 @@
 # testing
 /coverage
 
+# dev builds
+dev-artifacts
+
 # production
 /build
 
