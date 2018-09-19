@@ -33,10 +33,13 @@ const contractsProxy = proxy('/api/contracts', {
 
 app.use('/api/contracts', contractsProxy);
 
-app.get('/api/test_markets', async (req, res) => {
-  const testMarkets = await testMarketsPromise;
-  res.send(JSON.stringify(testMarkets));
-});
+app.get(
+  '/api/test_markets',
+  async (req: express$Request, res: express$Response) => {
+    const testMarkets = await testMarketsPromise;
+    res.send(JSON.stringify(testMarkets));
+  },
+);
 
 process
   .on('unhandledRejection', (reason, p) => {
