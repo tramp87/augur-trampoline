@@ -69,7 +69,7 @@ async function fetchMarketData(
     market.getEndTime(),
     market.isFinalized(),
     fetchMarketCreationInfo(web3, marketID, creationTX),
-    getAddresesForNetworkOfWeb3(web3),
+    getAddressesForNetworkOfWeb3(web3),
   ]);
 
   invariant(
@@ -125,15 +125,15 @@ async function fetchMarketCreationInfo(
   marketID: string,
   creationTX: string,
 ): Promise<*> {
-  const receipt = await promisifyObject(web3.eth).getTransactionReceipt(
-    creationTX,
-  );
-  const addresses = await getAddresesForNetworkOfWeb3(web3);
-  const network = await new Promise((resolve, reject) =>
-    web3.version.getNetwork(
-      (error, result) => (error != null ? reject(error) : resolve(result)),
+  const [receipt, addresses, network] = await Promise.all([
+    promisifyObject(web3.eth).getTransactionReceipt(creationTX),
+    getAddressesForNetworkOfWeb3(web3),
+    new Promise((resolve, reject) =>
+      web3.version.getNetwork(
+        (error, result) => (error != null ? reject(error) : resolve(result)),
+      ),
     ),
-  );
+  ]);
 
   // Security gotcha.
   // Here we take externally-provided transaction as a proof
@@ -205,7 +205,7 @@ async function fetchMarketCreationInfo(
   };
 }
 
-async function getAddresesForNetworkOfWeb3(web3: Web3): Promise<Addresses> {
+async function getAddressesForNetworkOfWeb3(web3: Web3): Promise<Addresses> {
   const network = await new Promise((resolve, reject) =>
     web3.version.getNetwork(
       (error, result) => (error != null ? reject(error) : resolve(result)),
@@ -218,7 +218,7 @@ async function ensureMarketIsLegitAndIsFromTrustedUniverse(
   web3: Web3,
   marketID: string,
 ): Promise<void> {
-  const augurAddresses = await getAddresesForNetworkOfWeb3(web3);
+  const augurAddresses = await getAddressesForNetworkOfWeb3(web3);
   const trustedUniverse = promisifyContract(
     web3.eth.contract(abi.Universe).at(augurAddresses.Universe),
   );
