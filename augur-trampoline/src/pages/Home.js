@@ -37,7 +37,7 @@ const Home = () => (
         </Panel>
         <Panel>
           <Panel.Heading>
-            <Panel.Title componentClass="h3">Test market</Panel.Title>
+            <Panel.Title componentClass="h3">Test markets</Panel.Title>
           </Panel.Heading>
           <Panel.Body>
             <TestMarketDetails />

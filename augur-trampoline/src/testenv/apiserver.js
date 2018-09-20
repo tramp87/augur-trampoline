@@ -36,8 +36,8 @@ app.use('/api/contracts', contractsProxy);
 app.get(
   '/api/test_markets',
   async (req: express$Request, res: express$Response) => {
-    const testMarkets = await testMarketsPromise;
-    res.send(JSON.stringify(testMarkets));
+    const { network, markets } = await testMarketsPromise;
+    res.send(JSON.stringify({ network, markets: markets.toObject() }));
   },
 );
 
