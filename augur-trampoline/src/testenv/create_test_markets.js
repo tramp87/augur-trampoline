@@ -4,9 +4,19 @@
 import fs from 'fs';
 import nullthrows from 'nullthrows';
 import { JSDOM, VirtualConsole } from 'jsdom';
+import { Map as ImmMap } from 'immutable';
 import { getContractAddresses, account, create_test_web3 } from './env';
 
-async function create_test_markets(): Promise<*> {
+async function create_test_markets(): Promise<{|
+  network: string,
+  markets: ImmMap<
+    string,
+    {|
+      market: string,
+      transaction: string,
+    |},
+  >,
+|}> {
   const web3 = create_test_web3();
   const coinbase = await new Promise((resolve, reject) =>
     web3.eth.getCoinbase(
@@ -23,35 +33,47 @@ async function create_test_markets(): Promise<*> {
     nullthrows(addresses[network]),
   );
 
-  const result = await runAugurInSandbox(
-    augur => params => augur.api.Universe.createYesNoMarket(params),
-    {
-      _endTime: Math.floor(Date.now() / 1000 + 86400 * 100),
-      _feePerEthInWei: '42',
-      _denominationToken: addresses.Cash,
-      _designatedReporterAddress: coinbase,
-      _topic: 'religion',
-      _description: 'Can God create a stone so heavy that He cannot lift it?',
-      _extraInfo: JSON.stringify({
-        resolutionSource: 'stars',
-        tags: ['yo', 'mate'],
-        longDescription: 'meh',
+  const markets = await Promise.all(
+    ImmMap({
+      binary: runAugurInSandbox(
+        augur => params => augur.api.Universe.createYesNoMarket(params),
+        {
+          _endTime: Math.floor(Date.now() / 1000 + 86400 * 100),
+          _feePerEthInWei: '42',
+          _denominationToken: addresses.Cash,
+          _designatedReporterAddress: coinbase,
+          _topic: 'religion',
+          _description:
+            'Can God create a stone so heavy that He cannot lift it?',
+          _extraInfo: JSON.stringify({
+            resolutionSource: 'stars',
+            tags: ['yo', 'mate'],
+            longDescription: 'meh',
+          }),
+          meta: account,
+          tx: {
+            from: '0x44291b3c469806e625500a6184a045d2a5994058',
+            to: addresses.Universe,
+            value: Math.pow(10, 18),
+          },
+          onSent: () =>
+            console.log('Market creation TX has been sent to the network'),
+        },
+      ),
+    })
+      .entrySeq()
+      .map(async ([name, promise]) => {
+        const result = await promise;
+        return [name, result];
       }),
-      meta: account,
-      tx: {
-        from: '0x44291b3c469806e625500a6184a045d2a5994058',
-        to: addresses.Universe,
-        value: Math.pow(10, 18),
-      },
-      onSent: () =>
-        console.log('Market creation TX has been sent to the network'),
-    },
-  );
+  ).then(pairs => ImmMap(pairs));
 
   return {
     network,
-    market: result.callReturn,
-    transaction: result.hash,
+    markets: markets.map(result => ({
+      market: result.callReturn,
+      transaction: result.hash,
+    })),
   };
 }
 

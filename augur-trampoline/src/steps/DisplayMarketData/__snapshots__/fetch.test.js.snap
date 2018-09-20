@@ -1,19 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`can fetch market data 1`] = `
-Object {
-  "denominationToken": "0xc2c17285730eded0a34b8d1c5147a150a1f554dd",
-  "description": "Can God create a stone so heavy that He cannot lift it?",
-  "endTime": "this is overridden to make test deterministic",
-  "isFinalized": false,
-  "longDescription": "meh",
-  "marketCreationFee": "10000000000000000",
-  "marketType": "0",
-  "maxPrice": "1000000000000000000",
-  "minPrice": "0",
-  "numTicks": "10000",
-  "numberOfOutcomes": "2",
-  "outcomes": Array [],
-  "resolutionSource": "stars",
+Immutable.Map {
+  binary: Object {
+    "denominationToken": "_MASKED_denominationToken_FOR_DETERMINISM_",
+    "description": "Can God create a stone so heavy that He cannot lift it?",
+    "endTime": "_MASKED_endTime_FOR_DETERMINISM_",
+    "isFinalized": false,
+    "longDescription": "meh",
+    "marketCreationFee": "10000000000000000",
+    "marketType": "0",
+    "maxPrice": "1000000000000000000",
+    "minPrice": "0",
+    "numTicks": "10000",
+    "numberOfOutcomes": "2",
+    "outcomes": Array [],
+    "resolutionSource": "stars",
+  },
 }
 `;

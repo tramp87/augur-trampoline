@@ -8,5 +8,5 @@ test(
     const result = await create_test_markets();
     expect(result).toBeTruthy();
   },
-  10000,
+  20000,
 );

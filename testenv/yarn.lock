@@ -267,9 +267,9 @@ atob@^2.1.1:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
 
-"augur-core@https://github.com/tramp87/augur-core#f1852e1d2ae4a5f20a32179433b4c72d35cea5b8":
+augur-core@tramp87/augur-core#f1852e1d2ae4a5f20a32179433b4c72d35cea5b8:
   version "1.0.0"
-  resolved "https://github.com/tramp87/augur-core#f1852e1d2ae4a5f20a32179433b4c72d35cea5b8"
+  resolved "https://codeload.github.com/tramp87/augur-core/tar.gz/f1852e1d2ae4a5f20a32179433b4c72d35cea5b8"
   dependencies:
     "@types/get-port" "3.2.0"
     "@types/mkdirp" "0.5.1"

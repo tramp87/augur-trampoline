@@ -1380,9 +1380,9 @@ augur-core@1.1.0:
     solidity-coverage "0.5.4"
     yargs "11.0.0"
 
-"augur-core@git://github.com/AugurProject/augur-core.git#0df03124b5181bed8298832eeda24308be911d08":
+augur-core@AugurProject/augur-core.git#0df03124b5181bed8298832eeda24308be911d08:
   version "2.0.0-0"
-  resolved "git://github.com/AugurProject/augur-core.git#0df03124b5181bed8298832eeda24308be911d08"
+  resolved "https://codeload.github.com/AugurProject/augur-core/tar.gz/0df03124b5181bed8298832eeda24308be911d08"
   dependencies:
     "@types/get-port" "3.2.0"
     "@types/mkdirp" "0.5.1"
@@ -6355,6 +6355,10 @@ immutable-delete@1.1.0:
 immutable@3.8.2:
   version "3.8.2"
   resolved "https://registry.yarnpkg.com/immutable/-/immutable-3.8.2.tgz#c2439951455bb39913daf281376f1530e104adf3"
+
+immutable@FormAPI/immutable-js#v3.8.1-flow-fix:
+  version "3.8.1"
+  resolved "https://codeload.github.com/FormAPI/immutable-js/tar.gz/a2879861b3f8ee637ddc6cbf10cc7a389eb0ae9f"
 
 import-lazy@^2.1.0:
   version "2.1.0"
