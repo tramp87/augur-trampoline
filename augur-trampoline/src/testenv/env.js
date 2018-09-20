@@ -2,6 +2,7 @@
 
 import fetchPonyfill from 'fetch-ponyfill';
 import ethJsUtil from 'ethereumjs-util';
+import Web3 from 'web3';
 
 const { fetch } = fetchPonyfill({});
 
@@ -10,12 +11,20 @@ const TESTRPC_WS_URL = 'ws://ganache:8545';
 const AUGUR_CONTRACTS_URL = 'http://testenv';
 const AUGUR_CONTRACTS_BROWSER_URL = '/api/contracts';
 
-async function getContractAddresses(isClientSide: boolean): Promise<*> {
-  const response = await fetch(
-    isClientSide ? AUGUR_CONTRACTS_BROWSER_URL : AUGUR_CONTRACTS_URL,
+async function getContractAddresses(): Promise<*> {
+  const urls = [AUGUR_CONTRACTS_BROWSER_URL, AUGUR_CONTRACTS_URL];
+
+  // this is running only in tests (automated and manual) anyway, so we
+  // can just make both requests, and see whichever returned some results
+  const results = await Promise.all(
+    urls.map(url =>
+      fetch(url)
+        .then(response => response.json())
+        .catch(e => null),
+    ),
   );
-  const addresses = await response.json();
-  return addresses;
+
+  return results.reduce((x, y) => (x == null ? y : x), null);
 }
 
 const account = {
@@ -27,10 +36,15 @@ const account = {
   accountType: 'privateKey',
 };
 
+function create_test_web3(): Web3 {
+  return new Web3(new Web3.providers.HttpProvider(TESTRPC_HTTP_URL));
+}
+
 export {
   TESTRPC_HTTP_URL,
   TESTRPC_WS_URL,
   AUGUR_CONTRACTS_URL,
   getContractAddresses,
   account,
+  create_test_web3,
 };

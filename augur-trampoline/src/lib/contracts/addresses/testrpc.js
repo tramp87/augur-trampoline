@@ -5,7 +5,7 @@ import { getContractAddresses as getContractAddressesFromTestEnv } from '../../.
 import type { Addresses } from './types';
 
 async function getContractAddresses(network: string): Promise<Addresses> {
-  const testenv = await getContractAddressesFromTestEnv(true);
+  const testenv = await getContractAddressesFromTestEnv();
   return nullthrows(testenv[network]);
 }
 

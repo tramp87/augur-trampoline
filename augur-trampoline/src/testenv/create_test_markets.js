@@ -2,13 +2,12 @@
 
 // eslint-disable-next-line import/no-nodejs-modules
 import fs from 'fs';
-import Web3 from 'web3';
 import nullthrows from 'nullthrows';
 import { JSDOM, VirtualConsole } from 'jsdom';
-import { TESTRPC_HTTP_URL, getContractAddresses, account } from './env';
+import { getContractAddresses, account, create_test_web3 } from './env';
 
 async function create_test_markets(): Promise<*> {
-  const web3 = new Web3(new Web3.providers.HttpProvider(TESTRPC_HTTP_URL));
+  const web3 = create_test_web3();
   const coinbase = await new Promise((resolve, reject) =>
     web3.eth.getCoinbase(
       (error, result) => (error != null ? reject(error) : resolve(result)),
@@ -20,7 +19,7 @@ async function create_test_markets(): Promise<*> {
     ),
   );
 
-  const addresses = await getContractAddresses(false).then(addresses =>
+  const addresses = await getContractAddresses().then(addresses =>
     nullthrows(addresses[network]),
   );
 

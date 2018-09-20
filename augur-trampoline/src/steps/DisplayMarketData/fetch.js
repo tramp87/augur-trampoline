@@ -4,7 +4,6 @@ import invariant from 'invariant';
 import Web3 from 'web3';
 import nullthrows from 'nullthrows';
 import abiDecoder from '../../lib/contrib/abi-decoder';
-import type { Request } from '../../Request';
 import abi from '../../lib/contracts/abi';
 import getContractAddresses from '../../lib/contracts/addresses';
 import type { Addresses } from '../../lib/contracts/addresses';
@@ -43,13 +42,11 @@ export type MarketData = {|
  * - transaction that has been removed due to reorg
  */
 async function fetchMarketData(
-  request: Request,
   web3: Web3,
-  account: string,
+  marketID: string,
+  creationTX: string,
 ): Promise<MarketData> {
-  const market = promisifyContract(
-    web3.eth.contract(abi.Market).at(request.market),
-  );
+  const market = promisifyContract(web3.eth.contract(abi.Market).at(marketID));
 
   const [
     // eslint-disable-next-line no-unused-vars
@@ -65,13 +62,13 @@ async function fetchMarketData(
     // Security gotcha. We need to ensure that market belongs to
     // trusted universe. Otherwise in the future attacker could trick user
     // into buying some shares in false universe.
-    ensureMarketIsLegitAndIsFromTrustedUniverse(request, web3),
+    ensureMarketIsLegitAndIsFromTrustedUniverse(web3, marketID),
     market.getNumberOfOutcomes(),
     market.getNumTicks(),
     market.getDenominationToken(),
     market.getEndTime(),
     market.isFinalized(),
-    fetchMarketCreationInfo(request, web3),
+    fetchMarketCreationInfo(web3, marketID, creationTX),
     getAddresesForNetworkOfWeb3(web3),
   ]);
 
@@ -124,11 +121,12 @@ function promisifyObject(object: {}): * {
 }
 
 async function fetchMarketCreationInfo(
-  request: Request,
   web3: Web3,
+  marketID: string,
+  creationTX: string,
 ): Promise<*> {
   const receipt = await promisifyObject(web3.eth).getTransactionReceipt(
-    request.creationTX,
+    creationTX,
   );
   const addresses = await getAddresesForNetworkOfWeb3(web3);
   const network = await new Promise((resolve, reject) =>
@@ -185,7 +183,7 @@ async function fetchMarketCreationInfo(
         {},
       ),
     )
-    .filter(event => event.market === request.market);
+    .filter(event => event.market === marketID);
 
   invariant(
     logs.length === 1,
@@ -217,17 +215,15 @@ async function getAddresesForNetworkOfWeb3(web3: Web3): Promise<Addresses> {
 }
 
 async function ensureMarketIsLegitAndIsFromTrustedUniverse(
-  request: Request,
   web3: Web3,
+  marketID: string,
 ): Promise<void> {
   const augurAddresses = await getAddresesForNetworkOfWeb3(web3);
   const trustedUniverse = promisifyContract(
     web3.eth.contract(abi.Universe).at(augurAddresses.Universe),
   );
 
-  const isLegitMarket = await trustedUniverse.isContainerForMarket(
-    request.market,
-  );
+  const isLegitMarket = await trustedUniverse.isContainerForMarket(marketID);
 
   // comparing with `!== true` is silly, but I want to avoid
   // chance of considering market legit due to some silly type conversions

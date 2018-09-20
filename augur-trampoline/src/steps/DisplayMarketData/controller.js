@@ -74,9 +74,9 @@ class DisplayMarketData extends Component<Props, State> {
       try {
         try {
           const result = await fetchMarketData(
-            this.props.input.request,
             this.props.input.web3,
-            this.props.input.account,
+            this.props.input.request.market,
+            this.props.input.request.creationTX,
           );
           callback.call([null, result]);
         } catch (e) {
