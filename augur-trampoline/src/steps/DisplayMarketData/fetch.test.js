@@ -4,6 +4,7 @@ import { Map as ImmMap } from 'immutable';
 import create_test_markets from '../../testenv/create_test_markets';
 import { create_test_web3 } from '../../testenv/env';
 import fetchMarketData from './fetch';
+import clean_json_from_ids from './test/clean_json_from_ids';
 
 test(
   'can fetch market data',
@@ -31,18 +32,5 @@ test(
       ),
     ).toMatchSnapshot();
   },
-  30000,
+  60000,
 );
-
-function clean_json_from_ids(json: any, ids: { [string]: string }): any {
-  return JSON.parse(
-    ImmMap(ids)
-      .entrySeq()
-      .sort()
-      .reduce(
-        (s, [name, value]) =>
-          s.split(value).join(`_MASKED_${name}_FOR_DETERMINISM_`),
-        JSON.stringify(json),
-      ),
-  );
-}

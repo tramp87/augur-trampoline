@@ -1,0 +1,558 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render loaded market: binary 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        "{\\"marketData\\":{\\"numberOfOutcomes\\":\\"2\\",\\"numTicks\\":\\"10000\\",\\"denominationToken\\":\\"_MASKED_denominationToken_FOR_DETERMINISM_\\",\\"endTime\\":\\"_MASKED_endTime_FOR_DETERMINISM_\\",\\"isFinalized\\":false,\\"description\\":\\"Can God create a stone so heavy that He cannot lift it?\\",\\"longDescription\\":\\"meh\\",\\"resolutionSource\\":\\"your mind\\",\\"outcomes\\":[],\\"marketCreationFee\\":\\"10000000000000000\\",\\"minPrice\\":\\"0\\",\\"maxPrice\\":\\"1000000000000000000\\",\\"marketType\\":\\"0\\"},\\"havingErrors\\":false}",
+      ],
+      "props": Object {},
+      "type": "div",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                "Can God create a stone so heavy that He cannot lift it?",
+              ],
+              "props": Object {
+                "className": "panel-title",
+              },
+              "type": "h3",
+            },
+          ],
+          "props": Object {
+            "className": "panel-heading",
+          },
+          "type": "div",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                "Resolution source:",
+                " ",
+                "your mind",
+              ],
+              "props": Object {},
+              "type": "p",
+            },
+          ],
+          "props": Object {
+            "className": "panel-body",
+          },
+          "type": "div",
+        },
+      ],
+      "props": Object {
+        "className": "panel panel-default",
+      },
+      "type": "div",
+    },
+  ],
+  "props": Object {},
+  "type": "div",
+}
+`;
+
+exports[`Render loaded market: categorical 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        "{\\"marketData\\":{\\"numberOfOutcomes\\":\\"3\\",\\"numTicks\\":\\"10000\\",\\"denominationToken\\":\\"_MASKED_denominationToken_FOR_DETERMINISM_\\",\\"endTime\\":\\"_MASKED_endTime_FOR_DETERMINISM_\\",\\"isFinalized\\":false,\\"description\\":\\"What is the best color?\\",\\"longDescription\\":\\"\\",\\"resolutionSource\\":\\"https://upload.wikimedia.org/wikipedia/commons/0/0e/Red-green-blue_flag.svg\\",\\"outcomes\\":[\\"0x3078303030303030303030303030303030303030303030303030303030303030\\",\\"0x3078303030303030303030303030303030303030303030303030303030303030\\",\\"0x3078303030303030303030303030303030303030303030303030303030303030\\"],\\"marketCreationFee\\":\\"10000000000000000\\",\\"minPrice\\":\\"0\\",\\"maxPrice\\":\\"1000000000000000000\\",\\"marketType\\":\\"1\\"},\\"havingErrors\\":false}",
+      ],
+      "props": Object {},
+      "type": "div",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                "What is the best color?",
+              ],
+              "props": Object {
+                "className": "panel-title",
+              },
+              "type": "h3",
+            },
+          ],
+          "props": Object {
+            "className": "panel-heading",
+          },
+          "type": "div",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                "Resolution source:",
+                " ",
+                Object {
+                  "children": Array [
+                    "https://upload.wikimedia.org/wikipedia/commons/0/0e/Red-green-blue_flag.svg",
+                  ],
+                  "props": Object {
+                    "href": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Red-green-blue_flag.svg",
+                    "target": "_blank",
+                  },
+                  "type": "a",
+                },
+              ],
+              "props": Object {},
+              "type": "p",
+            },
+          ],
+          "props": Object {
+            "className": "panel-body",
+          },
+          "type": "div",
+        },
+      ],
+      "props": Object {
+        "className": "panel panel-default",
+      },
+      "type": "div",
+    },
+  ],
+  "props": Object {},
+  "type": "div",
+}
+`;
+
+exports[`Render loaded market: scalar 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        "{\\"marketData\\":{\\"numberOfOutcomes\\":\\"2\\",\\"numTicks\\":\\"100\\",\\"denominationToken\\":\\"_MASKED_denominationToken_FOR_DETERMINISM_\\",\\"endTime\\":\\"_MASKED_endTime_FOR_DETERMINISM_\\",\\"isFinalized\\":false,\\"description\\":\\"How many states will there be in the United States at the market expiration?\\",\\"longDescription\\":\\"\\",\\"resolutionSource\\":\\"\\",\\"outcomes\\":[],\\"marketCreationFee\\":\\"10000000000000000\\",\\"minPrice\\":\\"0\\",\\"maxPrice\\":\\"100\\",\\"marketType\\":\\"2\\"},\\"havingErrors\\":false}",
+      ],
+      "props": Object {},
+      "type": "div",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                "How many states will there be in the United States at the market expiration?",
+              ],
+              "props": Object {
+                "className": "panel-title",
+              },
+              "type": "h3",
+            },
+          ],
+          "props": Object {
+            "className": "panel-heading",
+          },
+          "type": "div",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                "Resolution source:",
+                " ",
+                "General knowledge",
+              ],
+              "props": Object {},
+              "type": "p",
+            },
+          ],
+          "props": Object {
+            "className": "panel-body",
+          },
+          "type": "div",
+        },
+      ],
+      "props": Object {
+        "className": "panel panel-default",
+      },
+      "type": "div",
+    },
+  ],
+  "props": Object {},
+  "type": "div",
+}
+`;
+
+exports[`Render loaded market: scalar2 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        "{\\"marketData\\":{\\"numberOfOutcomes\\":\\"2\\",\\"numTicks\\":\\"300\\",\\"denominationToken\\":\\"_MASKED_denominationToken_FOR_DETERMINISM_\\",\\"endTime\\":\\"_MASKED_endTime_FOR_DETERMINISM_\\",\\"isFinalized\\":false,\\"description\\":\\"How much will EUR cost in USD at market expiration?\\",\\"longDescription\\":\\"\\",\\"resolutionSource\\":\\"\\",\\"outcomes\\":[],\\"marketCreationFee\\":\\"10000000000000000\\",\\"minPrice\\":\\"1\\",\\"maxPrice\\":\\"3.6630452334323264047285528e+25\\",\\"marketType\\":\\"2\\"},\\"havingErrors\\":false}",
+      ],
+      "props": Object {},
+      "type": "div",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                "How much will EUR cost in USD at market expiration?",
+              ],
+              "props": Object {
+                "className": "panel-title",
+              },
+              "type": "h3",
+            },
+          ],
+          "props": Object {
+            "className": "panel-heading",
+          },
+          "type": "div",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                "Resolution source:",
+                " ",
+                "General knowledge",
+              ],
+              "props": Object {},
+              "type": "p",
+            },
+          ],
+          "props": Object {
+            "className": "panel-body",
+          },
+          "type": "div",
+        },
+      ],
+      "props": Object {
+        "className": "panel panel-default",
+      },
+      "type": "div",
+    },
+  ],
+  "props": Object {},
+  "type": "div",
+}
+`;
+
+exports[`render "loading" bar 1`] = `
+<div>
+  <div>
+    {"marketData":null,"havingErrors":false}
+  </div>
+  <div
+    className="panel panel-default"
+  >
+    <div
+      className="panel-heading"
+    >
+      <h3
+        className="panel-title"
+      >
+        Loading market data...
+      </h3>
+    </div>
+    <div
+      className="panel-body"
+    >
+      <div
+        className="progress"
+      >
+        <div
+          aria-valuemax={1}
+          aria-valuemin={0}
+          aria-valuenow={0.029126213592232997}
+          className="progress-bar active progress-bar-striped"
+          role="progressbar"
+          style={
+            Object {
+              "width": "2.913%",
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`render "loading" bar with errors 1`] = `
+<div>
+  <div>
+    {"marketData":null,"havingErrors":true}
+  </div>
+  <div
+    className="panel panel-default"
+  >
+    <div
+      className="panel-heading"
+    >
+      <h3
+        className="panel-title"
+      >
+        Loading market data...
+      </h3>
+    </div>
+    <div
+      className="panel-body"
+    >
+      <div
+        className="progress"
+      >
+        <div
+          aria-valuemax={1}
+          aria-valuemin={0}
+          aria-valuenow={0.029126213592232997}
+          className="progress-bar active progress-bar-striped"
+          role="progressbar"
+          style={
+            Object {
+              "width": "2.913%",
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`render loaded market 1`] = `
+Immutable.Map {
+  binary: Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          "{\\"marketData\\":{\\"numberOfOutcomes\\":\\"2\\",\\"numTicks\\":\\"10000\\",\\"denominationToken\\":\\"_MASKED_denominationToken_FOR_DETERMINISM_\\",\\"endTime\\":\\"_MASKED_endTime_FOR_DETERMINISM_\\",\\"isFinalized\\":false,\\"description\\":\\"Can God create a stone so heavy that He cannot lift it?\\",\\"longDescription\\":\\"meh\\",\\"resolutionSource\\":\\"your mind\\",\\"outcomes\\":[],\\"marketCreationFee\\":\\"10000000000000000\\",\\"minPrice\\":\\"0\\",\\"maxPrice\\":\\"1000000000000000000\\",\\"marketType\\":\\"0\\"},\\"havingErrors\\":false}",
+        ],
+        "props": Object {},
+        "type": "div",
+      },
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [
+                  "Can God create a stone so heavy that He cannot lift it?",
+                ],
+                "props": Object {
+                  "className": "panel-title",
+                },
+                "type": "h3",
+              },
+            ],
+            "props": Object {
+              "className": "panel-heading",
+            },
+            "type": "div",
+          },
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [
+                  "Resolution source:",
+                  " ",
+                  "your mind",
+                ],
+                "props": Object {},
+                "type": "p",
+              },
+            ],
+            "props": Object {
+              "className": "panel-body",
+            },
+            "type": "div",
+          },
+        ],
+        "props": Object {
+          "className": "panel panel-default",
+        },
+        "type": "div",
+      },
+    ],
+    "props": Object {},
+    "type": "div",
+  },
+  categorical: Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          "{\\"marketData\\":{\\"numberOfOutcomes\\":\\"3\\",\\"numTicks\\":\\"10000\\",\\"denominationToken\\":\\"_MASKED_denominationToken_FOR_DETERMINISM_\\",\\"endTime\\":\\"_MASKED_endTime_FOR_DETERMINISM_\\",\\"isFinalized\\":false,\\"description\\":\\"What is the best color?\\",\\"longDescription\\":\\"\\",\\"resolutionSource\\":\\"https://upload.wikimedia.org/wikipedia/commons/0/0e/Red-green-blue_flag.svg\\",\\"outcomes\\":[\\"0x3078303030303030303030303030303030303030303030303030303030303030\\",\\"0x3078303030303030303030303030303030303030303030303030303030303030\\",\\"0x3078303030303030303030303030303030303030303030303030303030303030\\"],\\"marketCreationFee\\":\\"10000000000000000\\",\\"minPrice\\":\\"0\\",\\"maxPrice\\":\\"1000000000000000000\\",\\"marketType\\":\\"1\\"},\\"havingErrors\\":false}",
+        ],
+        "props": Object {},
+        "type": "div",
+      },
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [
+                  "What is the best color?",
+                ],
+                "props": Object {
+                  "className": "panel-title",
+                },
+                "type": "h3",
+              },
+            ],
+            "props": Object {
+              "className": "panel-heading",
+            },
+            "type": "div",
+          },
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [
+                  "Resolution source:",
+                  " ",
+                  Object {
+                    "children": Array [
+                      "https://upload.wikimedia.org/wikipedia/commons/0/0e/Red-green-blue_flag.svg",
+                    ],
+                    "props": Object {
+                      "href": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Red-green-blue_flag.svg",
+                      "target": "_blank",
+                    },
+                    "type": "a",
+                  },
+                ],
+                "props": Object {},
+                "type": "p",
+              },
+            ],
+            "props": Object {
+              "className": "panel-body",
+            },
+            "type": "div",
+          },
+        ],
+        "props": Object {
+          "className": "panel panel-default",
+        },
+        "type": "div",
+      },
+    ],
+    "props": Object {},
+    "type": "div",
+  },
+  scalar: Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          "{\\"marketData\\":{\\"numberOfOutcomes\\":\\"2\\",\\"numTicks\\":\\"100\\",\\"denominationToken\\":\\"_MASKED_denominationToken_FOR_DETERMINISM_\\",\\"endTime\\":\\"_MASKED_endTime_FOR_DETERMINISM_\\",\\"isFinalized\\":false,\\"description\\":\\"How many states will there be in the United States at the market expiration?\\",\\"longDescription\\":\\"\\",\\"resolutionSource\\":\\"\\",\\"outcomes\\":[],\\"marketCreationFee\\":\\"10000000000000000\\",\\"minPrice\\":\\"0\\",\\"maxPrice\\":\\"100\\",\\"marketType\\":\\"2\\"},\\"havingErrors\\":false}",
+        ],
+        "props": Object {},
+        "type": "div",
+      },
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [
+                  "How many states will there be in the United States at the market expiration?",
+                ],
+                "props": Object {
+                  "className": "panel-title",
+                },
+                "type": "h3",
+              },
+            ],
+            "props": Object {
+              "className": "panel-heading",
+            },
+            "type": "div",
+          },
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [
+                  "Resolution source:",
+                  " ",
+                  "General knowledge",
+                ],
+                "props": Object {},
+                "type": "p",
+              },
+            ],
+            "props": Object {
+              "className": "panel-body",
+            },
+            "type": "div",
+          },
+        ],
+        "props": Object {
+          "className": "panel panel-default",
+        },
+        "type": "div",
+      },
+    ],
+    "props": Object {},
+    "type": "div",
+  },
+  scalar2: Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          "{\\"marketData\\":{\\"numberOfOutcomes\\":\\"2\\",\\"numTicks\\":\\"300\\",\\"denominationToken\\":\\"_MASKED_denominationToken_FOR_DETERMINISM_\\",\\"endTime\\":\\"_MASKED_endTime_FOR_DETERMINISM_\\",\\"isFinalized\\":false,\\"description\\":\\"How much will EUR cost in USD at market expiration?\\",\\"longDescription\\":\\"\\",\\"resolutionSource\\":\\"\\",\\"outcomes\\":[],\\"marketCreationFee\\":\\"10000000000000000\\",\\"minPrice\\":\\"1\\",\\"maxPrice\\":\\"3.6630452334323264047285528e+25\\",\\"marketType\\":\\"2\\"},\\"havingErrors\\":false}",
+        ],
+        "props": Object {},
+        "type": "div",
+      },
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [
+                  "How much will EUR cost in USD at market expiration?",
+                ],
+                "props": Object {
+                  "className": "panel-title",
+                },
+                "type": "h3",
+              },
+            ],
+            "props": Object {
+              "className": "panel-heading",
+            },
+            "type": "div",
+          },
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [
+                  "Resolution source:",
+                  " ",
+                  "General knowledge",
+                ],
+                "props": Object {},
+                "type": "p",
+              },
+            ],
+            "props": Object {
+              "className": "panel-body",
+            },
+            "type": "div",
+          },
+        ],
+        "props": Object {
+          "className": "panel panel-default",
+        },
+        "type": "div",
+      },
+    ],
+    "props": Object {},
+    "type": "div",
+  },
+}
+`;
