@@ -260,6 +260,7 @@ async function fetchMarketData(
     endTime,
     isFinalized,
     marketCreationInfo,
+    augurContractAddresses,
   ] = await Promise.all([
     // Security gotcha. We need to ensure that market belongs to
     // trusted universe. Otherwise in the future attacker could trick user
@@ -271,7 +272,13 @@ async function fetchMarketData(
     market.getEndTime(),
     market.isFinalized(),
     fetchMarketCreationInfo(request, web3),
+    getAddresesForNetworkOfWeb3(web3),
   ]);
+
+  invariant(
+    denominationToken === augurContractAddresses.Cash,
+    'We do not support other denominations yet',
+  );
 
   return {
     numberOfOutcomes,
@@ -291,6 +298,11 @@ async function fetchMarketCreationInfo(
     request.creationTX,
   );
   const addresses = await getAddresesForNetworkOfWeb3(web3);
+  const network = await new Promise((resolve, reject) =>
+    web3.version.getNetwork(
+      (error, result) => (error != null ? reject(error) : resolve(result)),
+    ),
+  );
 
   // Security gotcha.
   // Here we take externally-provided transaction as a proof
@@ -303,9 +315,32 @@ async function fetchMarketCreationInfo(
   // opportunity for an attack.
   const logs = abiDecoder
     .decodeLogs(
-      nullthrows(receipt).logs.filter(
-        ({ address, removed }) => address === addresses.Augur,
-      ),
+      nullthrows(receipt)
+        .logs.filter(({ address }) => address === addresses.Augur)
+        .filter(({ removed, type }) => {
+          if (removed === false) {
+            return true;
+          }
+
+          // ganache is "special", and doesn't populate `removed` field
+          // risk is low though, as ganache is only used for test networks,
+          // ganache is using timestamp as network id
+          if (
+            Number.parseInt(network, 10) > 1000000000 &&
+            removed === undefined &&
+            type === 'mined'
+          ) {
+            return true;
+          }
+
+          throw new Error(
+            `We observed transaction ${
+              receipt.transactionHash
+            } with logs that are marked as removed=${removed}, and type=${type}. ` +
+              'This may be attempt of scam, or technical issue. ' +
+              'Please do report to Augur Trampoline Github page.',
+          );
+        }),
     )
     .filter(({ name }) => name === 'MarketCreated')
     .map(log =>
