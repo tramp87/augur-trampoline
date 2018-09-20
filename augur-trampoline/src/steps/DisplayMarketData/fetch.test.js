@@ -31,7 +31,7 @@ test(
       ),
     ).toMatchSnapshot();
   },
-  20000,
+  30000,
 );
 
 function clean_json_from_ids(json: any, ids: { [string]: string }): any {

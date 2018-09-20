@@ -33,9 +33,10 @@ async function create_test_markets(): Promise<{|
     nullthrows(addresses[network]),
   );
 
-  const markets = await Promise.all(
-    ImmMap({
-      binary: runAugurInSandbox(
+  // have to run sequentially to avoid nonce race condition
+  const markets = await ImmMap({
+    binary: () =>
+      runAugurInSandbox(
         augur => params => augur.api.Universe.createYesNoMarket(params),
         {
           _endTime: Math.floor(Date.now() / 1000 + 86400 * 100),
@@ -46,8 +47,8 @@ async function create_test_markets(): Promise<{|
           _description:
             'Can God create a stone so heavy that He cannot lift it?',
           _extraInfo: JSON.stringify({
-            resolutionSource: 'stars',
-            tags: ['yo', 'mate'],
+            resolutionSource: 'your mind',
+            tags: ['religion', 'God', 'philosophy'],
             longDescription: 'meh',
           }),
           meta: account,
@@ -60,13 +61,101 @@ async function create_test_markets(): Promise<{|
             console.log('Market creation TX has been sent to the network'),
         },
       ),
-    })
-      .entrySeq()
-      .map(async ([name, promise]) => {
-        const result = await promise;
-        return [name, result];
-      }),
-  ).then(pairs => ImmMap(pairs));
+    // TODO: see why fetcher doesn't recognize outcomes
+    categorical: () =>
+      runAugurInSandbox(
+        augur => params => augur.api.Universe.createCategoricalMarket(params),
+        {
+          _endTime: Math.floor(Date.now() / 1000 + 86400 * 50),
+          _feePerEthInWei: '13',
+          _denominationToken: addresses.Cash,
+          _designatedReporterAddress: coinbase,
+          _topic: 'colors',
+          _description: 'What is the best color?',
+          _extraInfo: JSON.stringify({
+            resolutionSource:
+              'https://upload.wikimedia.org/wikipedia/commons/0/0e/Red-green-blue_flag.svg',
+            tags: [],
+            longDescription: '',
+            outcomeNames: ['Red', 'Green', 'Blue'],
+          }),
+          _outcomes: ['Red', 'Green', 'Blue'],
+          meta: account,
+          tx: {
+            from: '0x44291b3c469806e625500a6184a045d2a5994058',
+            to: addresses.Universe,
+            value: Math.pow(10, 18),
+          },
+          onSent: () =>
+            console.log('Market creation TX has been sent to the network'),
+        },
+      ),
+    // TODO: see why ranges are all messed up
+    scalar: () =>
+      runAugurInSandbox(
+        augur => params => augur.api.Universe.createScalarMarket(params),
+        {
+          _endTime: Math.floor(Date.now() / 1000 + 86400 * 365 * 5),
+          _feePerEthInWei: '1203',
+          _denominationToken: addresses.Cash,
+          _designatedReporterAddress: coinbase,
+          _minPrice: 0,
+          _maxPrice: 100,
+          _numTicks: 100,
+          _topic: 'politics',
+          _description:
+            'How many states will there be in the United States at the market expiration?',
+          _extraInfo: JSON.stringify({
+            resolutionSource: '',
+            tags: ['United States', 'geography'],
+            longDescription: '',
+          }),
+          meta: account,
+          tx: {
+            from: '0x44291b3c469806e625500a6184a045d2a5994058',
+            to: addresses.Universe,
+            value: Math.pow(10, 18),
+          },
+          onSent: () =>
+            console.log('Market creation TX has been sent to the network'),
+        },
+      ),
+    // TODO: see why ranges are all messed up
+    scalar2: () =>
+      runAugurInSandbox(
+        augur => params => augur.api.Universe.createScalarMarket(params),
+        {
+          _endTime: Math.floor(Date.now() / 1000 + 86400 * 90),
+          _feePerEthInWei: '1111',
+          _denominationToken: addresses.Cash,
+          _designatedReporterAddress: coinbase,
+          _minPrice: 1.0,
+          _maxPrice: 1.3,
+          _numTicks: 300,
+          _topic: 'finance',
+          _description: 'How much will EUR cost in USD at market expiration?',
+          _extraInfo: JSON.stringify({
+            resolutionSource: '',
+            tags: ['finance'],
+            longDescription: '',
+          }),
+          meta: account,
+          tx: {
+            from: '0x44291b3c469806e625500a6184a045d2a5994058',
+            to: addresses.Universe,
+            value: Math.pow(10, 18),
+          },
+          onSent: () =>
+            console.log('Market creation TX has been sent to the network'),
+        },
+      ),
+  })
+    .entrySeq()
+    .reduce(async (mapPromise, [name, f]) => {
+      const map = await mapPromise;
+      const creation = await f();
+      return map.set(name, creation);
+    }, Promise.resolve(ImmMap()));
 
   return {
     network,
