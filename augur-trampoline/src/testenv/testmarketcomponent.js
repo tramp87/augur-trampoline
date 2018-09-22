@@ -2,9 +2,22 @@
 
 import React from 'react';
 import { Map as ImmMap } from 'immutable';
+import Web3 from 'web3';
+import { get_test_markets } from './get_test_markets';
+import type { TestMarket } from './get_test_markets';
 
 type Props = {};
-type State = { data: ?string };
+type MarketsData =
+  | {|
+      status: 'error',
+      error: string,
+    |}
+  | {|
+      status: 'ok',
+      network: string,
+      markets: ImmMap<string, TestMarket>,
+    |};
+type State = { data: ?MarketsData };
 
 class TestMarketDetails extends React.Component<Props, State> {
   state: State;
@@ -26,15 +39,28 @@ class TestMarketDetails extends React.Component<Props, State> {
     });
   }
 
-  async run() {
+  async run(): Promise<MarketsData> {
     try {
-      const json = await fetch('/api/test_markets').then(response =>
-        response.json(),
+      // this won't work unless we have web3 in browser, but whatever for manual
+      // tests
+      const web3 = new Web3(window.web3.currentProvider);
+      const network = await new Promise((resolve, reject) =>
+        web3.version.getNetwork(
+          (error, result) => (error != null ? reject(error) : resolve(result)),
+        ),
       );
-      return JSON.stringify(json);
+      const markets = await get_test_markets(network);
+      return {
+        status: 'ok',
+        network,
+        markets,
+      };
     } catch (e) {
       console.error(e);
-      return e.toString();
+      return {
+        status: 'error',
+        error: e.toString(),
+      };
     }
   }
 
@@ -43,13 +69,15 @@ class TestMarketDetails extends React.Component<Props, State> {
   }
 
   render() {
-    const dataS = this.state.data;
+    const data = this.state.data;
 
-    if (dataS == null) {
+    if (data == null) {
       return <span>Loading...</span>;
     }
 
-    const data = JSON.parse(dataS);
+    if (data.status === 'error') {
+      return <span>Failed to fetch markets: {data.error}</span>;
+    }
 
     return (
       <ul>
