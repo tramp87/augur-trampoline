@@ -13,7 +13,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import qs from 'qs';
 import nullthrows from 'nullthrows';
 import '../App.css';
-import TestMarketDetails from '../testenv/testmarketcomponent';
+import TestMarketsDetails from '../testenv/testmarketscomponent';
 
 const Home = () => (
   <Grid fluid style={{ margin: '1em' }}>
@@ -40,7 +40,7 @@ const Home = () => (
             <Panel.Title componentClass="h3">Test markets</Panel.Title>
           </Panel.Heading>
           <Panel.Body>
-            <TestMarketDetails />
+            <TestMarketsDetails />
           </Panel.Body>
         </Panel>
         <Form />

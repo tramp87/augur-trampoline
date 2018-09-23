@@ -19,7 +19,7 @@ type MarketsData =
     |};
 type State = { data: ?MarketsData };
 
-class TestMarketDetails extends React.Component<Props, State> {
+class TestMarketsDetails extends React.Component<Props, State> {
   state: State;
   _mounted: boolean;
 
@@ -99,4 +99,4 @@ class TestMarketDetails extends React.Component<Props, State> {
   }
 }
 
-export default TestMarketDetails;
+export default TestMarketsDetails;
