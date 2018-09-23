@@ -41,11 +41,11 @@ function toRouterPath(request: Request): string {
     creationTX: request.creationTX,
   });
 
-  return `/${nullthrows(
-    ImmMap(networkNameToID)
-      .flip()
-      .get(request.networkID),
-  )}/${request.market}/${request.outcome}/${request.action}/${query_params}`;
+  return `/${ImmMap(networkNameToID)
+    .flip()
+    .get(request.networkID, request.networkID)}/${request.market}/${
+    request.outcome
+  }/${request.action}/${query_params}`;
 }
 
 export { ROUTER_PATH, fromRouterMatch, toRouterPath };

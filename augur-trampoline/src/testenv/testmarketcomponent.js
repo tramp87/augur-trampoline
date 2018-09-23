@@ -1,10 +1,12 @@
 // @flow
 
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import Web3 from 'web3';
 import nullthrows from 'nullthrows';
 import BigNumber from 'bignumber.js';
 import { Range as ImmRange } from 'immutable';
+import { toRouterPath } from '../request';
 import fetchMarketData from '../steps/DisplayMarketData/fetch';
 import type { MarketData } from '../steps/DisplayMarketData/fetch';
 
@@ -141,7 +143,36 @@ class TestMarketDetails extends React.Component<Props, State> {
                         marketType={data.marketType}
                         outcomes={data.outcomes}
                         index={index}
-                      />
+                      />{' '}
+                      <Link
+                        to={toRouterPath({
+                          networkID: this.props.network,
+                          market: this.props.id,
+                          creationTX: this.props.creationTX,
+                          outcome: `0x${index.toString(16)}`,
+                          action: 'buy',
+                          amount: '1000000000000000000',
+                          price: data.numTicks.times(0.8).toFixed(0),
+                          redirect: window.location,
+                        })}
+                      >
+                        buy@0.8
+                      </Link>{' '}
+                      or{' '}
+                      <Link
+                        to={toRouterPath({
+                          networkID: this.props.network,
+                          market: this.props.id,
+                          creationTX: this.props.creationTX,
+                          outcome: `0x${index.toString(16)}`,
+                          action: 'sell',
+                          amount: '1000000000000000000',
+                          price: data.numTicks.times(0.2).toFixed(0),
+                          redirect: window.location,
+                        })}
+                      >
+                        sell@0.2
+                      </Link>
                     </li>
                   ))
                   .toArray()}
