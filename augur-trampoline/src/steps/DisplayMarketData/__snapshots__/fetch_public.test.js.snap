@@ -1,0 +1,194 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`can fetch market data from network mainnet 1`] = `
+Immutable.Map {
+  eth500: Object {
+    "denominationToken": "0xd5524179cb7ae012f5b642c1d6d700bbaa76b96b",
+    "description": "Will price of Ethereum exceed $500 at the end of 2018?",
+    "endTime": "1546333200",
+    "isFinalized": "<OMITTED to make test not time-dependent>",
+    "longDescription": "As reported by Coinbase.pro (last trade in 2018)",
+    "marketCreationFee": "10000000000000000",
+    "marketType": "0",
+    "maxPrice": "1000000000000000000",
+    "minPrice": "0",
+    "numTicks": "10000",
+    "numberOfOutcomes": "2",
+    "outcomes": Array [],
+    "resolutionSource": "https://pro.coinbase.com/trade/ETH-USD",
+  },
+  rep32: Object {
+    "denominationToken": "0xd5524179cb7ae012f5b642c1d6d700bbaa76b96b",
+    "description": "Will REP token trade above $32 at the end of 2018?",
+    "endTime": "1546333200",
+    "isFinalized": "<OMITTED to make test not time-dependent>",
+    "longDescription": "As reported by major exchanges.",
+    "marketCreationFee": "10000000000000000",
+    "marketType": "0",
+    "maxPrice": "1000000000000000000",
+    "minPrice": "0",
+    "numTicks": "10000",
+    "numberOfOutcomes": "2",
+    "outcomes": Array [],
+    "resolutionSource": "https://coinmarketcap.com/currencies/augur/",
+  },
+  btc20k: Object {
+    "denominationToken": "0xd5524179cb7ae012f5b642c1d6d700bbaa76b96b",
+    "description": "Will the Bitcoin (BTC) price exceeds $ 20 000 at midnight UTC on December 31, 2018 ?",
+    "endTime": "1546300800",
+    "isFinalized": "<OMITTED to make test not time-dependent>",
+    "longDescription": "Only the bitcoin (BTC) price at midnight UTC on December 31, 2018 will be considered for the determination of the final outcome, even if the price of bitcoin exceeds USD 20 000 before the end of 2018. 
+  In the event of disappearance of the site \\"coinmarketcap\\", the reporters will be able to use any other websites to give the result and to make a consensus on the final outcome.",
+    "marketCreationFee": "10000000000000000",
+    "marketType": "0",
+    "maxPrice": "1000000000000000000",
+    "minPrice": "0",
+    "numTicks": "10000",
+    "numberOfOutcomes": "2",
+    "outcomes": Array [],
+    "resolutionSource": "https://coinmarketcap.com/",
+  },
+  eth_options_categorical: Object {
+    "denominationToken": "0xd5524179cb7ae012f5b642c1d6d700bbaa76b96b",
+    "description": "Ethereum Call/Put Options, Hedging: Dec. 31, 2018.",
+    "endTime": "1546477200",
+    "isFinalized": "<OMITTED to make test not time-dependent>",
+    "longDescription": "The winning contract shall be the bracket such that the last price of Ethereum on the end date exceeds the value in the bracket, without exceeding any value above it in the list of contracts.
+  For example, if the end price is 499.99, the \\"400\\" bracket wins out. If end price is 12,345.67, then the top-most bracket wins out.",
+    "marketCreationFee": "10000000000000000",
+    "marketType": "1",
+    "maxPrice": "1000000000000000000",
+    "minPrice": "0",
+    "numTicks": "10000",
+    "numberOfOutcomes": "8",
+    "outcomes": Array [
+      "0x3830300000000000000000000000000000000000000000000000000000000000",
+      "0x3730300000000000000000000000000000000000000000000000000000000000",
+      "0x3630300000000000000000000000000000000000000000000000000000000000",
+      "0x3530300000000000000000000000000000000000000000000000000000000000",
+      "0x3430300000000000000000000000000000000000000000000000000000000000",
+      "0x3330300000000000000000000000000000000000000000000000000000000000",
+      "0x3230300000000000000000000000000000000000000000000000000000000000",
+      "0x3000000000000000000000000000000000000000000000000000000000000000",
+    ],
+    "resolutionSource": "https://pro.coinbase.com/trade/ETH-USD",
+  },
+  trump_reelection_2020: Object {
+    "denominationToken": "0xd5524179cb7ae012f5b642c1d6d700bbaa76b96b",
+    "description": "Will Donald Trump be Re-Elected in 2020?",
+    "endTime": "1607220000",
+    "isFinalized": "<OMITTED to make test not time-dependent>",
+    "longDescription": "Donald Trump shall be re-elected as president of the United States in 2020, as determined by the Electoral College count, regardless of any electoral college members changing their vote. Inauguration shall have no effect on this market.",
+    "marketCreationFee": "10000000000000000",
+    "marketType": "0",
+    "maxPrice": "1000000000000000000",
+    "minPrice": "0",
+    "numTicks": "10000",
+    "numberOfOutcomes": "2",
+    "outcomes": Array [],
+    "resolutionSource": "",
+  },
+  ethcall500: Object {
+    "denominationToken": "0xd5524179cb7ae012f5b642c1d6d700bbaa76b96b",
+    "description": "ETH call option at $500 [expiring 2019-01-01]",
+    "endTime": "1546304400",
+    "isFinalized": "<OMITTED to make test not time-dependent>",
+    "longDescription": "If your client does not render the details properly, you can view https://gateway.ipfs.io/ipfs/QmbXL4YifbyNhKcdfBG9GAt7Bq291ZBzBWW91rYXa61p5T
+  
+  YES share represents European call option on ETH with strike price $500.
+  Holder of NO share becomes option writer.
+  
+  At the expiration holder of YES share receives the amount by which ETH exceeds price of $500.
+  Holder of NO share received $500 or 1 ETH, whichever is smaller.
+  
+  Now you can trade Ethereum volatility on Augur :)
+  
+  ===
+  
+  Instruction for reporters:
+  
+  Let E be price of last trade on Coinbase Pro for pair ETH/USD in year 2018 (UTC).
+  
+  Calculate V = (E - $500) / E.
+  
+  If V < 0, resolve market as 0.
+  Otherwise resolve market as V, rounded to the nearest market tick.
+  
+  In the unlikely event that V falls exactly in the middle between two market ticks, round up.",
+    "marketCreationFee": "10000000000000000",
+    "marketType": "2",
+    "maxPrice": "1000000000000000000",
+    "minPrice": "0",
+    "numTicks": "100",
+    "numberOfOutcomes": "2",
+    "outcomes": Array [],
+    "resolutionSource": "https://pro.coinbase.com/trade/ETH-USD",
+  },
+  usd100scalar: Object {
+    "denominationToken": "0xd5524179cb7ae012f5b642c1d6d700bbaa76b96b",
+    "description": "What will the price of 100 USD be at the end of 2018, denominated in ETH?",
+    "endTime": "1546347600",
+    "isFinalized": "<OMITTED to make test not time-dependent>",
+    "longDescription": "The price of USD denominated in ETH is equal to 100 divided by the price of ETH in USD. For example, if the price of 1 ETH is 500 USD, then this contract settles with a value 0.2. In this case, someone with a YES share would be paid 0.2 ETH, while someone with a NO share would be paid 0.8 ETH. If the price of ETH is 100 USD, this contract settles with a value of 1, paying out 1 ETH to YES holders and 0 to NO holders. If the price of ETH is less than 100 USD, this contract will still pay out 1 ETH to YES holders and 0 to NO holders.",
+    "marketCreationFee": "10000000000000000",
+    "marketType": "2",
+    "maxPrice": "1000000000000000000",
+    "minPrice": "0",
+    "numTicks": "100",
+    "numberOfOutcomes": "2",
+    "outcomes": Array [],
+    "resolutionSource": "https://pro.coinbase.com/trade/ETH-USD",
+  },
+}
+`;
+
+exports[`can fetch market data from network rinkeby 1`] = `
+Immutable.Map {
+  cfk_jail: Object {
+    "denominationToken": "0x2da4d465978981bd75bbac4c9f3bda10be0b465c",
+    "description": "Will the ex-president of Argentina, CFK, go to jail before the end of the year?",
+    "endTime": "1546311540",
+    "isFinalized": "<OMITTED to make test not time-dependent>",
+    "longDescription": "If CFK ends up in jail before the end of the year, the premise closes at the moment of the fact.
+  ONLY AN EFFECTIVE PRISON WILL BE ADMITTED, NOT A PREVENTIVE PRISON.",
+    "marketCreationFee": "10000000000000000",
+    "marketType": "0",
+    "maxPrice": "1000000000000000000",
+    "minPrice": "0",
+    "numTicks": "10000",
+    "numberOfOutcomes": "2",
+    "outcomes": Array [],
+    "resolutionSource": "https://www.clarin.com/",
+  },
+  trump_impeachment: Object {
+    "denominationToken": "0x2da4d465978981bd75bbac4c9f3bda10be0b465c",
+    "description": "Will Donald Trump be impeached by December 25th, 2018?",
+    "endTime": "1545786000",
+    "isFinalized": "<OMITTED to make test not time-dependent>",
+    "longDescription": "Do you think Trump will remain president or be impeached? Put your money where your mouth is and bet on the outcome. ",
+    "marketCreationFee": "10000000000000000",
+    "marketType": "0",
+    "maxPrice": "1000000000000000000",
+    "minPrice": "0",
+    "numTicks": "10000",
+    "numberOfOutcomes": "2",
+    "outcomes": Array [],
+    "resolutionSource": "",
+  },
+  china_antibiotics: Object {
+    "denominationToken": "0x2da4d465978981bd75bbac4c9f3bda10be0b465c",
+    "description": "Will antibiotics be outlawed for agricultural use in China by the end of 2019?",
+    "endTime": "1577865600",
+    "isFinalized": "<OMITTED to make test not time-dependent>",
+    "longDescription": "Will antibiotic pan-resistance lead to a massive resurgence of infectious diseases?",
+    "marketCreationFee": "10000000000000000",
+    "marketType": "0",
+    "maxPrice": "1000000000000000000",
+    "minPrice": "0",
+    "numTicks": "10000",
+    "numberOfOutcomes": "2",
+    "outcomes": Array [],
+    "resolutionSource": "",
+  },
+}
+`;

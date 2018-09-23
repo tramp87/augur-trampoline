@@ -85,7 +85,7 @@ class TestMarketsDetails extends React.Component<Props, State> {
         <li>
           Network ID: {data.network}
           <ol>
-            {ImmMap(data.markets)
+            {data.markets
               .entrySeq()
               .sort()
               .map(([name, details]) => (

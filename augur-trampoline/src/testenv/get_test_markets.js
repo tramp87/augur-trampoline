@@ -21,7 +21,7 @@ async function get_test_markets(
   network: string,
 ): Promise<ImmMap<string, TestMarket>> {
   if (MARKETS_ON_PUBLIC_NETWORKS[network] != null) {
-    return MARKETS_ON_PUBLIC_NETWORKS[network];
+    return ImmMap(MARKETS_ON_PUBLIC_NETWORKS[network]);
   }
 
   console.log(`Assuming ${network} is a local network.`);
