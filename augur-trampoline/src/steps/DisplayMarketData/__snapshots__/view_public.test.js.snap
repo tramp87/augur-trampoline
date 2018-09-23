@@ -1,0 +1,336 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render loaded market: btc20k 1`] = `
+<div>
+  <div>
+    {"marketData":{"numberOfOutcomes":"2","numTicks":"10000","denominationToken":"0xd5524179cb7ae012f5b642c1d6d700bbaa76b96b","endTime":"1546300800","isFinalized":false,"description":"Will the Bitcoin (BTC) price exceeds $ 20 000 at midnight UTC on December 31, 2018 ?","longDescription":"Only the bitcoin (BTC) price at midnight UTC on December 31, 2018 will be considered for the determination of the final outcome, even if the price of bitcoin exceeds USD 20 000 before the end of 2018. \\nIn the event of disappearance of the site \\"coinmarketcap\\", the reporters will be able to use any other websites to give the result and to make a consensus on the final outcome.","resolutionSource":"https://coinmarketcap.com/","outcomes":[],"marketCreationFee":"10000000000000000","minPrice":"0","maxPrice":"1000000000000000000","marketType":"0"},"havingErrors":false}
+  </div>
+  <div
+    className="panel panel-default"
+  >
+    <div
+      className="panel-heading"
+    >
+      <h3
+        className="panel-title"
+      >
+        Will the Bitcoin (BTC) price exceeds $ 20 000 at midnight UTC on December 31, 2018 ?
+      </h3>
+    </div>
+    <div
+      className="panel-body"
+    >
+      <p>
+        Resolution source:
+         
+        <a
+          href="https://coinmarketcap.com/"
+          target="_blank"
+        >
+          https://coinmarketcap.com/
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Render loaded market: cfk_jail 1`] = `
+<div>
+  <div>
+    {"marketData":{"numberOfOutcomes":"2","numTicks":"10000","denominationToken":"0x2da4d465978981bd75bbac4c9f3bda10be0b465c","endTime":"1546311540","isFinalized":false,"description":"Will the ex-president of Argentina, CFK, go to jail before the end of the year?","longDescription":"If CFK ends up in jail before the end of the year, the premise closes at the moment of the fact.\\nONLY AN EFFECTIVE PRISON WILL BE ADMITTED, NOT A PREVENTIVE PRISON.","resolutionSource":"https://www.clarin.com/","outcomes":[],"marketCreationFee":"10000000000000000","minPrice":"0","maxPrice":"1000000000000000000","marketType":"0"},"havingErrors":false}
+  </div>
+  <div
+    className="panel panel-default"
+  >
+    <div
+      className="panel-heading"
+    >
+      <h3
+        className="panel-title"
+      >
+        Will the ex-president of Argentina, CFK, go to jail before the end of the year?
+      </h3>
+    </div>
+    <div
+      className="panel-body"
+    >
+      <p>
+        Resolution source:
+         
+        <a
+          href="https://www.clarin.com/"
+          target="_blank"
+        >
+          https://www.clarin.com/
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Render loaded market: china_antibiotics 1`] = `
+<div>
+  <div>
+    {"marketData":{"numberOfOutcomes":"2","numTicks":"10000","denominationToken":"0x2da4d465978981bd75bbac4c9f3bda10be0b465c","endTime":"1577865600","isFinalized":false,"description":"Will antibiotics be outlawed for agricultural use in China by the end of 2019?","longDescription":"Will antibiotic pan-resistance lead to a massive resurgence of infectious diseases?","resolutionSource":"","outcomes":[],"marketCreationFee":"10000000000000000","minPrice":"0","maxPrice":"1000000000000000000","marketType":"0"},"havingErrors":false}
+  </div>
+  <div
+    className="panel panel-default"
+  >
+    <div
+      className="panel-heading"
+    >
+      <h3
+        className="panel-title"
+      >
+        Will antibiotics be outlawed for agricultural use in China by the end of 2019?
+      </h3>
+    </div>
+    <div
+      className="panel-body"
+    >
+      <p>
+        Resolution source:
+         
+        General knowledge
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Render loaded market: eth_options_categorical 1`] = `
+<div>
+  <div>
+    {"marketData":{"numberOfOutcomes":"8","numTicks":"10000","denominationToken":"0xd5524179cb7ae012f5b642c1d6d700bbaa76b96b","endTime":"1546477200","isFinalized":false,"description":"Ethereum Call/Put Options, Hedging: Dec. 31, 2018.","longDescription":"The winning contract shall be the bracket such that the last price of Ethereum on the end date exceeds the value in the bracket, without exceeding any value above it in the list of contracts.\\nFor example, if the end price is 499.99, the \\"400\\" bracket wins out. If end price is 12,345.67, then the top-most bracket wins out.","resolutionSource":"https://pro.coinbase.com/trade/ETH-USD","outcomes":["800","700","600","500","400","300","200","0"],"marketCreationFee":"10000000000000000","minPrice":"0","maxPrice":"1000000000000000000","marketType":"1"},"havingErrors":false}
+  </div>
+  <div
+    className="panel panel-default"
+  >
+    <div
+      className="panel-heading"
+    >
+      <h3
+        className="panel-title"
+      >
+        Ethereum Call/Put Options, Hedging: Dec. 31, 2018.
+      </h3>
+    </div>
+    <div
+      className="panel-body"
+    >
+      <p>
+        Resolution source:
+         
+        <a
+          href="https://pro.coinbase.com/trade/ETH-USD"
+          target="_blank"
+        >
+          https://pro.coinbase.com/trade/ETH-USD
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Render loaded market: eth500 1`] = `
+<div>
+  <div>
+    {"marketData":{"numberOfOutcomes":"2","numTicks":"10000","denominationToken":"0xd5524179cb7ae012f5b642c1d6d700bbaa76b96b","endTime":"1546333200","isFinalized":false,"description":"Will price of Ethereum exceed $500 at the end of 2018?","longDescription":"As reported by Coinbase.pro (last trade in 2018)","resolutionSource":"https://pro.coinbase.com/trade/ETH-USD","outcomes":[],"marketCreationFee":"10000000000000000","minPrice":"0","maxPrice":"1000000000000000000","marketType":"0"},"havingErrors":false}
+  </div>
+  <div
+    className="panel panel-default"
+  >
+    <div
+      className="panel-heading"
+    >
+      <h3
+        className="panel-title"
+      >
+        Will price of Ethereum exceed $500 at the end of 2018?
+      </h3>
+    </div>
+    <div
+      className="panel-body"
+    >
+      <p>
+        Resolution source:
+         
+        <a
+          href="https://pro.coinbase.com/trade/ETH-USD"
+          target="_blank"
+        >
+          https://pro.coinbase.com/trade/ETH-USD
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Render loaded market: ethcall500 1`] = `
+<div>
+  <div>
+    {"marketData":{"numberOfOutcomes":"2","numTicks":"100","denominationToken":"0xd5524179cb7ae012f5b642c1d6d700bbaa76b96b","endTime":"1546304400","isFinalized":false,"description":"ETH call option at $500 [expiring 2019-01-01]","longDescription":"If your client does not render the details properly, you can view https://gateway.ipfs.io/ipfs/QmbXL4YifbyNhKcdfBG9GAt7Bq291ZBzBWW91rYXa61p5T\\n\\nYES share represents European call option on ETH with strike price $500.\\nHolder of NO share becomes option writer.\\n\\nAt the expiration holder of YES share receives the amount by which ETH exceeds price of $500.\\nHolder of NO share received $500 or 1 ETH, whichever is smaller.\\n\\nNow you can trade Ethereum volatility on Augur :)\\n\\n===\\n\\nInstruction for reporters:\\n\\nLet E be price of last trade on Coinbase Pro for pair ETH/USD in year 2018 (UTC).\\n\\nCalculate V = (E - $500) / E.\\n\\nIf V &lt; 0, resolve market as 0.\\nOtherwise resolve market as V, rounded to the nearest market tick.\\n\\nIn the unlikely event that V falls exactly in the middle between two market ticks, round up.","resolutionSource":"https://pro.coinbase.com/trade/ETH-USD","outcomes":[],"marketCreationFee":"10000000000000000","minPrice":"0","maxPrice":"1000000000000000000","marketType":"2"},"havingErrors":false}
+  </div>
+  <div
+    className="panel panel-default"
+  >
+    <div
+      className="panel-heading"
+    >
+      <h3
+        className="panel-title"
+      >
+        ETH call option at $500 [expiring 2019-01-01]
+      </h3>
+    </div>
+    <div
+      className="panel-body"
+    >
+      <p>
+        Resolution source:
+         
+        <a
+          href="https://pro.coinbase.com/trade/ETH-USD"
+          target="_blank"
+        >
+          https://pro.coinbase.com/trade/ETH-USD
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Render loaded market: rep32 1`] = `
+<div>
+  <div>
+    {"marketData":{"numberOfOutcomes":"2","numTicks":"10000","denominationToken":"0xd5524179cb7ae012f5b642c1d6d700bbaa76b96b","endTime":"1546333200","isFinalized":false,"description":"Will REP token trade above $32 at the end of 2018?","longDescription":"As reported by major exchanges.","resolutionSource":"https://coinmarketcap.com/currencies/augur/","outcomes":[],"marketCreationFee":"10000000000000000","minPrice":"0","maxPrice":"1000000000000000000","marketType":"0"},"havingErrors":false}
+  </div>
+  <div
+    className="panel panel-default"
+  >
+    <div
+      className="panel-heading"
+    >
+      <h3
+        className="panel-title"
+      >
+        Will REP token trade above $32 at the end of 2018?
+      </h3>
+    </div>
+    <div
+      className="panel-body"
+    >
+      <p>
+        Resolution source:
+         
+        <a
+          href="https://coinmarketcap.com/currencies/augur/"
+          target="_blank"
+        >
+          https://coinmarketcap.com/currencies/augur/
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Render loaded market: trump_impeachment 1`] = `
+<div>
+  <div>
+    {"marketData":{"numberOfOutcomes":"2","numTicks":"10000","denominationToken":"0x2da4d465978981bd75bbac4c9f3bda10be0b465c","endTime":"1545786000","isFinalized":false,"description":"Will Donald Trump be impeached by December 25th, 2018?","longDescription":"Do you think Trump will remain president or be impeached? Put your money where your mouth is and bet on the outcome. ","resolutionSource":"","outcomes":[],"marketCreationFee":"10000000000000000","minPrice":"0","maxPrice":"1000000000000000000","marketType":"0"},"havingErrors":false}
+  </div>
+  <div
+    className="panel panel-default"
+  >
+    <div
+      className="panel-heading"
+    >
+      <h3
+        className="panel-title"
+      >
+        Will Donald Trump be impeached by December 25th, 2018?
+      </h3>
+    </div>
+    <div
+      className="panel-body"
+    >
+      <p>
+        Resolution source:
+         
+        General knowledge
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Render loaded market: trump_reelection_2020 1`] = `
+<div>
+  <div>
+    {"marketData":{"numberOfOutcomes":"2","numTicks":"10000","denominationToken":"0xd5524179cb7ae012f5b642c1d6d700bbaa76b96b","endTime":"1607220000","isFinalized":false,"description":"Will Donald Trump be Re-Elected in 2020?","longDescription":"Donald Trump shall be re-elected as president of the United States in 2020, as determined by the Electoral College count, regardless of any electoral college members changing their vote. Inauguration shall have no effect on this market.","resolutionSource":"","outcomes":[],"marketCreationFee":"10000000000000000","minPrice":"0","maxPrice":"1000000000000000000","marketType":"0"},"havingErrors":false}
+  </div>
+  <div
+    className="panel panel-default"
+  >
+    <div
+      className="panel-heading"
+    >
+      <h3
+        className="panel-title"
+      >
+        Will Donald Trump be Re-Elected in 2020?
+      </h3>
+    </div>
+    <div
+      className="panel-body"
+    >
+      <p>
+        Resolution source:
+         
+        General knowledge
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Render loaded market: usd100scalar 1`] = `
+<div>
+  <div>
+    {"marketData":{"numberOfOutcomes":"2","numTicks":"100","denominationToken":"0xd5524179cb7ae012f5b642c1d6d700bbaa76b96b","endTime":"1546347600","isFinalized":false,"description":"What will the price of 100 USD be at the end of 2018, denominated in ETH?","longDescription":"The price of USD denominated in ETH is equal to 100 divided by the price of ETH in USD. For example, if the price of 1 ETH is 500 USD, then this contract settles with a value 0.2. In this case, someone with a YES share would be paid 0.2 ETH, while someone with a NO share would be paid 0.8 ETH. If the price of ETH is 100 USD, this contract settles with a value of 1, paying out 1 ETH to YES holders and 0 to NO holders. If the price of ETH is less than 100 USD, this contract will still pay out 1 ETH to YES holders and 0 to NO holders.","resolutionSource":"https://pro.coinbase.com/trade/ETH-USD","outcomes":[],"marketCreationFee":"10000000000000000","minPrice":"0","maxPrice":"1000000000000000000","marketType":"2"},"havingErrors":false}
+  </div>
+  <div
+    className="panel panel-default"
+  >
+    <div
+      className="panel-heading"
+    >
+      <h3
+        className="panel-title"
+      >
+        What will the price of 100 USD be at the end of 2018, denominated in ETH?
+      </h3>
+    </div>
+    <div
+      className="panel-body"
+    >
+      <p>
+        Resolution source:
+         
+        <a
+          href="https://pro.coinbase.com/trade/ETH-USD"
+          target="_blank"
+        >
+          https://pro.coinbase.com/trade/ETH-USD
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+`;
