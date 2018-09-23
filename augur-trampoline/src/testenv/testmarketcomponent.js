@@ -128,9 +128,9 @@ class TestMarketDetails extends React.Component<Props, State> {
           {nullthrows(market_type_name[data.marketType.toNumber()])}] [outcomes:
           {data.numberOfOutcomes.toString()}] {data.description}
           <ol>
-            <li>id: {this.props.id}</li>
-            <li>creation TX: {this.props.creationTX}</li>
-            <li>debug: {JSON.stringify(data)}</li>
+            <li>
+              id: {this.props.id}, creation TX: {this.props.creationTX}
+            </li>
             <li>
               Outcomes:
               <ol>
@@ -138,12 +138,13 @@ class TestMarketDetails extends React.Component<Props, State> {
                   .map(index => (
                     <li key={index}>
                       [0x
-                      {index.toString(16)}]{' '}
+                      {index.toString(16)}:{' '}
                       <Outcome
                         marketType={data.marketType}
                         outcomes={data.outcomes}
                         index={index}
-                      />{' '}
+                      />
+                      ]{' '}
                       <Link
                         to={toRouterPath({
                           networkID: this.props.network,
@@ -153,7 +154,7 @@ class TestMarketDetails extends React.Component<Props, State> {
                           action: 'buy',
                           amount: '1000000000000000000',
                           price: data.numTicks.times(0.8).toFixed(0),
-                          redirect: window.location,
+                          redirect: window.location.href,
                         })}
                       >
                         buy@0.8
@@ -168,7 +169,7 @@ class TestMarketDetails extends React.Component<Props, State> {
                           action: 'sell',
                           amount: '1000000000000000000',
                           price: data.numTicks.times(0.2).toFixed(0),
-                          redirect: window.location,
+                          redirect: window.location.href,
                         })}
                       >
                         sell@0.2
