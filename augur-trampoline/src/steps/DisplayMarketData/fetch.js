@@ -197,7 +197,8 @@ async function fetchMarketCreationInfo(
   return {
     description: event.description,
     longDescription: nullthrows(extraInfo.longDescription),
-    resolutionSource: nullthrows(extraInfo.resolutionSource),
+    resolutionSource:
+      extraInfo.resolutionSource != null ? extraInfo.resolutionSource : '',
     outcomes: event.outcomes,
     marketCreationFee: new BigNumber(event.marketCreationFee),
     minPrice: event.minPrice,
