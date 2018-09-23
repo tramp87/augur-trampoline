@@ -3,6 +3,8 @@
 import React, { Fragment } from 'react';
 import Web3 from 'web3';
 import nullthrows from 'nullthrows';
+import BigNumber from 'bignumber.js';
+import { Range as ImmRange } from 'immutable';
 import fetchMarketData from '../steps/DisplayMarketData/fetch';
 import type { MarketData } from '../steps/DisplayMarketData/fetch';
 
@@ -22,6 +24,30 @@ type WrappedMarketData =
       data: MarketData,
     |};
 type State = { data: ?WrappedMarketData };
+
+const Outcome = ({
+  marketType,
+  outcomes,
+  index,
+}: {
+  marketType: BigNumber,
+  outcomes: Array<string>,
+  index: number,
+}) => {
+  if (marketType.toNumber() === 0) {
+    // binary
+    return nullthrows(['NO', 'YES'][index]);
+  } else if (marketType.toNumber() === 1) {
+    // categorical
+    return nullthrows(outcomes[index]);
+  } else if (marketType.toNumber() === 2) {
+    // scalar
+    // TODO: think of boundaries
+    return nullthrows(['DOWN', 'UP'][index]);
+  }
+
+  throw new Error(`Unknown market type ${marketType}`);
+};
 
 class TestMarketDetails extends React.Component<Props, State> {
   state: State;
@@ -103,6 +129,24 @@ class TestMarketDetails extends React.Component<Props, State> {
             <li>id: {this.props.id}</li>
             <li>creation TX: {this.props.creationTX}</li>
             <li>debug: {JSON.stringify(data)}</li>
+            <li>
+              Outcomes:
+              <ol>
+                {ImmRange(0, data.numberOfOutcomes.toNumber())
+                  .map(index => (
+                    <li key={index}>
+                      [0x
+                      {index.toString(16)}]{' '}
+                      <Outcome
+                        marketType={data.marketType}
+                        outcomes={data.outcomes}
+                        index={index}
+                      />
+                    </li>
+                  ))
+                  .toArray()}
+              </ol>
+            </li>
           </ol>
         </span>
       );
