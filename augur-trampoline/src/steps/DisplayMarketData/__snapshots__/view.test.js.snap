@@ -63,7 +63,7 @@ Object {
   "children": Array [
     Object {
       "children": Array [
-        "{\\"marketData\\":{\\"numberOfOutcomes\\":\\"3\\",\\"numTicks\\":\\"10000\\",\\"denominationToken\\":\\"_MASKED_denominationToken_FOR_DETERMINISM_\\",\\"endTime\\":\\"_MASKED_endTime_FOR_DETERMINISM_\\",\\"isFinalized\\":false,\\"description\\":\\"What is the best color?\\",\\"longDescription\\":\\"\\",\\"resolutionSource\\":\\"https://upload.wikimedia.org/wikipedia/commons/0/0e/Red-green-blue_flag.svg\\",\\"outcomes\\":[\\"0x3078303030303030303030303030303030303030303030303030303030303030\\",\\"0x3078303030303030303030303030303030303030303030303030303030303030\\",\\"0x3078303030303030303030303030303030303030303030303030303030303030\\"],\\"marketCreationFee\\":\\"10000000000000000\\",\\"minPrice\\":\\"0\\",\\"maxPrice\\":\\"1000000000000000000\\",\\"marketType\\":\\"1\\"},\\"havingErrors\\":false}",
+        "{\\"marketData\\":{\\"numberOfOutcomes\\":\\"3\\",\\"numTicks\\":\\"10000\\",\\"denominationToken\\":\\"_MASKED_denominationToken_FOR_DETERMINISM_\\",\\"endTime\\":\\"_MASKED_endTime_FOR_DETERMINISM_\\",\\"isFinalized\\":false,\\"description\\":\\"What is the best color?\\",\\"longDescription\\":\\"\\",\\"resolutionSource\\":\\"https://upload.wikimedia.org/wikipedia/commons/0/0e/Red-green-blue_flag.svg\\",\\"outcomes\\":[\\"0x5265640000000000000000000000000000000000000000000000000000000000\\",\\"0x477265656e000000000000000000000000000000000000000000000000000000\\",\\"0x426c756500000000000000000000000000000000000000000000000000000000\\"],\\"marketCreationFee\\":\\"10000000000000000\\",\\"minPrice\\":\\"0\\",\\"maxPrice\\":\\"1000000000000000000\\",\\"marketType\\":\\"1\\"},\\"havingErrors\\":false}",
       ],
       "props": Object {},
       "type": "div",

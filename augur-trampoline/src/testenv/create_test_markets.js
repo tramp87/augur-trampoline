@@ -5,6 +5,7 @@ import fs from 'fs';
 import nullthrows from 'nullthrows';
 import { JSDOM, VirtualConsole } from 'jsdom';
 import { Map as ImmMap } from 'immutable';
+import encodeTag from 'augur.js/src/format/tag/encode-tag';
 import { getContractAddresses, account, create_test_web3 } from './env';
 
 async function create_test_markets(): Promise<{|
@@ -43,7 +44,7 @@ async function create_test_markets(): Promise<{|
           _feePerEthInWei: '42',
           _denominationToken: addresses.Cash,
           _designatedReporterAddress: coinbase,
-          _topic: 'religion',
+          _topic: encodeTag('religion'),
           _description:
             'Can God create a stone so heavy that He cannot lift it?',
           _extraInfo: JSON.stringify({
@@ -70,16 +71,15 @@ async function create_test_markets(): Promise<{|
           _feePerEthInWei: '13',
           _denominationToken: addresses.Cash,
           _designatedReporterAddress: coinbase,
-          _topic: 'colors',
+          _topic: encodeTag('colors'),
           _description: 'What is the best color?',
           _extraInfo: JSON.stringify({
             resolutionSource:
               'https://upload.wikimedia.org/wikipedia/commons/0/0e/Red-green-blue_flag.svg',
             tags: [],
             longDescription: '',
-            outcomeNames: ['Red', 'Green', 'Blue'],
           }),
-          _outcomes: ['Red', 'Green', 'Blue'],
+          _outcomes: ['Red', 'Green', 'Blue'].map(s => encodeTag(s)),
           meta: account,
           tx: {
             from: '0x44291b3c469806e625500a6184a045d2a5994058',
@@ -102,7 +102,7 @@ async function create_test_markets(): Promise<{|
           _minPrice: 0,
           _maxPrice: 100,
           _numTicks: 100,
-          _topic: 'politics',
+          _topic: encodeTag('politics'),
           _description:
             'How many states will there be in the United States at the market expiration?',
           _extraInfo: JSON.stringify({
@@ -132,7 +132,7 @@ async function create_test_markets(): Promise<{|
           _minPrice: 1.0,
           _maxPrice: 1.3,
           _numTicks: 300,
-          _topic: 'finance',
+          _topic: encodeTag('finance'),
           _description: 'How much will EUR cost in USD at market expiration?',
           _extraInfo: JSON.stringify({
             resolutionSource: '',
