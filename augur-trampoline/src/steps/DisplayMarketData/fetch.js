@@ -4,6 +4,7 @@ import invariant from 'invariant';
 import Web3 from 'web3';
 import nullthrows from 'nullthrows';
 import BigNumber from 'bignumber.js';
+import abiDecodeShortStringAsInt256 from 'speedomatic/src/abi-decode-short-string-as-int256';
 import abiDecoder from '../../lib/contrib/abi-decoder';
 import abi from '../../lib/contracts/abi';
 import getContractAddresses from '../../lib/contracts/addresses';
@@ -199,7 +200,9 @@ async function fetchMarketCreationInfo(
     longDescription: nullthrows(extraInfo.longDescription),
     resolutionSource:
       extraInfo.resolutionSource != null ? extraInfo.resolutionSource : '',
-    outcomes: event.outcomes,
+    outcomes: event.outcomes.map(o =>
+      abiDecodeShortStringAsInt256(o).toString(),
+    ),
     marketCreationFee: new BigNumber(event.marketCreationFee),
     minPrice: event.minPrice,
     maxPrice: event.maxPrice,

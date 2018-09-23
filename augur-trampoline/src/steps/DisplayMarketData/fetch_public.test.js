@@ -4,7 +4,6 @@ import { Map as ImmMap } from 'immutable';
 import Web3 from 'web3';
 import { get_test_markets } from '../../testenv/get_test_markets';
 import fetchMarketData from './fetch';
-import clean_json_from_ids from './test/clean_json_from_ids';
 
 const networks = ImmMap({
   '1': 'mainnet',
