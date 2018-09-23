@@ -4,6 +4,7 @@ import React from 'react';
 import { Map as ImmMap } from 'immutable';
 import Web3 from 'web3';
 import { get_test_markets } from './get_test_markets';
+import TestMarketDetails from './testmarketcomponent';
 import type { TestMarket } from './get_test_markets';
 
 type Props = {};
@@ -89,7 +90,11 @@ class TestMarketsDetails extends React.Component<Props, State> {
               .sort()
               .map(([name, details]) => (
                 <li key={name}>
-                  <b>{name}</b>: {JSON.stringify(details)}
+                  <TestMarketDetails
+                    network={data.network}
+                    name={name}
+                    id={details.market}
+                  />
                 </li>
               ))}
           </ol>
