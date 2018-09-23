@@ -8,7 +8,7 @@ import nullthrows from 'nullthrows';
 import Label from 'react-bootstrap/lib/Label';
 import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
 import type { CancelableCallback } from '../lib/util/cancellable';
-import type { Request } from '../Request';
+import type { Request } from '../request';
 import { RetryButton, LogButton } from '../lib/ui/Buttons';
 import { CANCELLABLE_ABORT_MSG, cancellable } from '../lib/util/cancellable';
 import LogBox from '../lib/ui/LogBox';

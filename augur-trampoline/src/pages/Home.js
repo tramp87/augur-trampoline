@@ -1,5 +1,6 @@
 // @flow
 
+import invariant from 'invariant';
 import React from 'react';
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
@@ -10,10 +11,11 @@ import FormControl from 'react-bootstrap/lib/FormControl';
 import Panel from 'react-bootstrap/lib/Panel';
 import Button from 'react-bootstrap/lib/Button';
 import { LinkContainer } from 'react-router-bootstrap';
-import qs from 'qs';
 import nullthrows from 'nullthrows';
 import '../App.css';
+import { toRouterPath } from '../request/index';
 import TestMarketsDetails from '../testenv/testmarketscomponent';
+import type { Request } from '../request';
 
 const Home = () => (
   <Grid fluid style={{ margin: '1em' }}>
@@ -126,24 +128,45 @@ class Form extends React.Component<*, *> {
       },
     ];
 
-    const query_params = qs.stringify({
-      amount: this.state.amount,
-      price: this.state.price,
-      // for this example make it redirect back to this form
-      redirect: nullthrows(document.location.href.match(/(^[^#?]*)/))[0],
-      creationTX: this.state.creationTX,
-    });
+    const makeButton = () => {
+      try {
+        const action = this.state.action;
 
-    const checkout_link = `/${this.state.network}/${this.state.market}/${
-      this.state.outcome
-    }/${this.state.action}/${query_params}`;
+        invariant(
+          action === 'buy' || action === 'sell',
+          `Unsupported action: ${action}`,
+        );
+
+        const request: Request = {
+          amount: this.state.amount,
+          price: this.state.price,
+          // for this example make it redirect back to this form
+          redirect: nullthrows(document.location.href.match(/(^[^#?]*)/))[0],
+          creationTX: this.state.creationTX,
+          networkID: this.state.network,
+          market: this.state.market,
+          outcome: this.state.outcome,
+          action,
+        };
+
+        return (
+          <LinkContainer to={toRouterPath(request)}>
+            <Button bsStyle="primary">Initiate transaction</Button>
+          </LinkContainer>
+        );
+      } catch (e) {
+        return (
+          <Button disabled bsStyle="primary">
+            Error in form: {e.message}
+          </Button>
+        );
+      }
+    };
 
     return (
       <form>
         {definitions.map(field)}
-        <LinkContainer to={checkout_link}>
-          <Button bsStyle="primary">Initiate transaction</Button>
-        </LinkContainer>
+        {makeButton()}
       </form>
     );
   }

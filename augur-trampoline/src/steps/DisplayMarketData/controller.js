@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import Web3 from 'web3';
 import nullthrows from 'nullthrows';
 import type { CancelableCallback } from '../../lib/util/cancellable';
-import type { Request } from '../../Request';
+import type { Request } from '../../request';
 import { CANCELLABLE_ABORT_MSG, cancellable } from '../../lib/util/cancellable';
 import type { StepProps } from '../../lib/Step';
 import fetchMarketData from './fetch';
