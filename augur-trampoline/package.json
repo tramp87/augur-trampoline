@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:4000",
   "dependencies": {
+    "bignumber.js": "github:frozeman/bignumber.js-nolookahead",
     "is-equal-shallow": "^0.1.3",
     "nullthrows": "^1.0.2",
     "qs": "^6.5.2",

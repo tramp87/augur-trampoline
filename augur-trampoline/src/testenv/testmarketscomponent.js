@@ -82,8 +82,8 @@ class TestMarketsDetails extends React.Component<Props, State> {
 
     return (
       <ul>
-        <li>Network ID: {data.network}</li>
         <li>
+          Network ID: {data.network}
           <ol>
             {ImmMap(data.markets)
               .entrySeq()
@@ -94,6 +94,7 @@ class TestMarketsDetails extends React.Component<Props, State> {
                     network={data.network}
                     name={name}
                     id={details.market}
+                    creationTX={details.transaction}
                   />
                 </li>
               ))}

@@ -3,6 +3,7 @@
 import invariant from 'invariant';
 import Web3 from 'web3';
 import nullthrows from 'nullthrows';
+import BigNumber from 'bignumber.js';
 import abiDecoder from '../../lib/contrib/abi-decoder';
 import abi from '../../lib/contracts/abi';
 import getContractAddresses from '../../lib/contracts/addresses';
@@ -11,19 +12,19 @@ import type { Addresses } from '../../lib/contracts/addresses';
 abiDecoder.addABI(abi.Augur);
 
 export type MarketData = {|
-  numberOfOutcomes: string,
-  numTicks: string,
+  numberOfOutcomes: BigNumber,
+  numTicks: BigNumber,
   denominationToken: string,
-  endTime: string,
+  endTime: BigNumber,
   isFinalized: boolean,
   description: string,
   longDescription: string,
   resolutionSource: string,
-  outcomes: string,
-  marketCreationFee: string,
-  minPrice: string,
-  maxPrice: string,
-  marketType: string,
+  outcomes: Array<string>,
+  marketCreationFee: BigNumber,
+  minPrice: BigNumber,
+  maxPrice: BigNumber,
+  marketType: BigNumber,
 |};
 
 /**
@@ -198,10 +199,10 @@ async function fetchMarketCreationInfo(
     longDescription: nullthrows(extraInfo.longDescription),
     resolutionSource: nullthrows(extraInfo.resolutionSource),
     outcomes: event.outcomes,
-    marketCreationFee: event.marketCreationFee,
+    marketCreationFee: new BigNumber(event.marketCreationFee),
     minPrice: event.minPrice,
     maxPrice: event.maxPrice,
-    marketType: event.marketType,
+    marketType: new BigNumber(event.marketType),
   };
 }
 

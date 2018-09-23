@@ -1,12 +1,16 @@
 // @flow
 
 import React, { Fragment } from 'react';
+import Web3 from 'web3';
+import nullthrows from 'nullthrows';
+import fetchMarketData from '../steps/DisplayMarketData/fetch';
 import type { MarketData } from '../steps/DisplayMarketData/fetch';
 
 type Props = {|
   network: string,
   name: string,
   id: string,
+  creationTX: string,
 |};
 type WrappedMarketData =
   | {|
@@ -41,9 +45,15 @@ class TestMarketDetails extends React.Component<Props, State> {
 
   async run(): Promise<WrappedMarketData> {
     try {
+      const web3 = new Web3(window.web3.currentProvider);
+      const data = await fetchMarketData(
+        web3,
+        this.props.id,
+        this.props.creationTX,
+      );
       return {
-        status: 'error',
-        error: 'wip',
+        status: 'ok',
+        data,
       };
     } catch (e) {
       console.error(e);
@@ -59,10 +69,10 @@ class TestMarketDetails extends React.Component<Props, State> {
   }
 
   render() {
-    const data = this.state.data;
+    const wrapped = this.state.data;
 
     const getDetails = () => {
-      if (data == null) {
+      if (wrapped == null) {
         return (
           <span>
             Loading {this.props.id}
@@ -71,20 +81,37 @@ class TestMarketDetails extends React.Component<Props, State> {
         );
       }
 
-      if (data.status === 'error') {
+      if (wrapped.status === 'error') {
         return (
           <span>
-            Failed to fetch market {this.props.id}: {data.error}
+            Failed to fetch market {this.props.id}: {wrapped.error}
           </span>
         );
       }
 
-      return this.props.id;
+      const data = wrapped.data;
+
+      // TODO: this should come from some Augur.js enum
+      const market_type_name = ['binary', 'categorical', 'scalar'];
+
+      return (
+        <span>
+          [type:
+          {nullthrows(market_type_name[data.marketType.toNumber()])}] [outcomes:
+          {data.numberOfOutcomes.toString()}] {data.description}
+          <ol>
+            <li>id: {this.props.id}</li>
+            <li>creation TX: {this.props.creationTX}</li>
+            <li>debug: {JSON.stringify(data)}</li>
+          </ol>
+        </span>
+      );
     };
 
     return (
       <Fragment>
-        <b>{this.props.name}</b>: {getDetails()}
+        [alias:
+        {this.props.name}] {getDetails()}
       </Fragment>
     );
   }
