@@ -26,6 +26,7 @@ export type MarketData = {|
   minPrice: BigNumber,
   maxPrice: BigNumber,
   marketType: BigNumber,
+  scalarDenomination: ?string,
 |};
 
 /**
@@ -194,10 +195,12 @@ async function fetchMarketCreationInfo(
 
   const event = logs[0];
   const extraInfo = JSON.parse(event.extraInfo);
+  console.log({ extraInfo });
 
   return {
     description: event.description,
     longDescription: nullthrows(extraInfo.longDescription),
+    scalarDenomination: extraInfo._scalarDenomination,
     resolutionSource:
       extraInfo.resolutionSource != null ? extraInfo.resolutionSource : '',
     outcomes: event.outcomes.map(o =>
