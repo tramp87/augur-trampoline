@@ -50,6 +50,7 @@ Immutable.Map {
     "numberOfOutcomes": "2",
     "outcomes": Array [],
     "resolutionSource": "",
+    "scalarDenomination": "states",
   },
   scalar2: Object {
     "denominationToken": "_MASKED_denominationToken_FOR_DETERMINISM_",
@@ -65,6 +66,7 @@ Immutable.Map {
     "numberOfOutcomes": "2",
     "outcomes": Array [],
     "resolutionSource": "",
+    "scalarDenomination": "USD",
   },
 }
 `;

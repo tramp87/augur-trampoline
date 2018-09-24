@@ -130,7 +130,7 @@ Object {
   "children": Array [
     Object {
       "children": Array [
-        "{\\"marketData\\":{\\"numberOfOutcomes\\":\\"2\\",\\"numTicks\\":\\"100\\",\\"denominationToken\\":\\"_MASKED_denominationToken_FOR_DETERMINISM_\\",\\"endTime\\":\\"_MASKED_endTime_FOR_DETERMINISM_\\",\\"isFinalized\\":false,\\"description\\":\\"How many states will there be in the United States at the market expiration?\\",\\"longDescription\\":\\"\\",\\"resolutionSource\\":\\"\\",\\"outcomes\\":[],\\"marketCreationFee\\":\\"10000000000000000\\",\\"minPrice\\":\\"0\\",\\"maxPrice\\":\\"100000000000000000000\\",\\"marketType\\":\\"2\\"},\\"havingErrors\\":false}",
+        "{\\"marketData\\":{\\"numberOfOutcomes\\":\\"2\\",\\"numTicks\\":\\"100\\",\\"denominationToken\\":\\"_MASKED_denominationToken_FOR_DETERMINISM_\\",\\"endTime\\":\\"_MASKED_endTime_FOR_DETERMINISM_\\",\\"isFinalized\\":false,\\"description\\":\\"How many states will there be in the United States at the market expiration?\\",\\"longDescription\\":\\"\\",\\"scalarDenomination\\":\\"states\\",\\"resolutionSource\\":\\"\\",\\"outcomes\\":[],\\"marketCreationFee\\":\\"10000000000000000\\",\\"minPrice\\":\\"0\\",\\"maxPrice\\":\\"100000000000000000000\\",\\"marketType\\":\\"2\\"},\\"havingErrors\\":false}",
       ],
       "props": Object {},
       "type": "div",
@@ -188,7 +188,7 @@ Object {
   "children": Array [
     Object {
       "children": Array [
-        "{\\"marketData\\":{\\"numberOfOutcomes\\":\\"2\\",\\"numTicks\\":\\"1000\\",\\"denominationToken\\":\\"_MASKED_denominationToken_FOR_DETERMINISM_\\",\\"endTime\\":\\"_MASKED_endTime_FOR_DETERMINISM_\\",\\"isFinalized\\":false,\\"description\\":\\"How much will EUR cost in USD at market expiration?\\",\\"longDescription\\":\\"\\",\\"resolutionSource\\":\\"\\",\\"outcomes\\":[],\\"marketCreationFee\\":\\"10000000000000000\\",\\"minPrice\\":\\"1000000000000000000\\",\\"maxPrice\\":\\"1300000000000000000\\",\\"marketType\\":\\"2\\"},\\"havingErrors\\":false}",
+        "{\\"marketData\\":{\\"numberOfOutcomes\\":\\"2\\",\\"numTicks\\":\\"1000\\",\\"denominationToken\\":\\"_MASKED_denominationToken_FOR_DETERMINISM_\\",\\"endTime\\":\\"_MASKED_endTime_FOR_DETERMINISM_\\",\\"isFinalized\\":false,\\"description\\":\\"How much will EUR cost in USD at market expiration?\\",\\"longDescription\\":\\"\\",\\"scalarDenomination\\":\\"USD\\",\\"resolutionSource\\":\\"\\",\\"outcomes\\":[],\\"marketCreationFee\\":\\"10000000000000000\\",\\"minPrice\\":\\"1000000000000000000\\",\\"maxPrice\\":\\"1300000000000000000\\",\\"marketType\\":\\"2\\"},\\"havingErrors\\":false}",
       ],
       "props": Object {},
       "type": "div",

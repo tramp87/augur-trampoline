@@ -63,7 +63,6 @@ async function create_test_markets(): Promise<{|
             console.log('Market creation TX has been sent to the network'),
         },
       ),
-    // TODO: see why fetcher doesn't recognize outcomes
     categorical: () =>
       runAugurInSandbox(
         augur => params => augur.api.Universe.createCategoricalMarket(params),
@@ -109,6 +108,7 @@ async function create_test_markets(): Promise<{|
             resolutionSource: '',
             tags: ['United States', 'geography'],
             longDescription: '',
+            _scalarDenomination: 'states',
           }),
           meta: account,
           tx: {
@@ -137,6 +137,7 @@ async function create_test_markets(): Promise<{|
             resolutionSource: '',
             tags: ['finance'],
             longDescription: '',
+            _scalarDenomination: 'USD',
           }),
           meta: account,
           tx: {

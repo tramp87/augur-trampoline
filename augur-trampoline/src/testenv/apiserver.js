@@ -10,7 +10,10 @@ import proxy from 'http-proxy-middleware';
 import { TESTRPC_HTTP_URL, AUGUR_CONTRACTS_URL } from './env';
 import create_test_markets from './create_test_markets';
 
-const testMarketsPromise = create_test_markets();
+const testMarketsPromise = create_test_markets().then(result => {
+  console.log('Test markets have been created');
+  return result;
+});
 
 const app = express();
 const port = 4000;
