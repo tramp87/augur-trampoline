@@ -5,6 +5,7 @@ import fs from 'fs';
 import nullthrows from 'nullthrows';
 import { JSDOM, VirtualConsole } from 'jsdom';
 import { Map as ImmMap } from 'immutable';
+import speedomaticFix from 'speedomatic/src/fix';
 import encodeTag from 'augur.js/src/format/tag/encode-tag';
 import { getContractAddresses, account, create_test_web3 } from './env';
 
@@ -90,7 +91,6 @@ async function create_test_markets(): Promise<{|
             console.log('Market creation TX has been sent to the network'),
         },
       ),
-    // TODO: see why ranges are all messed up
     scalar: () =>
       runAugurInSandbox(
         augur => params => augur.api.Universe.createScalarMarket(params),
@@ -100,8 +100,8 @@ async function create_test_markets(): Promise<{|
           _denominationToken: addresses.Cash,
           _designatedReporterAddress: coinbase,
           _minPrice: 0,
-          _maxPrice: 100,
-          _numTicks: 100,
+          _maxPrice: speedomaticFix(100, 'hex'),
+          _numTicks: '0x64',
           _topic: encodeTag('politics'),
           _description:
             'How many states will there be in the United States at the market expiration?',
@@ -120,7 +120,6 @@ async function create_test_markets(): Promise<{|
             console.log('Market creation TX has been sent to the network'),
         },
       ),
-    // TODO: see why ranges are all messed up
     scalar2: () =>
       runAugurInSandbox(
         augur => params => augur.api.Universe.createScalarMarket(params),
@@ -129,9 +128,9 @@ async function create_test_markets(): Promise<{|
           _feePerEthInWei: '1111',
           _denominationToken: addresses.Cash,
           _designatedReporterAddress: coinbase,
-          _minPrice: 1.0,
-          _maxPrice: 1.3,
-          _numTicks: 300,
+          _numTicks: 1000,
+          _minPrice: speedomaticFix(1, 'hex'),
+          _maxPrice: speedomaticFix(1.3, 'hex'),
           _topic: encodeTag('finance'),
           _description: 'How much will EUR cost in USD at market expiration?',
           _extraInfo: JSON.stringify({
