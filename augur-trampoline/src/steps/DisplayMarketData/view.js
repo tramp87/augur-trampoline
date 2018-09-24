@@ -5,6 +5,7 @@ import Panel from 'react-bootstrap/lib/Panel';
 import Button from 'react-bootstrap/lib/Button';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 import OptimisticProgressBar from '../../lib/ui/optimistic-progress-bar';
+import Outcome from '../../lib/ui/Outcome';
 import type { MarketData } from './fetch';
 
 export type MarketDataViewProps = {|
@@ -64,6 +65,53 @@ const MarketDataView = (props: MarketDataViewProps) => {
               />
             </div>
           ) : null}
+          <p>
+            Possible outcomes:{' '}
+            {marketData.marketType.toNumber() === 2 ? (
+              <span>
+                any value between{' '}
+                <Outcome
+                  marketType={marketData.marketType}
+                  outcomes={marketData.outcomes}
+                  index={0}
+                  minPrice={marketData.minPrice}
+                  maxPrice={marketData.maxPrice}
+                  scalarDenomination={marketData.scalarDenomination}
+                />{' '}
+                and{' '}
+                <Outcome
+                  marketType={marketData.marketType}
+                  outcomes={marketData.outcomes}
+                  index={1}
+                  minPrice={marketData.minPrice}
+                  maxPrice={marketData.maxPrice}
+                  scalarDenomination={marketData.scalarDenomination}
+                />{' '}
+                with step of{' '}
+                {marketData.maxPrice
+                  .minus(marketData.minPrice)
+                  .dividedBy('1e18')
+                  .dividedBy(marketData.numTicks)
+                  .toString()}{' '}
+                {marketData.scalarDenomination}.
+              </span>
+            ) : (
+              orize(
+                range(marketData.numberOfOutcomes.toNumber()).map(
+                  outcomeIndex => (
+                    <Outcome
+                      marketType={marketData.marketType}
+                      outcomes={marketData.outcomes}
+                      index={outcomeIndex}
+                      minPrice={marketData.minPrice}
+                      maxPrice={marketData.maxPrice}
+                      scalarDenomination={marketData.scalarDenomination}
+                    />
+                  ),
+                ),
+              )
+            )}
+          </p>
         </Panel.Body>
       </Panel>
     );
@@ -73,6 +121,24 @@ const MarketDataView = (props: MarketDataViewProps) => {
       <div>{JSON.stringify(props)}</div>
       {panel}
     </div>
+  );
+};
+
+function range(size: number, startAt: number = 0): Array<number> {
+  return [...Array(size).keys()].map(i => i + startAt);
+}
+
+const orize = a => {
+  return (
+    <Fragment>
+      {a.slice(0, a.length - 1).map((arg, i) => (
+        <Fragment key={i}>
+          {arg}
+          {a.length > 2 ? ',' : ''}{' '}
+        </Fragment>
+      ))}
+      or {a[a.length - 1]}
+    </Fragment>
   );
 };
 
@@ -92,10 +158,12 @@ class DetailsCollapsible extends Component<*, {| collapsed: boolean |}> {
   render() {
     return (
       <Fragment>
-        <Button bsStyle="link" onClick={this.toggle} style={{ padding: '0' }}>
-          Additional details:{' '}
-          <Glyphicon glyph={this.state.collapsed ? 'menu-down' : 'menu-up'} />
-        </Button>
+        <p>
+          <Button bsStyle="link" onClick={this.toggle} style={{ padding: '0' }}>
+            Additional details:{' '}
+            <Glyphicon glyph={this.state.collapsed ? 'menu-down' : 'menu-up'} />
+          </Button>
+        </p>
         {this.state.collapsed ? null : (
           <pre style={{ whiteSpace: 'pre-wrap' }}>
             {this.props.longDescription}

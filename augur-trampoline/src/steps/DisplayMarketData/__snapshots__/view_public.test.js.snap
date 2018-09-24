@@ -31,23 +31,25 @@ exports[`Render loaded market: btc20k 1`] = `
         </a>
       </p>
       <div>
-        <button
-          className="btn btn-link"
-          disabled={false}
-          onClick={[Function]}
-          style={
-            Object {
-              "padding": "0",
+        <p>
+          <button
+            className="btn btn-link"
+            disabled={false}
+            onClick={[Function]}
+            style={
+              Object {
+                "padding": "0",
+              }
             }
-          }
-          type="button"
-        >
-          Additional details:
-           
-          <span
-            className="glyphicon glyphicon-menu-up"
-          />
-        </button>
+            type="button"
+          >
+            Additional details:
+             
+            <span
+              className="glyphicon glyphicon-menu-up"
+            />
+          </button>
+        </p>
         <pre
           style={
             Object {
@@ -59,6 +61,15 @@ exports[`Render loaded market: btc20k 1`] = `
           In the event of disappearance of the site "coinmarketcap", the reporters will be able to use any other websites to give the result and to make a consensus on the final outcome.
         </pre>
       </div>
+      <p>
+        Possible outcomes:
+         
+        [NO]
+        
+         
+        or 
+        [YES]
+      </p>
     </div>
   </div>
 </div>
@@ -95,23 +106,25 @@ exports[`Render loaded market: cfk_jail 1`] = `
         </a>
       </p>
       <div>
-        <button
-          className="btn btn-link"
-          disabled={false}
-          onClick={[Function]}
-          style={
-            Object {
-              "padding": "0",
+        <p>
+          <button
+            className="btn btn-link"
+            disabled={false}
+            onClick={[Function]}
+            style={
+              Object {
+                "padding": "0",
+              }
             }
-          }
-          type="button"
-        >
-          Additional details:
-           
-          <span
-            className="glyphicon glyphicon-menu-up"
-          />
-        </button>
+            type="button"
+          >
+            Additional details:
+             
+            <span
+              className="glyphicon glyphicon-menu-up"
+            />
+          </button>
+        </p>
         <pre
           style={
             Object {
@@ -123,6 +136,15 @@ exports[`Render loaded market: cfk_jail 1`] = `
           ONLY AN EFFECTIVE PRISON WILL BE ADMITTED, NOT A PREVENTIVE PRISON.
         </pre>
       </div>
+      <p>
+        Possible outcomes:
+         
+        [NO]
+        
+         
+        or 
+        [YES]
+      </p>
     </div>
   </div>
 </div>
@@ -154,23 +176,25 @@ exports[`Render loaded market: china_antibiotics 1`] = `
         General knowledge
       </p>
       <div>
-        <button
-          className="btn btn-link"
-          disabled={false}
-          onClick={[Function]}
-          style={
-            Object {
-              "padding": "0",
+        <p>
+          <button
+            className="btn btn-link"
+            disabled={false}
+            onClick={[Function]}
+            style={
+              Object {
+                "padding": "0",
+              }
             }
-          }
-          type="button"
-        >
-          Additional details:
-           
-          <span
-            className="glyphicon glyphicon-menu-up"
-          />
-        </button>
+            type="button"
+          >
+            Additional details:
+             
+            <span
+              className="glyphicon glyphicon-menu-up"
+            />
+          </button>
+        </p>
         <pre
           style={
             Object {
@@ -181,6 +205,15 @@ exports[`Render loaded market: china_antibiotics 1`] = `
           Will antibiotic pan-resistance lead to a massive resurgence of infectious diseases?
         </pre>
       </div>
+      <p>
+        Possible outcomes:
+         
+        [NO]
+        
+         
+        or 
+        [YES]
+      </p>
     </div>
   </div>
 </div>
@@ -217,23 +250,25 @@ exports[`Render loaded market: eth_options_categorical 1`] = `
         </a>
       </p>
       <div>
-        <button
-          className="btn btn-link"
-          disabled={false}
-          onClick={[Function]}
-          style={
-            Object {
-              "padding": "0",
+        <p>
+          <button
+            className="btn btn-link"
+            disabled={false}
+            onClick={[Function]}
+            style={
+              Object {
+                "padding": "0",
+              }
             }
-          }
-          type="button"
-        >
-          Additional details:
-           
-          <span
-            className="glyphicon glyphicon-menu-up"
-          />
-        </button>
+            type="button"
+          >
+            Additional details:
+             
+            <span
+              className="glyphicon glyphicon-menu-up"
+            />
+          </button>
+        </p>
         <pre
           style={
             Object {
@@ -245,6 +280,33 @@ exports[`Render loaded market: eth_options_categorical 1`] = `
           For example, if the end price is 499.99, the "400" bracket wins out. If end price is 12,345.67, then the top-most bracket wins out.
         </pre>
       </div>
+      <p>
+        Possible outcomes:
+         
+        [800]
+        ,
+         
+        [700]
+        ,
+         
+        [600]
+        ,
+         
+        [500]
+        ,
+         
+        [400]
+        ,
+         
+        [300]
+        ,
+         
+        [200]
+        ,
+         
+        or 
+        [0]
+      </p>
     </div>
   </div>
 </div>
@@ -281,23 +343,25 @@ exports[`Render loaded market: eth500 1`] = `
         </a>
       </p>
       <div>
-        <button
-          className="btn btn-link"
-          disabled={false}
-          onClick={[Function]}
-          style={
-            Object {
-              "padding": "0",
+        <p>
+          <button
+            className="btn btn-link"
+            disabled={false}
+            onClick={[Function]}
+            style={
+              Object {
+                "padding": "0",
+              }
             }
-          }
-          type="button"
-        >
-          Additional details:
-           
-          <span
-            className="glyphicon glyphicon-menu-up"
-          />
-        </button>
+            type="button"
+          >
+            Additional details:
+             
+            <span
+              className="glyphicon glyphicon-menu-up"
+            />
+          </button>
+        </p>
         <pre
           style={
             Object {
@@ -308,6 +372,15 @@ exports[`Render loaded market: eth500 1`] = `
           As reported by Coinbase.pro (last trade in 2018)
         </pre>
       </div>
+      <p>
+        Possible outcomes:
+         
+        [NO]
+        
+         
+        or 
+        [YES]
+      </p>
     </div>
   </div>
 </div>
@@ -344,24 +417,46 @@ exports[`Render loaded market: ethcall500 1`] = `
         </a>
       </p>
       <div>
-        <button
-          className="btn btn-link"
-          disabled={false}
-          onClick={[Function]}
-          style={
-            Object {
-              "padding": "0",
+        <p>
+          <button
+            className="btn btn-link"
+            disabled={false}
+            onClick={[Function]}
+            style={
+              Object {
+                "padding": "0",
+              }
             }
-          }
-          type="button"
-        >
-          Additional details:
-           
-          <span
-            className="glyphicon glyphicon-menu-down"
-          />
-        </button>
+            type="button"
+          >
+            Additional details:
+             
+            <span
+              className="glyphicon glyphicon-menu-down"
+            />
+          </button>
+        </p>
       </div>
+      <p>
+        Possible outcomes:
+         
+        <span>
+          any value between
+           
+          [DOWN 0 ETH]
+           
+          and
+           
+          [UP 1 ETH]
+           
+          with step of
+           
+          0.01
+           
+          ETH
+          .
+        </span>
+      </p>
     </div>
   </div>
 </div>
@@ -398,23 +493,25 @@ exports[`Render loaded market: rep32 1`] = `
         </a>
       </p>
       <div>
-        <button
-          className="btn btn-link"
-          disabled={false}
-          onClick={[Function]}
-          style={
-            Object {
-              "padding": "0",
+        <p>
+          <button
+            className="btn btn-link"
+            disabled={false}
+            onClick={[Function]}
+            style={
+              Object {
+                "padding": "0",
+              }
             }
-          }
-          type="button"
-        >
-          Additional details:
-           
-          <span
-            className="glyphicon glyphicon-menu-up"
-          />
-        </button>
+            type="button"
+          >
+            Additional details:
+             
+            <span
+              className="glyphicon glyphicon-menu-up"
+            />
+          </button>
+        </p>
         <pre
           style={
             Object {
@@ -425,6 +522,15 @@ exports[`Render loaded market: rep32 1`] = `
           As reported by major exchanges.
         </pre>
       </div>
+      <p>
+        Possible outcomes:
+         
+        [NO]
+        
+         
+        or 
+        [YES]
+      </p>
     </div>
   </div>
 </div>
@@ -456,23 +562,25 @@ exports[`Render loaded market: trump_impeachment 1`] = `
         General knowledge
       </p>
       <div>
-        <button
-          className="btn btn-link"
-          disabled={false}
-          onClick={[Function]}
-          style={
-            Object {
-              "padding": "0",
+        <p>
+          <button
+            className="btn btn-link"
+            disabled={false}
+            onClick={[Function]}
+            style={
+              Object {
+                "padding": "0",
+              }
             }
-          }
-          type="button"
-        >
-          Additional details:
-           
-          <span
-            className="glyphicon glyphicon-menu-up"
-          />
-        </button>
+            type="button"
+          >
+            Additional details:
+             
+            <span
+              className="glyphicon glyphicon-menu-up"
+            />
+          </button>
+        </p>
         <pre
           style={
             Object {
@@ -483,6 +591,15 @@ exports[`Render loaded market: trump_impeachment 1`] = `
           Do you think Trump will remain president or be impeached? Put your money where your mouth is and bet on the outcome. 
         </pre>
       </div>
+      <p>
+        Possible outcomes:
+         
+        [NO]
+        
+         
+        or 
+        [YES]
+      </p>
     </div>
   </div>
 </div>
@@ -514,23 +631,25 @@ exports[`Render loaded market: trump_reelection_2020 1`] = `
         General knowledge
       </p>
       <div>
-        <button
-          className="btn btn-link"
-          disabled={false}
-          onClick={[Function]}
-          style={
-            Object {
-              "padding": "0",
+        <p>
+          <button
+            className="btn btn-link"
+            disabled={false}
+            onClick={[Function]}
+            style={
+              Object {
+                "padding": "0",
+              }
             }
-          }
-          type="button"
-        >
-          Additional details:
-           
-          <span
-            className="glyphicon glyphicon-menu-up"
-          />
-        </button>
+            type="button"
+          >
+            Additional details:
+             
+            <span
+              className="glyphicon glyphicon-menu-up"
+            />
+          </button>
+        </p>
         <pre
           style={
             Object {
@@ -541,6 +660,15 @@ exports[`Render loaded market: trump_reelection_2020 1`] = `
           Donald Trump shall be re-elected as president of the United States in 2020, as determined by the Electoral College count, regardless of any electoral college members changing their vote. Inauguration shall have no effect on this market.
         </pre>
       </div>
+      <p>
+        Possible outcomes:
+         
+        [NO]
+        
+         
+        or 
+        [YES]
+      </p>
     </div>
   </div>
 </div>
@@ -577,24 +705,46 @@ exports[`Render loaded market: usd100scalar 1`] = `
         </a>
       </p>
       <div>
-        <button
-          className="btn btn-link"
-          disabled={false}
-          onClick={[Function]}
-          style={
-            Object {
-              "padding": "0",
+        <p>
+          <button
+            className="btn btn-link"
+            disabled={false}
+            onClick={[Function]}
+            style={
+              Object {
+                "padding": "0",
+              }
             }
-          }
-          type="button"
-        >
-          Additional details:
-           
-          <span
-            className="glyphicon glyphicon-menu-down"
-          />
-        </button>
+            type="button"
+          >
+            Additional details:
+             
+            <span
+              className="glyphicon glyphicon-menu-down"
+            />
+          </button>
+        </p>
       </div>
+      <p>
+        Possible outcomes:
+         
+        <span>
+          any value between
+           
+          [DOWN 0 ETH]
+           
+          and
+           
+          [UP 1 ETH]
+           
+          with step of
+           
+          0.01
+           
+          ETH
+          .
+        </span>
+      </p>
     </div>
   </div>
 </div>
