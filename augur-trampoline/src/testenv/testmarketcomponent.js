@@ -114,7 +114,7 @@ class TestMarketDetails extends React.Component<Props, State> {
                   .map(index => (
                     <li key={index}>
                       [0x
-                      {index.toString(16)}:{' '}
+                      {index.toString(16)}]{' '}
                       <Outcome
                         marketType={data.marketType}
                         outcomes={data.outcomes}
@@ -122,8 +122,7 @@ class TestMarketDetails extends React.Component<Props, State> {
                         minPrice={data.minPrice}
                         maxPrice={data.maxPrice}
                         scalarDenomination={data.scalarDenomination}
-                      />
-                      ]{' '}
+                      />{' '}
                       <Link
                         to={toRouterPath({
                           networkID: this.props.network,

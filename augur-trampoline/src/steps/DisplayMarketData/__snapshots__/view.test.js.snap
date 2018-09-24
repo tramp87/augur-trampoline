@@ -89,11 +89,27 @@ Object {
               "children": Array [
                 "Possible outcomes:",
                 " ",
-                "[NO]",
+                Object {
+                  "children": Array [
+                    "NO",
+                  ],
+                  "props": Object {
+                    "className": "label label-danger",
+                  },
+                  "type": "span",
+                },
                 "",
                 " ",
                 "or ",
-                "[YES]",
+                Object {
+                  "children": Array [
+                    "YES",
+                  ],
+                  "props": Object {
+                    "className": "label label-success",
+                  },
+                  "type": "span",
+                },
               ],
               "props": Object {},
               "type": "p",
@@ -169,14 +185,38 @@ Object {
               "children": Array [
                 "Possible outcomes:",
                 " ",
-                "[Red]",
+                Object {
+                  "children": Array [
+                    "Red",
+                  ],
+                  "props": Object {
+                    "className": "label label-primary",
+                  },
+                  "type": "span",
+                },
                 ",",
                 " ",
-                "[Green]",
+                Object {
+                  "children": Array [
+                    "Green",
+                  ],
+                  "props": Object {
+                    "className": "label label-primary",
+                  },
+                  "type": "span",
+                },
                 ",",
                 " ",
                 "or ",
-                "[Blue]",
+                Object {
+                  "children": Array [
+                    "Blue",
+                  ],
+                  "props": Object {
+                    "className": "label label-primary",
+                  },
+                  "type": "span",
+                },
               ],
               "props": Object {},
               "type": "p",
@@ -247,11 +287,31 @@ Object {
                   "children": Array [
                     "any value between",
                     " ",
-                    "[DOWN 0 states]",
+                    Object {
+                      "children": Array [
+                        "0",
+                        " ",
+                        "states",
+                      ],
+                      "props": Object {
+                        "className": "label label-danger",
+                      },
+                      "type": "span",
+                    },
                     " ",
                     "and",
                     " ",
-                    "[UP 100 states]",
+                    Object {
+                      "children": Array [
+                        "100",
+                        " ",
+                        "states",
+                      ],
+                      "props": Object {
+                        "className": "label label-success",
+                      },
+                      "type": "span",
+                    },
                     " ",
                     "with step of",
                     " ",
@@ -333,11 +393,31 @@ Object {
                   "children": Array [
                     "any value between",
                     " ",
-                    "[DOWN 1 USD]",
+                    Object {
+                      "children": Array [
+                        "1",
+                        " ",
+                        "USD",
+                      ],
+                      "props": Object {
+                        "className": "label label-danger",
+                      },
+                      "type": "span",
+                    },
                     " ",
                     "and",
                     " ",
-                    "[UP 1.3 USD]",
+                    Object {
+                      "children": Array [
+                        "1.3",
+                        " ",
+                        "USD",
+                      ],
+                      "props": Object {
+                        "className": "label label-success",
+                      },
+                      "type": "span",
+                    },
                     " ",
                     "with step of",
                     " ",

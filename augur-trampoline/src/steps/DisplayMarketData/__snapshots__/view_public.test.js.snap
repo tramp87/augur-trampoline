@@ -64,11 +64,19 @@ exports[`Render loaded market: btc20k 1`] = `
       <p>
         Possible outcomes:
          
-        [NO]
+        <span
+          className="label label-danger"
+        >
+          NO
+        </span>
         
          
         or 
-        [YES]
+        <span
+          className="label label-success"
+        >
+          YES
+        </span>
       </p>
     </div>
   </div>
@@ -139,11 +147,19 @@ exports[`Render loaded market: cfk_jail 1`] = `
       <p>
         Possible outcomes:
          
-        [NO]
+        <span
+          className="label label-danger"
+        >
+          NO
+        </span>
         
          
         or 
-        [YES]
+        <span
+          className="label label-success"
+        >
+          YES
+        </span>
       </p>
     </div>
   </div>
@@ -208,11 +224,19 @@ exports[`Render loaded market: china_antibiotics 1`] = `
       <p>
         Possible outcomes:
          
-        [NO]
+        <span
+          className="label label-danger"
+        >
+          NO
+        </span>
         
          
         or 
-        [YES]
+        <span
+          className="label label-success"
+        >
+          YES
+        </span>
       </p>
     </div>
   </div>
@@ -283,29 +307,61 @@ exports[`Render loaded market: eth_options_categorical 1`] = `
       <p>
         Possible outcomes:
          
-        [800]
+        <span
+          className="label label-primary"
+        >
+          800
+        </span>
         ,
          
-        [700]
+        <span
+          className="label label-primary"
+        >
+          700
+        </span>
         ,
          
-        [600]
+        <span
+          className="label label-primary"
+        >
+          600
+        </span>
         ,
          
-        [500]
+        <span
+          className="label label-primary"
+        >
+          500
+        </span>
         ,
          
-        [400]
+        <span
+          className="label label-primary"
+        >
+          400
+        </span>
         ,
          
-        [300]
+        <span
+          className="label label-primary"
+        >
+          300
+        </span>
         ,
          
-        [200]
+        <span
+          className="label label-primary"
+        >
+          200
+        </span>
         ,
          
         or 
-        [0]
+        <span
+          className="label label-primary"
+        >
+          0
+        </span>
       </p>
     </div>
   </div>
@@ -375,11 +431,19 @@ exports[`Render loaded market: eth500 1`] = `
       <p>
         Possible outcomes:
          
-        [NO]
+        <span
+          className="label label-danger"
+        >
+          NO
+        </span>
         
          
         or 
-        [YES]
+        <span
+          className="label label-success"
+        >
+          YES
+        </span>
       </p>
     </div>
   </div>
@@ -443,11 +507,23 @@ exports[`Render loaded market: ethcall500 1`] = `
         <span>
           any value between
            
-          [DOWN 0 ETH]
+          <span
+            className="label label-danger"
+          >
+            0
+             
+            ETH
+          </span>
            
           and
            
-          [UP 1 ETH]
+          <span
+            className="label label-success"
+          >
+            1
+             
+            ETH
+          </span>
            
           with step of
            
@@ -525,11 +601,19 @@ exports[`Render loaded market: rep32 1`] = `
       <p>
         Possible outcomes:
          
-        [NO]
+        <span
+          className="label label-danger"
+        >
+          NO
+        </span>
         
          
         or 
-        [YES]
+        <span
+          className="label label-success"
+        >
+          YES
+        </span>
       </p>
     </div>
   </div>
@@ -594,11 +678,19 @@ exports[`Render loaded market: trump_impeachment 1`] = `
       <p>
         Possible outcomes:
          
-        [NO]
+        <span
+          className="label label-danger"
+        >
+          NO
+        </span>
         
          
         or 
-        [YES]
+        <span
+          className="label label-success"
+        >
+          YES
+        </span>
       </p>
     </div>
   </div>
@@ -663,11 +755,19 @@ exports[`Render loaded market: trump_reelection_2020 1`] = `
       <p>
         Possible outcomes:
          
-        [NO]
+        <span
+          className="label label-danger"
+        >
+          NO
+        </span>
         
          
         or 
-        [YES]
+        <span
+          className="label label-success"
+        >
+          YES
+        </span>
       </p>
     </div>
   </div>
@@ -731,11 +831,23 @@ exports[`Render loaded market: usd100scalar 1`] = `
         <span>
           any value between
            
-          [DOWN 0 ETH]
+          <span
+            className="label label-danger"
+          >
+            0
+             
+            ETH
+          </span>
            
           and
            
-          [UP 1 ETH]
+          <span
+            className="label label-success"
+          >
+            1
+             
+            ETH
+          </span>
            
           with step of
            
