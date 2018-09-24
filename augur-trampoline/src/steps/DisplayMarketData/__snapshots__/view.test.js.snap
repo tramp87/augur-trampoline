@@ -40,6 +40,45 @@ Object {
               "props": Object {},
               "type": "p",
             },
+            Object {
+              "children": Array [
+                Object {
+                  "children": Array [
+                    "Additional details:",
+                    " ",
+                    Object {
+                      "children": null,
+                      "props": Object {
+                        "className": "glyphicon glyphicon-menu-up",
+                      },
+                      "type": "span",
+                    },
+                  ],
+                  "props": Object {
+                    "className": "btn btn-link",
+                    "disabled": false,
+                    "style": Object {
+                      "padding": "0",
+                    },
+                    "type": "button",
+                  },
+                  "type": "button",
+                },
+                Object {
+                  "children": Array [
+                    "meh",
+                  ],
+                  "props": Object {
+                    "style": Object {
+                      "whiteSpace": "pre-wrap",
+                    },
+                  },
+                  "type": "pre",
+                },
+              ],
+              "props": Object {},
+              "type": "div",
+            },
           ],
           "props": Object {
             "className": "panel-body",
@@ -268,7 +307,7 @@ exports[`render "loading" bar 1`] = `
           aria-valuemax={1}
           aria-valuemin={0}
           aria-valuenow={0.029126213592232997}
-          className="progress-bar active progress-bar-striped"
+          className="progress-bar progress-bar-info active progress-bar-striped"
           role="progressbar"
           style={
             Object {
@@ -309,7 +348,7 @@ exports[`render "loading" bar with errors 1`] = `
           aria-valuemax={1}
           aria-valuemin={0}
           aria-valuenow={0.029126213592232997}
-          className="progress-bar active progress-bar-striped"
+          className="progress-bar progress-bar-danger active progress-bar-striped"
           role="progressbar"
           style={
             Object {
@@ -317,6 +356,9 @@ exports[`render "loading" bar with errors 1`] = `
             }
           }
         />
+      </div>
+      <div>
+        An error happened while trying to fetch market data. Try again or wait a bit.
       </div>
     </div>
   </div>

@@ -30,6 +30,35 @@ exports[`Render loaded market: btc20k 1`] = `
           https://coinmarketcap.com/
         </a>
       </p>
+      <div>
+        <button
+          className="btn btn-link"
+          disabled={false}
+          onClick={[Function]}
+          style={
+            Object {
+              "padding": "0",
+            }
+          }
+          type="button"
+        >
+          Additional details:
+           
+          <span
+            className="glyphicon glyphicon-menu-up"
+          />
+        </button>
+        <pre
+          style={
+            Object {
+              "whiteSpace": "pre-wrap",
+            }
+          }
+        >
+          Only the bitcoin (BTC) price at midnight UTC on December 31, 2018 will be considered for the determination of the final outcome, even if the price of bitcoin exceeds USD 20 000 before the end of 2018. 
+          In the event of disappearance of the site "coinmarketcap", the reporters will be able to use any other websites to give the result and to make a consensus on the final outcome.
+        </pre>
+      </div>
     </div>
   </div>
 </div>
@@ -65,6 +94,35 @@ exports[`Render loaded market: cfk_jail 1`] = `
           https://www.clarin.com/
         </a>
       </p>
+      <div>
+        <button
+          className="btn btn-link"
+          disabled={false}
+          onClick={[Function]}
+          style={
+            Object {
+              "padding": "0",
+            }
+          }
+          type="button"
+        >
+          Additional details:
+           
+          <span
+            className="glyphicon glyphicon-menu-up"
+          />
+        </button>
+        <pre
+          style={
+            Object {
+              "whiteSpace": "pre-wrap",
+            }
+          }
+        >
+          If CFK ends up in jail before the end of the year, the premise closes at the moment of the fact.
+          ONLY AN EFFECTIVE PRISON WILL BE ADMITTED, NOT A PREVENTIVE PRISON.
+        </pre>
+      </div>
     </div>
   </div>
 </div>
@@ -95,6 +153,34 @@ exports[`Render loaded market: china_antibiotics 1`] = `
          
         General knowledge
       </p>
+      <div>
+        <button
+          className="btn btn-link"
+          disabled={false}
+          onClick={[Function]}
+          style={
+            Object {
+              "padding": "0",
+            }
+          }
+          type="button"
+        >
+          Additional details:
+           
+          <span
+            className="glyphicon glyphicon-menu-up"
+          />
+        </button>
+        <pre
+          style={
+            Object {
+              "whiteSpace": "pre-wrap",
+            }
+          }
+        >
+          Will antibiotic pan-resistance lead to a massive resurgence of infectious diseases?
+        </pre>
+      </div>
     </div>
   </div>
 </div>
@@ -130,6 +216,35 @@ exports[`Render loaded market: eth_options_categorical 1`] = `
           https://pro.coinbase.com/trade/ETH-USD
         </a>
       </p>
+      <div>
+        <button
+          className="btn btn-link"
+          disabled={false}
+          onClick={[Function]}
+          style={
+            Object {
+              "padding": "0",
+            }
+          }
+          type="button"
+        >
+          Additional details:
+           
+          <span
+            className="glyphicon glyphicon-menu-up"
+          />
+        </button>
+        <pre
+          style={
+            Object {
+              "whiteSpace": "pre-wrap",
+            }
+          }
+        >
+          The winning contract shall be the bracket such that the last price of Ethereum on the end date exceeds the value in the bracket, without exceeding any value above it in the list of contracts.
+          For example, if the end price is 499.99, the "400" bracket wins out. If end price is 12,345.67, then the top-most bracket wins out.
+        </pre>
+      </div>
     </div>
   </div>
 </div>
@@ -165,6 +280,34 @@ exports[`Render loaded market: eth500 1`] = `
           https://pro.coinbase.com/trade/ETH-USD
         </a>
       </p>
+      <div>
+        <button
+          className="btn btn-link"
+          disabled={false}
+          onClick={[Function]}
+          style={
+            Object {
+              "padding": "0",
+            }
+          }
+          type="button"
+        >
+          Additional details:
+           
+          <span
+            className="glyphicon glyphicon-menu-up"
+          />
+        </button>
+        <pre
+          style={
+            Object {
+              "whiteSpace": "pre-wrap",
+            }
+          }
+        >
+          As reported by Coinbase.pro (last trade in 2018)
+        </pre>
+      </div>
     </div>
   </div>
 </div>
@@ -200,6 +343,25 @@ exports[`Render loaded market: ethcall500 1`] = `
           https://pro.coinbase.com/trade/ETH-USD
         </a>
       </p>
+      <div>
+        <button
+          className="btn btn-link"
+          disabled={false}
+          onClick={[Function]}
+          style={
+            Object {
+              "padding": "0",
+            }
+          }
+          type="button"
+        >
+          Additional details:
+           
+          <span
+            className="glyphicon glyphicon-menu-down"
+          />
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -235,6 +397,34 @@ exports[`Render loaded market: rep32 1`] = `
           https://coinmarketcap.com/currencies/augur/
         </a>
       </p>
+      <div>
+        <button
+          className="btn btn-link"
+          disabled={false}
+          onClick={[Function]}
+          style={
+            Object {
+              "padding": "0",
+            }
+          }
+          type="button"
+        >
+          Additional details:
+           
+          <span
+            className="glyphicon glyphicon-menu-up"
+          />
+        </button>
+        <pre
+          style={
+            Object {
+              "whiteSpace": "pre-wrap",
+            }
+          }
+        >
+          As reported by major exchanges.
+        </pre>
+      </div>
     </div>
   </div>
 </div>
@@ -265,6 +455,34 @@ exports[`Render loaded market: trump_impeachment 1`] = `
          
         General knowledge
       </p>
+      <div>
+        <button
+          className="btn btn-link"
+          disabled={false}
+          onClick={[Function]}
+          style={
+            Object {
+              "padding": "0",
+            }
+          }
+          type="button"
+        >
+          Additional details:
+           
+          <span
+            className="glyphicon glyphicon-menu-up"
+          />
+        </button>
+        <pre
+          style={
+            Object {
+              "whiteSpace": "pre-wrap",
+            }
+          }
+        >
+          Do you think Trump will remain president or be impeached? Put your money where your mouth is and bet on the outcome. 
+        </pre>
+      </div>
     </div>
   </div>
 </div>
@@ -295,6 +513,34 @@ exports[`Render loaded market: trump_reelection_2020 1`] = `
          
         General knowledge
       </p>
+      <div>
+        <button
+          className="btn btn-link"
+          disabled={false}
+          onClick={[Function]}
+          style={
+            Object {
+              "padding": "0",
+            }
+          }
+          type="button"
+        >
+          Additional details:
+           
+          <span
+            className="glyphicon glyphicon-menu-up"
+          />
+        </button>
+        <pre
+          style={
+            Object {
+              "whiteSpace": "pre-wrap",
+            }
+          }
+        >
+          Donald Trump shall be re-elected as president of the United States in 2020, as determined by the Electoral College count, regardless of any electoral college members changing their vote. Inauguration shall have no effect on this market.
+        </pre>
+      </div>
     </div>
   </div>
 </div>
@@ -330,6 +576,25 @@ exports[`Render loaded market: usd100scalar 1`] = `
           https://pro.coinbase.com/trade/ETH-USD
         </a>
       </p>
+      <div>
+        <button
+          className="btn btn-link"
+          disabled={false}
+          onClick={[Function]}
+          style={
+            Object {
+              "padding": "0",
+            }
+          }
+          type="button"
+        >
+          Additional details:
+           
+          <span
+            className="glyphicon glyphicon-menu-down"
+          />
+        </button>
+      </div>
     </div>
   </div>
 </div>

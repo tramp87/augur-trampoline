@@ -77,7 +77,8 @@ async function fetchMarketData(
 
   invariant(
     denominationToken === augurContractAddresses.Cash,
-    'We do not support other denominations yet',
+    `Market ${marketID} returned ${denominationToken} as denomination token.
+    We only support Cash token (${augurContractAddresses.Cash}) at the moment.`,
   );
 
   return {
@@ -195,7 +196,6 @@ async function fetchMarketCreationInfo(
 
   const event = logs[0];
   const extraInfo = JSON.parse(event.extraInfo);
-  console.log({ extraInfo });
 
   return {
     description: event.description,
@@ -238,7 +238,11 @@ async function ensureMarketIsLegitAndIsFromTrustedUniverse(
   // e.g. string 'false' is truthy in JS, and if method somehow returns
   // `'false'`, it may be interpreted as `true`
   if (isLegitMarket !== true) {
-    throw Error('This is an unrecognized market. Failing to avoid scam.');
+    throw Error(
+      `Trusted universe ${augurAddresses.Universe} did not recognize market
+      ${marketID} as legitimate (it returned ${isLegitMarket}).
+      Failing to avoid scam.`,
+    );
   }
 }
 

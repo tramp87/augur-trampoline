@@ -5,6 +5,7 @@ import ProgressBar from 'react-bootstrap/lib/ProgressBar';
 
 export type Props = {|
   expectedTimeSeconds: number,
+  error: boolean,
 |};
 
 export type State = {|
@@ -45,7 +46,15 @@ class OptimisticProgressBar extends Component<Props, State> {
     // some neat function to bring 0 -> 0, 1 -> 0.75
     const displayedProgress = 1 - 1 / (3 * optimisticProgress + 1);
 
-    return <ProgressBar active now={displayedProgress} min={0} max={1} />;
+    return (
+      <ProgressBar
+        active
+        now={displayedProgress}
+        min={0}
+        max={1}
+        bsStyle={this.props.error ? 'danger' : 'info'}
+      />
+    );
   }
 }
 
