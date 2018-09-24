@@ -174,7 +174,11 @@ class TestMarketDetails extends React.Component<Props, State> {
                           redirect: window.location.href,
                         })}
                       >
-                        buy@0.8
+                        buy@
+                        {data.maxPrice
+                          .minus(data.minPrice)
+                          .times('0.8e-18')
+                          .toString()}
                       </Link>{' '}
                       or{' '}
                       <Link
@@ -189,7 +193,11 @@ class TestMarketDetails extends React.Component<Props, State> {
                           redirect: window.location.href,
                         })}
                       >
-                        sell@0.2
+                        sell@
+                        {data.maxPrice
+                          .minus(data.minPrice)
+                          .times('0.2e-18')
+                          .toString()}
                       </Link>
                     </li>
                   ))
