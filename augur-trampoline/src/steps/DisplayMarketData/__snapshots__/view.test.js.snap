@@ -114,6 +114,55 @@ Object {
               "props": Object {},
               "type": "p",
             },
+            Object {
+              "children": Array [
+                "Traded shares:",
+                Object {
+                  "children": Array [
+                    Object {
+                      "children": Array [
+                        Object {
+                          "children": Array [
+                            "NO",
+                          ],
+                          "props": Object {
+                            "className": "label label-danger",
+                          },
+                          "type": "span",
+                        },
+                        ": TBD description",
+                      ],
+                      "props": Object {},
+                      "type": "li",
+                    },
+                    Object {
+                      "children": Array [
+                        Object {
+                          "children": Array [
+                            "YES",
+                          ],
+                          "props": Object {
+                            "className": "label label-success",
+                          },
+                          "type": "span",
+                        },
+                        ": TBD description",
+                      ],
+                      "props": Object {},
+                      "type": "li",
+                    },
+                  ],
+                  "props": Object {
+                    "style": Object {
+                      "listStyle": "none",
+                    },
+                  },
+                  "type": "ul",
+                },
+              ],
+              "props": Object {},
+              "type": "p",
+            },
           ],
           "props": Object {
             "className": "panel-body",
@@ -216,6 +265,71 @@ Object {
                     "className": "label label-primary",
                   },
                   "type": "span",
+                },
+              ],
+              "props": Object {},
+              "type": "p",
+            },
+            Object {
+              "children": Array [
+                "Traded shares:",
+                Object {
+                  "children": Array [
+                    Object {
+                      "children": Array [
+                        Object {
+                          "children": Array [
+                            "Red",
+                          ],
+                          "props": Object {
+                            "className": "label label-primary",
+                          },
+                          "type": "span",
+                        },
+                        ": TBD description",
+                      ],
+                      "props": Object {},
+                      "type": "li",
+                    },
+                    Object {
+                      "children": Array [
+                        Object {
+                          "children": Array [
+                            "Green",
+                          ],
+                          "props": Object {
+                            "className": "label label-primary",
+                          },
+                          "type": "span",
+                        },
+                        ": TBD description",
+                      ],
+                      "props": Object {},
+                      "type": "li",
+                    },
+                    Object {
+                      "children": Array [
+                        Object {
+                          "children": Array [
+                            "Blue",
+                          ],
+                          "props": Object {
+                            "className": "label label-primary",
+                          },
+                          "type": "span",
+                        },
+                        ": TBD description",
+                      ],
+                      "props": Object {},
+                      "type": "li",
+                    },
+                  ],
+                  "props": Object {
+                    "style": Object {
+                      "listStyle": "none",
+                    },
+                  },
+                  "type": "ul",
                 },
               ],
               "props": Object {},
@@ -327,6 +441,59 @@ Object {
               "props": Object {},
               "type": "p",
             },
+            Object {
+              "children": Array [
+                "Traded shares:",
+                Object {
+                  "children": Array [
+                    Object {
+                      "children": Array [
+                        Object {
+                          "children": Array [
+                            "0",
+                            " ",
+                            "states",
+                          ],
+                          "props": Object {
+                            "className": "label label-danger",
+                          },
+                          "type": "span",
+                        },
+                        ": TBD description",
+                      ],
+                      "props": Object {},
+                      "type": "li",
+                    },
+                    Object {
+                      "children": Array [
+                        Object {
+                          "children": Array [
+                            "100",
+                            " ",
+                            "states",
+                          ],
+                          "props": Object {
+                            "className": "label label-success",
+                          },
+                          "type": "span",
+                        },
+                        ": TBD description",
+                      ],
+                      "props": Object {},
+                      "type": "li",
+                    },
+                  ],
+                  "props": Object {
+                    "style": Object {
+                      "listStyle": "none",
+                    },
+                  },
+                  "type": "ul",
+                },
+              ],
+              "props": Object {},
+              "type": "p",
+            },
           ],
           "props": Object {
             "className": "panel-body",
@@ -428,6 +595,59 @@ Object {
                   ],
                   "props": Object {},
                   "type": "span",
+                },
+              ],
+              "props": Object {},
+              "type": "p",
+            },
+            Object {
+              "children": Array [
+                "Traded shares:",
+                Object {
+                  "children": Array [
+                    Object {
+                      "children": Array [
+                        Object {
+                          "children": Array [
+                            "1",
+                            " ",
+                            "USD",
+                          ],
+                          "props": Object {
+                            "className": "label label-danger",
+                          },
+                          "type": "span",
+                        },
+                        ": TBD description",
+                      ],
+                      "props": Object {},
+                      "type": "li",
+                    },
+                    Object {
+                      "children": Array [
+                        Object {
+                          "children": Array [
+                            "1.3",
+                            " ",
+                            "USD",
+                          ],
+                          "props": Object {
+                            "className": "label label-success",
+                          },
+                          "type": "span",
+                        },
+                        ": TBD description",
+                      ],
+                      "props": Object {},
+                      "type": "li",
+                    },
+                  ],
+                  "props": Object {
+                    "style": Object {
+                      "listStyle": "none",
+                    },
+                  },
+                  "type": "ul",
                 },
               ],
               "props": Object {},

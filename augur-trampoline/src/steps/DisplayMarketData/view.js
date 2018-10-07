@@ -112,6 +112,26 @@ const MarketDataView = (props: MarketDataViewProps) => {
               )
             )}
           </p>
+          <p>
+            Traded shares:
+            <ul style={{ listStyle: 'none' }}>
+              {range(marketData.numberOfOutcomes.toNumber()).map(
+                outcomeIndex => (
+                  <li key={`${outcomeIndex}`}>
+                    <Outcome
+                      marketType={marketData.marketType}
+                      outcomes={marketData.outcomes}
+                      index={outcomeIndex}
+                      minPrice={marketData.minPrice}
+                      maxPrice={marketData.maxPrice}
+                      scalarDenomination={marketData.scalarDenomination}
+                    />
+                    : TBD description
+                  </li>
+                ),
+              )}
+            </ul>
+          </p>
         </Panel.Body>
       </Panel>
     );

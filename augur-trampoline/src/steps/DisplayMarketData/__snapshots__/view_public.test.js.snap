@@ -78,6 +78,33 @@ exports[`Render loaded market: btc20k 1`] = `
           YES
         </span>
       </p>
+      <p>
+        Traded shares:
+        <ul
+          style={
+            Object {
+              "listStyle": "none",
+            }
+          }
+        >
+          <li>
+            <span
+              className="label label-danger"
+            >
+              NO
+            </span>
+            : TBD description
+          </li>
+          <li>
+            <span
+              className="label label-success"
+            >
+              YES
+            </span>
+            : TBD description
+          </li>
+        </ul>
+      </p>
     </div>
   </div>
 </div>
@@ -161,6 +188,33 @@ exports[`Render loaded market: cfk_jail 1`] = `
           YES
         </span>
       </p>
+      <p>
+        Traded shares:
+        <ul
+          style={
+            Object {
+              "listStyle": "none",
+            }
+          }
+        >
+          <li>
+            <span
+              className="label label-danger"
+            >
+              NO
+            </span>
+            : TBD description
+          </li>
+          <li>
+            <span
+              className="label label-success"
+            >
+              YES
+            </span>
+            : TBD description
+          </li>
+        </ul>
+      </p>
     </div>
   </div>
 </div>
@@ -237,6 +291,33 @@ exports[`Render loaded market: china_antibiotics 1`] = `
         >
           YES
         </span>
+      </p>
+      <p>
+        Traded shares:
+        <ul
+          style={
+            Object {
+              "listStyle": "none",
+            }
+          }
+        >
+          <li>
+            <span
+              className="label label-danger"
+            >
+              NO
+            </span>
+            : TBD description
+          </li>
+          <li>
+            <span
+              className="label label-success"
+            >
+              YES
+            </span>
+            : TBD description
+          </li>
+        </ul>
       </p>
     </div>
   </div>
@@ -363,6 +444,81 @@ exports[`Render loaded market: eth_options_categorical 1`] = `
           0
         </span>
       </p>
+      <p>
+        Traded shares:
+        <ul
+          style={
+            Object {
+              "listStyle": "none",
+            }
+          }
+        >
+          <li>
+            <span
+              className="label label-primary"
+            >
+              800
+            </span>
+            : TBD description
+          </li>
+          <li>
+            <span
+              className="label label-primary"
+            >
+              700
+            </span>
+            : TBD description
+          </li>
+          <li>
+            <span
+              className="label label-primary"
+            >
+              600
+            </span>
+            : TBD description
+          </li>
+          <li>
+            <span
+              className="label label-primary"
+            >
+              500
+            </span>
+            : TBD description
+          </li>
+          <li>
+            <span
+              className="label label-primary"
+            >
+              400
+            </span>
+            : TBD description
+          </li>
+          <li>
+            <span
+              className="label label-primary"
+            >
+              300
+            </span>
+            : TBD description
+          </li>
+          <li>
+            <span
+              className="label label-primary"
+            >
+              200
+            </span>
+            : TBD description
+          </li>
+          <li>
+            <span
+              className="label label-primary"
+            >
+              0
+            </span>
+            : TBD description
+          </li>
+        </ul>
+      </p>
     </div>
   </div>
 </div>
@@ -444,6 +600,33 @@ exports[`Render loaded market: eth500 1`] = `
         >
           YES
         </span>
+      </p>
+      <p>
+        Traded shares:
+        <ul
+          style={
+            Object {
+              "listStyle": "none",
+            }
+          }
+        >
+          <li>
+            <span
+              className="label label-danger"
+            >
+              NO
+            </span>
+            : TBD description
+          </li>
+          <li>
+            <span
+              className="label label-success"
+            >
+              YES
+            </span>
+            : TBD description
+          </li>
+        </ul>
       </p>
     </div>
   </div>
@@ -533,6 +716,37 @@ exports[`Render loaded market: ethcall500 1`] = `
           .
         </span>
       </p>
+      <p>
+        Traded shares:
+        <ul
+          style={
+            Object {
+              "listStyle": "none",
+            }
+          }
+        >
+          <li>
+            <span
+              className="label label-danger"
+            >
+              0
+               
+              ETH
+            </span>
+            : TBD description
+          </li>
+          <li>
+            <span
+              className="label label-success"
+            >
+              1
+               
+              ETH
+            </span>
+            : TBD description
+          </li>
+        </ul>
+      </p>
     </div>
   </div>
 </div>
@@ -615,6 +829,33 @@ exports[`Render loaded market: rep32 1`] = `
           YES
         </span>
       </p>
+      <p>
+        Traded shares:
+        <ul
+          style={
+            Object {
+              "listStyle": "none",
+            }
+          }
+        >
+          <li>
+            <span
+              className="label label-danger"
+            >
+              NO
+            </span>
+            : TBD description
+          </li>
+          <li>
+            <span
+              className="label label-success"
+            >
+              YES
+            </span>
+            : TBD description
+          </li>
+        </ul>
+      </p>
     </div>
   </div>
 </div>
@@ -692,6 +933,33 @@ exports[`Render loaded market: trump_impeachment 1`] = `
           YES
         </span>
       </p>
+      <p>
+        Traded shares:
+        <ul
+          style={
+            Object {
+              "listStyle": "none",
+            }
+          }
+        >
+          <li>
+            <span
+              className="label label-danger"
+            >
+              NO
+            </span>
+            : TBD description
+          </li>
+          <li>
+            <span
+              className="label label-success"
+            >
+              YES
+            </span>
+            : TBD description
+          </li>
+        </ul>
+      </p>
     </div>
   </div>
 </div>
@@ -768,6 +1036,33 @@ exports[`Render loaded market: trump_reelection_2020 1`] = `
         >
           YES
         </span>
+      </p>
+      <p>
+        Traded shares:
+        <ul
+          style={
+            Object {
+              "listStyle": "none",
+            }
+          }
+        >
+          <li>
+            <span
+              className="label label-danger"
+            >
+              NO
+            </span>
+            : TBD description
+          </li>
+          <li>
+            <span
+              className="label label-success"
+            >
+              YES
+            </span>
+            : TBD description
+          </li>
+        </ul>
       </p>
     </div>
   </div>
@@ -856,6 +1151,37 @@ exports[`Render loaded market: usd100scalar 1`] = `
           ETH
           .
         </span>
+      </p>
+      <p>
+        Traded shares:
+        <ul
+          style={
+            Object {
+              "listStyle": "none",
+            }
+          }
+        >
+          <li>
+            <span
+              className="label label-danger"
+            >
+              0
+               
+              ETH
+            </span>
+            : TBD description
+          </li>
+          <li>
+            <span
+              className="label label-success"
+            >
+              1
+               
+              ETH
+            </span>
+            : TBD description
+          </li>
+        </ul>
       </p>
     </div>
   </div>
