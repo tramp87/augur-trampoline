@@ -204,6 +204,22 @@ Object {
               "props": Object {},
               "type": "p",
             },
+            Object {
+              "children": Array [
+                "Market expiration: ",
+                Object {
+                  "children": Array [
+                    "Tue Jan 15 2019 17:24:48 GMT+0000",
+                  ],
+                  "props": Object {
+                    "dateTime": "2019-01-15T17:24:48.000Z",
+                  },
+                  "type": "time",
+                },
+              ],
+              "props": Object {},
+              "type": "p",
+            },
           ],
           "props": Object {
             "className": "panel-body",
@@ -428,6 +444,22 @@ Object {
                 "≈0.33333",
                 " ",
                 "ETH.",
+              ],
+              "props": Object {},
+              "type": "p",
+            },
+            Object {
+              "children": Array [
+                "Market expiration: ",
+                Object {
+                  "children": Array [
+                    "Mon Nov 26 2018 17:24:51 GMT+0000",
+                  ],
+                  "props": Object {
+                    "dateTime": "2018-11-26T17:24:51.000Z",
+                  },
+                  "type": "time",
+                },
               ],
               "props": Object {},
               "type": "p",
@@ -817,6 +849,22 @@ Object {
               "props": Object {},
               "type": "p",
             },
+            Object {
+              "children": Array [
+                "Market expiration: ",
+                Object {
+                  "children": Array [
+                    "Fri Oct 06 2023 17:24:55 GMT+0000",
+                  ],
+                  "props": Object {
+                    "dateTime": "2023-10-06T17:24:55.000Z",
+                  },
+                  "type": "time",
+                },
+              ],
+              "props": Object {},
+              "type": "p",
+            },
           ],
           "props": Object {
             "className": "panel-body",
@@ -1198,6 +1246,22 @@ Object {
                 "0.15",
                 " ",
                 "ETH.",
+              ],
+              "props": Object {},
+              "type": "p",
+            },
+            Object {
+              "children": Array [
+                "Market expiration: ",
+                Object {
+                  "children": Array [
+                    "Sat Jan 05 2019 17:24:59 GMT+0000",
+                  ],
+                  "props": Object {
+                    "dateTime": "2019-01-05T17:24:59.000Z",
+                  },
+                  "type": "time",
+                },
               ],
               "props": Object {},
               "type": "p",

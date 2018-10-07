@@ -134,6 +134,14 @@ exports[`Render loaded market: btc20k 1`] = `
          
         ETH.
       </p>
+      <p>
+        Market expiration: 
+        <time
+          dateTime={"2019-01-01T00:00:00.000Z"}
+        >
+          Tue Jan 01 2019 00:00:00 GMT+0000
+        </time>
+      </p>
     </div>
   </div>
 </div>
@@ -273,6 +281,14 @@ exports[`Render loaded market: cfk_jail 1`] = `
          
         ETH.
       </p>
+      <p>
+        Market expiration: 
+        <time
+          dateTime={"2019-01-01T02:59:00.000Z"}
+        >
+          Tue Jan 01 2019 02:59:00 GMT+0000
+        </time>
+      </p>
     </div>
   </div>
 </div>
@@ -405,6 +421,14 @@ exports[`Render loaded market: china_antibiotics 1`] = `
         0.5
          
         ETH.
+      </p>
+      <p>
+        Market expiration: 
+        <time
+          dateTime={"2020-01-01T08:00:00.000Z"}
+        >
+          Wed Jan 01 2020 08:00:00 GMT+0000
+        </time>
       </p>
     </div>
   </div>
@@ -701,6 +725,14 @@ exports[`Render loaded market: eth_options_categorical 1`] = `
          
         ETH.
       </p>
+      <p>
+        Market expiration: 
+        <time
+          dateTime={"2019-01-03T01:00:00.000Z"}
+        >
+          Thu Jan 03 2019 01:00:00 GMT+0000
+        </time>
+      </p>
     </div>
   </div>
 </div>
@@ -838,6 +870,14 @@ exports[`Render loaded market: eth500 1`] = `
         0.5
          
         ETH.
+      </p>
+      <p>
+        Market expiration: 
+        <time
+          dateTime={"2019-01-01T09:00:00.000Z"}
+        >
+          Tue Jan 01 2019 09:00:00 GMT+0000
+        </time>
       </p>
     </div>
   </div>
@@ -1096,6 +1136,14 @@ exports[`Render loaded market: ethcall500 1`] = `
          
         ETH.
       </p>
+      <p>
+        Market expiration: 
+        <time
+          dateTime={"2019-01-01T01:00:00.000Z"}
+        >
+          Tue Jan 01 2019 01:00:00 GMT+0000
+        </time>
+      </p>
     </div>
   </div>
 </div>
@@ -1234,6 +1282,14 @@ exports[`Render loaded market: rep32 1`] = `
          
         ETH.
       </p>
+      <p>
+        Market expiration: 
+        <time
+          dateTime={"2019-01-01T09:00:00.000Z"}
+        >
+          Tue Jan 01 2019 09:00:00 GMT+0000
+        </time>
+      </p>
     </div>
   </div>
 </div>
@@ -1367,6 +1423,14 @@ exports[`Render loaded market: trump_impeachment 1`] = `
          
         ETH.
       </p>
+      <p>
+        Market expiration: 
+        <time
+          dateTime={"2018-12-26T01:00:00.000Z"}
+        >
+          Wed Dec 26 2018 01:00:00 GMT+0000
+        </time>
+      </p>
     </div>
   </div>
 </div>
@@ -1499,6 +1563,14 @@ exports[`Render loaded market: trump_reelection_2020 1`] = `
         0.5
          
         ETH.
+      </p>
+      <p>
+        Market expiration: 
+        <time
+          dateTime={"2020-12-06T02:00:00.000Z"}
+        >
+          Sun Dec 06 2020 02:00:00 GMT+0000
+        </time>
       </p>
     </div>
   </div>
@@ -1756,6 +1828,14 @@ exports[`Render loaded market: usd100scalar 1`] = `
         0.5
          
         ETH.
+      </p>
+      <p>
+        Market expiration: 
+        <time
+          dateTime={"2019-01-01T13:00:00.000Z"}
+        >
+          Tue Jan 01 2019 13:00:00 GMT+0000
+        </time>
       </p>
     </div>
   </div>

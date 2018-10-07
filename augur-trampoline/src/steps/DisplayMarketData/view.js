@@ -4,6 +4,7 @@ import React, { Component, Fragment } from 'react';
 import Panel from 'react-bootstrap/lib/Panel';
 import Button from 'react-bootstrap/lib/Button';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
+import Moment from 'react-moment';
 import Amount from '../../lib/ui/Amount';
 import OptimisticProgressBar from '../../lib/ui/optimistic-progress-bar';
 import Outcome from '../../lib/ui/Outcome';
@@ -121,6 +122,9 @@ const MarketDetails = ({ marketData }) => (
           .dividedBy(marketData.numberOfOutcomes)}
       />{' '}
       ETH.
+    </p>
+    <p>
+      Market expiration: <Moment unix>{marketData.endTime.toNumber()}</Moment>
     </p>
   </Fragment>
 );
