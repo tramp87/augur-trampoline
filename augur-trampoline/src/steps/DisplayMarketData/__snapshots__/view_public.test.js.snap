@@ -1041,7 +1041,7 @@ exports[`Render loaded market: ethcall500 1`] = `
                
               ETH
             </span>
-            , this share pays 0 ETH. If the market resolves between those two outcomes, the payout scales proportionally.
+            , this share pays nothing. If the market resolves between those two outcomes, the payout scales proportionally.
           </li>
           <li>
             <span
@@ -1085,7 +1085,7 @@ exports[`Render loaded market: ethcall500 1`] = `
                
               ETH
             </span>
-            , this share pays 0 ETH. If the market resolves between those two outcomes, the payout scales proportionally.
+            , this share pays nothing. If the market resolves between those two outcomes, the payout scales proportionally.
           </li>
         </ul>
       </div>
@@ -1702,7 +1702,7 @@ exports[`Render loaded market: usd100scalar 1`] = `
                
               ETH
             </span>
-            , this share pays 0 ETH. If the market resolves between those two outcomes, the payout scales proportionally.
+            , this share pays nothing. If the market resolves between those two outcomes, the payout scales proportionally.
           </li>
           <li>
             <span
@@ -1746,7 +1746,7 @@ exports[`Render loaded market: usd100scalar 1`] = `
                
               ETH
             </span>
-            , this share pays 0 ETH. If the market resolves between those two outcomes, the payout scales proportionally.
+            , this share pays nothing. If the market resolves between those two outcomes, the payout scales proportionally.
           </li>
         </ul>
       </div>

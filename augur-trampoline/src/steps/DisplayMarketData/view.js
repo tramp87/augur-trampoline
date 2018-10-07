@@ -152,7 +152,7 @@ const OutcomePayoutExplanation = ({ marketData, outcomeIndex }) => {
           maxPrice={marketData.maxPrice}
           scalarDenomination={marketData.scalarDenomination}
         />
-        , this share pays 0 ETH. If the market resolves between those two
+        , this share pays nothing. If the market resolves between those two
         outcomes, the payout scales proportionally.
       </Fragment>
     );
