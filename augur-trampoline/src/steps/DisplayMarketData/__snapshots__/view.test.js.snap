@@ -403,6 +403,14 @@ Object {
                     " ",
                     Object {
                       "children": Array [
+                        Object {
+                          "children": null,
+                          "props": Object {
+                            "className": "glyphicon glyphicon-arrow-down",
+                          },
+                          "type": "span",
+                        },
+                        " ",
                         "0",
                         " ",
                         "states",
@@ -417,6 +425,14 @@ Object {
                     " ",
                     Object {
                       "children": Array [
+                        Object {
+                          "children": null,
+                          "props": Object {
+                            "className": "glyphicon glyphicon-arrow-up",
+                          },
+                          "type": "span",
+                        },
+                        " ",
                         "100",
                         " ",
                         "states",
@@ -450,6 +466,14 @@ Object {
                       "children": Array [
                         Object {
                           "children": Array [
+                            Object {
+                              "children": null,
+                              "props": Object {
+                                "className": "glyphicon glyphicon-arrow-down",
+                              },
+                              "type": "span",
+                            },
+                            " ",
                             "0",
                             " ",
                             "states",
@@ -468,6 +492,14 @@ Object {
                       "children": Array [
                         Object {
                           "children": Array [
+                            Object {
+                              "children": null,
+                              "props": Object {
+                                "className": "glyphicon glyphicon-arrow-up",
+                              },
+                              "type": "span",
+                            },
+                            " ",
                             "100",
                             " ",
                             "states",
@@ -562,6 +594,14 @@ Object {
                     " ",
                     Object {
                       "children": Array [
+                        Object {
+                          "children": null,
+                          "props": Object {
+                            "className": "glyphicon glyphicon-arrow-down",
+                          },
+                          "type": "span",
+                        },
+                        " ",
                         "1",
                         " ",
                         "USD",
@@ -576,6 +616,14 @@ Object {
                     " ",
                     Object {
                       "children": Array [
+                        Object {
+                          "children": null,
+                          "props": Object {
+                            "className": "glyphicon glyphicon-arrow-up",
+                          },
+                          "type": "span",
+                        },
+                        " ",
                         "1.3",
                         " ",
                         "USD",
@@ -609,6 +657,14 @@ Object {
                       "children": Array [
                         Object {
                           "children": Array [
+                            Object {
+                              "children": null,
+                              "props": Object {
+                                "className": "glyphicon glyphicon-arrow-down",
+                              },
+                              "type": "span",
+                            },
+                            " ",
                             "1",
                             " ",
                             "USD",
@@ -627,6 +683,14 @@ Object {
                       "children": Array [
                         Object {
                           "children": Array [
+                            Object {
+                              "children": null,
+                              "props": Object {
+                                "className": "glyphicon glyphicon-arrow-up",
+                              },
+                              "type": "span",
+                            },
+                            " ",
                             "1.3",
                             " ",
                             "USD",

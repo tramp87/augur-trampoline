@@ -4,6 +4,7 @@ import React from 'react';
 import nullthrows from 'nullthrows';
 import BigNumber from 'bignumber.js';
 import Label from 'react-bootstrap/lib/Label';
+import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 
 const Outcome = ({
   marketType,
@@ -32,10 +33,12 @@ const Outcome = ({
     return nullthrows(
       [
         <Label bsStyle="danger">
+          <Glyphicon glyph={'arrow-down'} />{' '}
           {minPrice.times(new BigNumber('1e-18')).toString()}{' '}
           {nullthrows(scalarDenomination)}
         </Label>,
         <Label bsStyle="success">
+          <Glyphicon glyph={'arrow-up'} />{' '}
           {maxPrice.times(new BigNumber('1e-18')).toString()}{' '}
           {nullthrows(scalarDenomination)}
         </Label>,
