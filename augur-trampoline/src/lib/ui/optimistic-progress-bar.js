@@ -43,7 +43,7 @@ class OptimisticProgressBar extends Component<Props, State> {
       (timeElapsed + this.props.expectedTimeSeconds * 0.01) /
       this.props.expectedTimeSeconds;
 
-    // some neat function to bring 0 -> 0, 1 -> 0.75
+    // some neat function to bring 0 -> 0, 1 -> 0.75, +inf -> 1.0
     const displayedProgress = 1 - 1 / (3 * optimisticProgress + 1);
 
     return (

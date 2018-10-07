@@ -4,6 +4,7 @@ import React, { Component, Fragment } from 'react';
 import Panel from 'react-bootstrap/lib/Panel';
 import Button from 'react-bootstrap/lib/Button';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
+import Amount from '../../lib/ui/Amount';
 import OptimisticProgressBar from '../../lib/ui/optimistic-progress-bar';
 import Outcome from '../../lib/ui/Outcome';
 import type { MarketData } from './fetch';
@@ -89,7 +90,7 @@ const MarketDetails = ({ marketData }) => (
         <ScalarMarketBoundariesClarification marketData={marketData} />
       </p>
     ) : null}
-    <p>
+    <div>
       Traded shares:
       <ul style={{ listStyle: 'none' }}>
         {range(marketData.numberOfOutcomes.toNumber()).map(outcomeIndex => (
@@ -102,13 +103,66 @@ const MarketDetails = ({ marketData }) => (
               maxPrice={marketData.maxPrice}
               scalarDenomination={marketData.scalarDenomination}
             />
-            : TBD description
+            :{' '}
+            <OutcomePayoutExplanation
+              marketData={marketData}
+              outcomeIndex={outcomeIndex}
+            />
           </li>
         ))}
       </ul>
-    </p>
+    </div>
   </Fragment>
 );
+
+const OutcomePayoutExplanation = ({ marketData, outcomeIndex }) => {
+  if (marketData.marketType.toNumber() === SCALAR_MARKET_TYPE) {
+    const maxPayout = marketData.maxPrice
+      .minus(marketData.minPrice)
+      .dividedBy('1e18');
+
+    return (
+      <Fragment>
+        If the market resolves to{' '}
+        <Outcome
+          marketType={marketData.marketType}
+          outcomes={marketData.outcomes}
+          index={outcomeIndex}
+          minPrice={marketData.minPrice}
+          maxPrice={marketData.maxPrice}
+          scalarDenomination={marketData.scalarDenomination}
+        />
+        , this share pays <Amount amount={maxPayout} /> ETH. If the market
+        resolves to{' '}
+        <Outcome
+          marketType={marketData.marketType}
+          outcomes={marketData.outcomes}
+          index={1 - outcomeIndex}
+          minPrice={marketData.minPrice}
+          maxPrice={marketData.maxPrice}
+          scalarDenomination={marketData.scalarDenomination}
+        />
+        , this share pays 0 ETH. If the market resolves between those two
+        outcomes, the payout scales proportionally.
+      </Fragment>
+    );
+  } else {
+    return (
+      <Fragment>
+        If the market resolves to{' '}
+        <Outcome
+          marketType={marketData.marketType}
+          outcomes={marketData.outcomes}
+          index={outcomeIndex}
+          minPrice={marketData.minPrice}
+          maxPrice={marketData.maxPrice}
+          scalarDenomination={marketData.scalarDenomination}
+        />
+        , this share pays 1 ETH.
+      </Fragment>
+    );
+  }
+};
 
 const MarketOutcomes = ({ marketData }) => (
   <Fragment>
@@ -134,11 +188,12 @@ const MarketOutcomes = ({ marketData }) => (
           scalarDenomination={marketData.scalarDenomination}
         />{' '}
         with step of{' '}
-        {marketData.maxPrice
-          .minus(marketData.minPrice)
-          .dividedBy('1e18')
-          .dividedBy(marketData.numTicks)
-          .toString()}{' '}
+        <Amount
+          amount={marketData.maxPrice
+            .minus(marketData.minPrice)
+            .dividedBy('1e18')
+            .dividedBy(marketData.numTicks)}
+        />{' '}
         {marketData.scalarDenomination}.
       </span>
     ) : (
