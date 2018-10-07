@@ -13,17 +13,11 @@ export type MarketDataViewProps = {|
   havingErrors: boolean,
 |};
 
+// TODO: there gotta be some enum in augur.js
+const SCALAR_MARKET_TYPE = 2;
+
 const MarketDataView = (props: MarketDataViewProps) => {
   const marketData = props.marketData;
-
-  const maybeMakeLink = s =>
-    s.startsWith('http://') || s.startsWith('https://') ? (
-      <a href={s} target="_blank">
-        {s}
-      </a>
-    ) : (
-      s
-    );
 
   const panel =
     marketData == null ? (
@@ -52,86 +46,7 @@ const MarketDataView = (props: MarketDataViewProps) => {
           </Panel.Title>
         </Panel.Heading>
         <Panel.Body>
-          <p>
-            Resolution source:{' '}
-            {marketData.resolutionSource !== ''
-              ? maybeMakeLink(marketData.resolutionSource)
-              : 'General knowledge'}
-          </p>
-          {marketData.longDescription !== '' ? (
-            <div>
-              <DetailsCollapsible
-                longDescription={marketData.longDescription}
-              />
-            </div>
-          ) : null}
-          <p>
-            Possible outcomes:{' '}
-            {marketData.marketType.toNumber() === 2 ? (
-              <span>
-                any value between{' '}
-                <Outcome
-                  marketType={marketData.marketType}
-                  outcomes={marketData.outcomes}
-                  index={0}
-                  minPrice={marketData.minPrice}
-                  maxPrice={marketData.maxPrice}
-                  scalarDenomination={marketData.scalarDenomination}
-                />{' '}
-                and{' '}
-                <Outcome
-                  marketType={marketData.marketType}
-                  outcomes={marketData.outcomes}
-                  index={1}
-                  minPrice={marketData.minPrice}
-                  maxPrice={marketData.maxPrice}
-                  scalarDenomination={marketData.scalarDenomination}
-                />{' '}
-                with step of{' '}
-                {marketData.maxPrice
-                  .minus(marketData.minPrice)
-                  .dividedBy('1e18')
-                  .dividedBy(marketData.numTicks)
-                  .toString()}{' '}
-                {marketData.scalarDenomination}.
-              </span>
-            ) : (
-              orize(
-                range(marketData.numberOfOutcomes.toNumber()).map(
-                  outcomeIndex => (
-                    <Outcome
-                      marketType={marketData.marketType}
-                      outcomes={marketData.outcomes}
-                      index={outcomeIndex}
-                      minPrice={marketData.minPrice}
-                      maxPrice={marketData.maxPrice}
-                      scalarDenomination={marketData.scalarDenomination}
-                    />
-                  ),
-                ),
-              )
-            )}
-          </p>
-          <p>
-            Traded shares:
-            <ul style={{ listStyle: 'none' }}>
-              {range(marketData.numberOfOutcomes.toNumber()).map(
-                outcomeIndex => (
-                  <li key={`${outcomeIndex}`}>
-                    <Outcome
-                      marketType={marketData.marketType}
-                      outcomes={marketData.outcomes}
-                      index={outcomeIndex}
-                      minPrice={marketData.minPrice}
-                      maxPrice={marketData.maxPrice}
-                      scalarDenomination={marketData.scalarDenomination}
-                    />
-                    : TBD description
-                  </li>
-                ),
-              )}
-            </ul>
-          </p>
+          <MarketDetails marketData={marketData} />
         </Panel.Body>
       </Panel>
     );
@@ -143,6 +58,147 @@ const MarketDataView = (props: MarketDataViewProps) => {
     </div>
   );
 };
+
+const maybeMakeLink = s =>
+  s.startsWith('http://') || s.startsWith('https://') ? (
+    <a href={s} target="_blank">
+      {s}
+    </a>
+  ) : (
+    s
+  );
+
+const MarketDetails = ({ marketData }) => (
+  <Fragment>
+    <p>
+      Resolution source:{' '}
+      {marketData.resolutionSource !== ''
+        ? maybeMakeLink(marketData.resolutionSource)
+        : 'General knowledge'}
+    </p>
+    {marketData.longDescription !== '' ? (
+      <div>
+        <DetailsCollapsible longDescription={marketData.longDescription} />
+      </div>
+    ) : null}
+    <p>
+      <MarketOutcomes marketData={marketData} />
+    </p>
+    {marketData.marketType.toNumber() === SCALAR_MARKET_TYPE ? (
+      <p>
+        <ScalarMarketBoundariesClarification marketData={marketData} />
+      </p>
+    ) : null}
+    <p>
+      Traded shares:
+      <ul style={{ listStyle: 'none' }}>
+        {range(marketData.numberOfOutcomes.toNumber()).map(outcomeIndex => (
+          <li key={`${outcomeIndex}`}>
+            <Outcome
+              marketType={marketData.marketType}
+              outcomes={marketData.outcomes}
+              index={outcomeIndex}
+              minPrice={marketData.minPrice}
+              maxPrice={marketData.maxPrice}
+              scalarDenomination={marketData.scalarDenomination}
+            />
+            : TBD description
+          </li>
+        ))}
+      </ul>
+    </p>
+  </Fragment>
+);
+
+const MarketOutcomes = ({ marketData }) => (
+  <Fragment>
+    Possible outcomes:{' '}
+    {marketData.marketType.toNumber() === SCALAR_MARKET_TYPE ? (
+      <span>
+        any value between{' '}
+        <Outcome
+          marketType={marketData.marketType}
+          outcomes={marketData.outcomes}
+          index={0}
+          minPrice={marketData.minPrice}
+          maxPrice={marketData.maxPrice}
+          scalarDenomination={marketData.scalarDenomination}
+        />{' '}
+        and{' '}
+        <Outcome
+          marketType={marketData.marketType}
+          outcomes={marketData.outcomes}
+          index={1}
+          minPrice={marketData.minPrice}
+          maxPrice={marketData.maxPrice}
+          scalarDenomination={marketData.scalarDenomination}
+        />{' '}
+        with step of{' '}
+        {marketData.maxPrice
+          .minus(marketData.minPrice)
+          .dividedBy('1e18')
+          .dividedBy(marketData.numTicks)
+          .toString()}{' '}
+        {marketData.scalarDenomination}.
+      </span>
+    ) : (
+      orize(
+        range(marketData.numberOfOutcomes.toNumber()).map(outcomeIndex => (
+          <Outcome
+            marketType={marketData.marketType}
+            outcomes={marketData.outcomes}
+            index={outcomeIndex}
+            minPrice={marketData.minPrice}
+            maxPrice={marketData.maxPrice}
+            scalarDenomination={marketData.scalarDenomination}
+          />
+        )),
+      )
+    )}
+  </Fragment>
+);
+
+const ScalarMarketBoundariesClarification = ({ marketData }) => (
+  <Fragment>
+    If real world outcome is below{' '}
+    <Outcome
+      marketType={marketData.marketType}
+      outcomes={marketData.outcomes}
+      index={0}
+      minPrice={marketData.minPrice}
+      maxPrice={marketData.maxPrice}
+      scalarDenomination={marketData.scalarDenomination}
+    />
+    , market will resolve to{' '}
+    <Outcome
+      marketType={marketData.marketType}
+      outcomes={marketData.outcomes}
+      index={0}
+      minPrice={marketData.minPrice}
+      maxPrice={marketData.maxPrice}
+      scalarDenomination={marketData.scalarDenomination}
+    />
+    . If real world outcome is above{' '}
+    <Outcome
+      marketType={marketData.marketType}
+      outcomes={marketData.outcomes}
+      index={1}
+      minPrice={marketData.minPrice}
+      maxPrice={marketData.maxPrice}
+      scalarDenomination={marketData.scalarDenomination}
+    />
+    , market will resolve to{' '}
+    <Outcome
+      marketType={marketData.marketType}
+      outcomes={marketData.outcomes}
+      index={1}
+      minPrice={marketData.minPrice}
+      maxPrice={marketData.maxPrice}
+      scalarDenomination={marketData.scalarDenomination}
+    />
+    .
+  </Fragment>
+);
 
 function range(size: number, startAt: number = 0): Array<number> {
   return [...Array(size).keys()].map(i => i + startAt);

@@ -459,6 +459,97 @@ Object {
             },
             Object {
               "children": Array [
+                "If real world outcome is below",
+                " ",
+                Object {
+                  "children": Array [
+                    Object {
+                      "children": null,
+                      "props": Object {
+                        "className": "glyphicon glyphicon-arrow-down",
+                      },
+                      "type": "span",
+                    },
+                    " ",
+                    "0",
+                    " ",
+                    "states",
+                  ],
+                  "props": Object {
+                    "className": "label label-danger",
+                  },
+                  "type": "span",
+                },
+                ", market will resolve to",
+                " ",
+                Object {
+                  "children": Array [
+                    Object {
+                      "children": null,
+                      "props": Object {
+                        "className": "glyphicon glyphicon-arrow-down",
+                      },
+                      "type": "span",
+                    },
+                    " ",
+                    "0",
+                    " ",
+                    "states",
+                  ],
+                  "props": Object {
+                    "className": "label label-danger",
+                  },
+                  "type": "span",
+                },
+                ". If real world outcome is above",
+                " ",
+                Object {
+                  "children": Array [
+                    Object {
+                      "children": null,
+                      "props": Object {
+                        "className": "glyphicon glyphicon-arrow-up",
+                      },
+                      "type": "span",
+                    },
+                    " ",
+                    "100",
+                    " ",
+                    "states",
+                  ],
+                  "props": Object {
+                    "className": "label label-success",
+                  },
+                  "type": "span",
+                },
+                ", market will resolve to",
+                " ",
+                Object {
+                  "children": Array [
+                    Object {
+                      "children": null,
+                      "props": Object {
+                        "className": "glyphicon glyphicon-arrow-up",
+                      },
+                      "type": "span",
+                    },
+                    " ",
+                    "100",
+                    " ",
+                    "states",
+                  ],
+                  "props": Object {
+                    "className": "label label-success",
+                  },
+                  "type": "span",
+                },
+                ".",
+              ],
+              "props": Object {},
+              "type": "p",
+            },
+            Object {
+              "children": Array [
                 "Traded shares:",
                 Object {
                   "children": Array [
@@ -644,6 +735,97 @@ Object {
                   "props": Object {},
                   "type": "span",
                 },
+              ],
+              "props": Object {},
+              "type": "p",
+            },
+            Object {
+              "children": Array [
+                "If real world outcome is below",
+                " ",
+                Object {
+                  "children": Array [
+                    Object {
+                      "children": null,
+                      "props": Object {
+                        "className": "glyphicon glyphicon-arrow-down",
+                      },
+                      "type": "span",
+                    },
+                    " ",
+                    "1",
+                    " ",
+                    "USD",
+                  ],
+                  "props": Object {
+                    "className": "label label-danger",
+                  },
+                  "type": "span",
+                },
+                ", market will resolve to",
+                " ",
+                Object {
+                  "children": Array [
+                    Object {
+                      "children": null,
+                      "props": Object {
+                        "className": "glyphicon glyphicon-arrow-down",
+                      },
+                      "type": "span",
+                    },
+                    " ",
+                    "1",
+                    " ",
+                    "USD",
+                  ],
+                  "props": Object {
+                    "className": "label label-danger",
+                  },
+                  "type": "span",
+                },
+                ". If real world outcome is above",
+                " ",
+                Object {
+                  "children": Array [
+                    Object {
+                      "children": null,
+                      "props": Object {
+                        "className": "glyphicon glyphicon-arrow-up",
+                      },
+                      "type": "span",
+                    },
+                    " ",
+                    "1.3",
+                    " ",
+                    "USD",
+                  ],
+                  "props": Object {
+                    "className": "label label-success",
+                  },
+                  "type": "span",
+                },
+                ", market will resolve to",
+                " ",
+                Object {
+                  "children": Array [
+                    Object {
+                      "children": null,
+                      "props": Object {
+                        "className": "glyphicon glyphicon-arrow-up",
+                      },
+                      "type": "span",
+                    },
+                    " ",
+                    "1.3",
+                    " ",
+                    "USD",
+                  ],
+                  "props": Object {
+                    "className": "label label-success",
+                  },
+                  "type": "span",
+                },
+                ".",
               ],
               "props": Object {},
               "type": "p",

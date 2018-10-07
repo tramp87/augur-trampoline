@@ -725,6 +725,61 @@ exports[`Render loaded market: ethcall500 1`] = `
         </span>
       </p>
       <p>
+        If real world outcome is below
+         
+        <span
+          className="label label-danger"
+        >
+          <span
+            className="glyphicon glyphicon-arrow-down"
+          />
+           
+          0
+           
+          ETH
+        </span>
+        , market will resolve to
+         
+        <span
+          className="label label-danger"
+        >
+          <span
+            className="glyphicon glyphicon-arrow-down"
+          />
+           
+          0
+           
+          ETH
+        </span>
+        . If real world outcome is above
+         
+        <span
+          className="label label-success"
+        >
+          <span
+            className="glyphicon glyphicon-arrow-up"
+          />
+           
+          1
+           
+          ETH
+        </span>
+        , market will resolve to
+         
+        <span
+          className="label label-success"
+        >
+          <span
+            className="glyphicon glyphicon-arrow-up"
+          />
+           
+          1
+           
+          ETH
+        </span>
+        .
+      </p>
+      <p>
         Traded shares:
         <ul
           style={
@@ -1175,6 +1230,61 @@ exports[`Render loaded market: usd100scalar 1`] = `
           ETH
           .
         </span>
+      </p>
+      <p>
+        If real world outcome is below
+         
+        <span
+          className="label label-danger"
+        >
+          <span
+            className="glyphicon glyphicon-arrow-down"
+          />
+           
+          0
+           
+          ETH
+        </span>
+        , market will resolve to
+         
+        <span
+          className="label label-danger"
+        >
+          <span
+            className="glyphicon glyphicon-arrow-down"
+          />
+           
+          0
+           
+          ETH
+        </span>
+        . If real world outcome is above
+         
+        <span
+          className="label label-success"
+        >
+          <span
+            className="glyphicon glyphicon-arrow-up"
+          />
+           
+          1
+           
+          ETH
+        </span>
+        , market will resolve to
+         
+        <span
+          className="label label-success"
+        >
+          <span
+            className="glyphicon glyphicon-arrow-up"
+          />
+           
+          1
+           
+          ETH
+        </span>
+        .
       </p>
       <p>
         Traded shares:
