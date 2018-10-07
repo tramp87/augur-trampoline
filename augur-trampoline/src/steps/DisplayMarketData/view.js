@@ -112,15 +112,25 @@ const MarketDetails = ({ marketData }) => (
         ))}
       </ul>
     </div>
+    <p>
+      If market is judged invalid, each share pays{' '}
+      <Amount
+        amount={marketData.maxPrice
+          .minus(marketData.minPrice)
+          .dividedBy('1e18')
+          .dividedBy(marketData.numberOfOutcomes)}
+      />{' '}
+      ETH.
+    </p>
   </Fragment>
 );
 
 const OutcomePayoutExplanation = ({ marketData, outcomeIndex }) => {
-  if (marketData.marketType.toNumber() === SCALAR_MARKET_TYPE) {
-    const maxPayout = marketData.maxPrice
-      .minus(marketData.minPrice)
-      .dividedBy('1e18');
+  const maxPayout = marketData.maxPrice
+    .minus(marketData.minPrice)
+    .dividedBy('1e18');
 
+  if (marketData.marketType.toNumber() === SCALAR_MARKET_TYPE) {
     return (
       <Fragment>
         If the market resolves to{' '}
@@ -158,7 +168,7 @@ const OutcomePayoutExplanation = ({ marketData, outcomeIndex }) => {
           maxPrice={marketData.maxPrice}
           scalarDenomination={marketData.scalarDenomination}
         />
-        , this share pays 1 ETH.
+        , this share pays <Amount amount={maxPayout} /> ETH.
       </Fragment>
     );
   }

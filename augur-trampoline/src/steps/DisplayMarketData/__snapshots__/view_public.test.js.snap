@@ -102,7 +102,9 @@ exports[`Render loaded market: btc20k 1`] = `
             >
               NO
             </span>
-            , this share pays 1 ETH.
+            , this share pays 
+            1
+             ETH.
           </li>
           <li>
             <span
@@ -119,10 +121,19 @@ exports[`Render loaded market: btc20k 1`] = `
             >
               YES
             </span>
-            , this share pays 1 ETH.
+            , this share pays 
+            1
+             ETH.
           </li>
         </ul>
       </div>
+      <p>
+        If market is judged invalid, each share pays
+         
+        0.5
+         
+        ETH.
+      </p>
     </div>
   </div>
 </div>
@@ -230,7 +241,9 @@ exports[`Render loaded market: cfk_jail 1`] = `
             >
               NO
             </span>
-            , this share pays 1 ETH.
+            , this share pays 
+            1
+             ETH.
           </li>
           <li>
             <span
@@ -247,10 +260,19 @@ exports[`Render loaded market: cfk_jail 1`] = `
             >
               YES
             </span>
-            , this share pays 1 ETH.
+            , this share pays 
+            1
+             ETH.
           </li>
         </ul>
       </div>
+      <p>
+        If market is judged invalid, each share pays
+         
+        0.5
+         
+        ETH.
+      </p>
     </div>
   </div>
 </div>
@@ -352,7 +374,9 @@ exports[`Render loaded market: china_antibiotics 1`] = `
             >
               NO
             </span>
-            , this share pays 1 ETH.
+            , this share pays 
+            1
+             ETH.
           </li>
           <li>
             <span
@@ -369,10 +393,19 @@ exports[`Render loaded market: china_antibiotics 1`] = `
             >
               YES
             </span>
-            , this share pays 1 ETH.
+            , this share pays 
+            1
+             ETH.
           </li>
         </ul>
       </div>
+      <p>
+        If market is judged invalid, each share pays
+         
+        0.5
+         
+        ETH.
+      </p>
     </div>
   </div>
 </div>
@@ -522,7 +555,9 @@ exports[`Render loaded market: eth_options_categorical 1`] = `
             >
               800
             </span>
-            , this share pays 1 ETH.
+            , this share pays 
+            1
+             ETH.
           </li>
           <li>
             <span
@@ -539,7 +574,9 @@ exports[`Render loaded market: eth_options_categorical 1`] = `
             >
               700
             </span>
-            , this share pays 1 ETH.
+            , this share pays 
+            1
+             ETH.
           </li>
           <li>
             <span
@@ -556,7 +593,9 @@ exports[`Render loaded market: eth_options_categorical 1`] = `
             >
               600
             </span>
-            , this share pays 1 ETH.
+            , this share pays 
+            1
+             ETH.
           </li>
           <li>
             <span
@@ -573,7 +612,9 @@ exports[`Render loaded market: eth_options_categorical 1`] = `
             >
               500
             </span>
-            , this share pays 1 ETH.
+            , this share pays 
+            1
+             ETH.
           </li>
           <li>
             <span
@@ -590,7 +631,9 @@ exports[`Render loaded market: eth_options_categorical 1`] = `
             >
               400
             </span>
-            , this share pays 1 ETH.
+            , this share pays 
+            1
+             ETH.
           </li>
           <li>
             <span
@@ -607,7 +650,9 @@ exports[`Render loaded market: eth_options_categorical 1`] = `
             >
               300
             </span>
-            , this share pays 1 ETH.
+            , this share pays 
+            1
+             ETH.
           </li>
           <li>
             <span
@@ -624,7 +669,9 @@ exports[`Render loaded market: eth_options_categorical 1`] = `
             >
               200
             </span>
-            , this share pays 1 ETH.
+            , this share pays 
+            1
+             ETH.
           </li>
           <li>
             <span
@@ -641,10 +688,19 @@ exports[`Render loaded market: eth_options_categorical 1`] = `
             >
               0
             </span>
-            , this share pays 1 ETH.
+            , this share pays 
+            1
+             ETH.
           </li>
         </ul>
       </div>
+      <p>
+        If market is judged invalid, each share pays
+         
+        0.125
+         
+        ETH.
+      </p>
     </div>
   </div>
 </div>
@@ -751,7 +807,9 @@ exports[`Render loaded market: eth500 1`] = `
             >
               NO
             </span>
-            , this share pays 1 ETH.
+            , this share pays 
+            1
+             ETH.
           </li>
           <li>
             <span
@@ -768,10 +826,19 @@ exports[`Render loaded market: eth500 1`] = `
             >
               YES
             </span>
-            , this share pays 1 ETH.
+            , this share pays 
+            1
+             ETH.
           </li>
         </ul>
       </div>
+      <p>
+        If market is judged invalid, each share pays
+         
+        0.5
+         
+        ETH.
+      </p>
     </div>
   </div>
 </div>
@@ -1022,6 +1089,13 @@ exports[`Render loaded market: ethcall500 1`] = `
           </li>
         </ul>
       </div>
+      <p>
+        If market is judged invalid, each share pays
+         
+        0.5
+         
+        ETH.
+      </p>
     </div>
   </div>
 </div>
@@ -1128,7 +1202,9 @@ exports[`Render loaded market: rep32 1`] = `
             >
               NO
             </span>
-            , this share pays 1 ETH.
+            , this share pays 
+            1
+             ETH.
           </li>
           <li>
             <span
@@ -1145,10 +1221,19 @@ exports[`Render loaded market: rep32 1`] = `
             >
               YES
             </span>
-            , this share pays 1 ETH.
+            , this share pays 
+            1
+             ETH.
           </li>
         </ul>
       </div>
+      <p>
+        If market is judged invalid, each share pays
+         
+        0.5
+         
+        ETH.
+      </p>
     </div>
   </div>
 </div>
@@ -1250,7 +1335,9 @@ exports[`Render loaded market: trump_impeachment 1`] = `
             >
               NO
             </span>
-            , this share pays 1 ETH.
+            , this share pays 
+            1
+             ETH.
           </li>
           <li>
             <span
@@ -1267,10 +1354,19 @@ exports[`Render loaded market: trump_impeachment 1`] = `
             >
               YES
             </span>
-            , this share pays 1 ETH.
+            , this share pays 
+            1
+             ETH.
           </li>
         </ul>
       </div>
+      <p>
+        If market is judged invalid, each share pays
+         
+        0.5
+         
+        ETH.
+      </p>
     </div>
   </div>
 </div>
@@ -1372,7 +1468,9 @@ exports[`Render loaded market: trump_reelection_2020 1`] = `
             >
               NO
             </span>
-            , this share pays 1 ETH.
+            , this share pays 
+            1
+             ETH.
           </li>
           <li>
             <span
@@ -1389,10 +1487,19 @@ exports[`Render loaded market: trump_reelection_2020 1`] = `
             >
               YES
             </span>
-            , this share pays 1 ETH.
+            , this share pays 
+            1
+             ETH.
           </li>
         </ul>
       </div>
+      <p>
+        If market is judged invalid, each share pays
+         
+        0.5
+         
+        ETH.
+      </p>
     </div>
   </div>
 </div>
@@ -1643,6 +1750,13 @@ exports[`Render loaded market: usd100scalar 1`] = `
           </li>
         </ul>
       </div>
+      <p>
+        If market is judged invalid, each share pays
+         
+        0.5
+         
+        ETH.
+      </p>
     </div>
   </div>
 </div>
